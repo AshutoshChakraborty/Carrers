@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".integratedServicesForAllTypes.view.CustomerFragment">
+
+
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/_12sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:clickable="true"
+        app:layout_anchor="@id/rvCustomerList"
+        app:layout_anchorGravity="right"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/colorPrimaryDark"
+        app:tint="@color/light_blue" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButtonSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/_12sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:clickable="true"
+        app:layout_anchor="@id/rvCustomerList"
+        app:layout_anchorGravity="right"
+        android:src="@drawable/ic_search"
+        app:backgroundTint="@color/colorPrimaryDark"
+        app:tint="#D5FFFFFF" />-->
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCategories"
+            android:paddingHorizontal="@dimen/_12sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCustomerList"
+            android:layout_below="@id/rvCategories"
+            android:paddingVertical="@dimen/_10sdp"
+            android:paddingHorizontal="@dimen/_14sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:itemCount="10"
+            android:layout_marginBottom="@dimen/_10sdp"
+            tools:listitem="@layout/item_customer_layout"/>
+
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginVertical="@dimen/_4sdp"
+    xmlns:tools="http://schemas.android.com/tools">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_4sdp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#17141173"
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingVertical="@dimen/_8sdp"
+                android:orientation="vertical">
+
+                <!--<androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="AGENT CODE"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/roboto_bold"/>-->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_agent_code"
+                    android:text="NEW DELHI"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/roboto_medium"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/grey"/>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingVertical="@dimen/_8sdp"
+
+                android:orientation="vertical">
+
+             <!--   <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AGENT NAME"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/roboto_bold"/>-->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="NEW DELHI"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/roboto_medium"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/grey"/>
+
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/_8sdp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+               <!-- <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PAN"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/roboto_bold"/>-->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_branch_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    tools:text="NEW DELHI"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/roboto_medium"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/grey"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/_8sdp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!--<androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PAN VERIFIED"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/roboto_bold"/>-->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_branch_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="NEW DELHI"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/roboto_medium"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/grey"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/_8sdp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!--<androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PAN VERIFIED"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/roboto_bold"/>-->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_business_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="NEW DELHI"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/roboto_medium"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/grey"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/_8sdp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+             <!--   <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ADDRESS"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/roboto_bold"/>-->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/PAN_VerifiedOn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="NEW DELHI"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/roboto_medium"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/grey"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/_8sdp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!--   <androidx.appcompat.widget.AppCompatTextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="ADDRESS"
+                       android:layout_marginBottom="@dimen/_8sdp"
+                       android:textColor="@android:color/black"
+                       android:fontFamily="@font/roboto_bold"/>-->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/PAN_Verified_By"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="NEW DELHI"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/roboto_medium"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/grey"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:paddingVertical="@dimen/_8sdp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!--   <androidx.appcompat.widget.AppCompatTextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="ADDRESS"
+                       android:layout_marginBottom="@dimen/_8sdp"
+                       android:textColor="@android:color/black"
+                       android:fontFamily="@font/roboto_bold"/>-->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/Bank_Branch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    tools:text="NEW DELHI"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/roboto_medium"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="1dp"
+                android:visibility="gone"
+                android:layout_height="match_parent"
+                android:background="@color/grey"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:paddingVertical="@dimen/_8sdp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!--   <androidx.appcompat.widget.AppCompatTextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="ADDRESS"
+                       android:layout_marginBottom="@dimen/_8sdp"
+                       android:textColor="@android:color/black"
+                       android:fontFamily="@font/roboto_bold"/>-->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/Bank_Address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    tools:text="NEW DELHI"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/roboto_medium"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:background="@color/grey"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:visibility="gone"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/_8sdp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!--   <androidx.appcompat.widget.AppCompatTextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="ADDRESS"
+                       android:layout_marginBottom="@dimen/_8sdp"
+                       android:textColor="@android:color/black"
+                       android:fontFamily="@font/roboto_bold"/>-->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/Account_No"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    tools:text="NEW DELHI"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/roboto_medium"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="1dp"
+                android:visibility="gone"
+                android:layout_height="match_parent"
+                android:background="@color/grey"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/_8sdp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!--   <androidx.appcompat.widget.AppCompatTextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="ADDRESS"
+                       android:layout_marginBottom="@dimen/_8sdp"
+                       android:textColor="@android:color/black"
+                       android:fontFamily="@font/roboto_bold"/>-->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/IFS_Code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="NEW DELHI"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/roboto_medium"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:visibility="gone"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/grey"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:visibility="gone"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/_8sdp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!--   <androidx.appcompat.widget.AppCompatTextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="ADDRESS"
+                       android:layout_marginBottom="@dimen/_8sdp"
+                       android:textColor="@android:color/black"
+                       android:fontFamily="@font/roboto_bold"/>-->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/Bank_Name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    tools:text="NEW DELHI"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/roboto_medium"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:visibility="gone"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/grey"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:visibility="gone"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/_8sdp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!--   <androidx.appcompat.widget.AppCompatTextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="ADDRESS"
+                       android:layout_marginBottom="@dimen/_8sdp"
+                       android:textColor="@android:color/black"
+                       android:fontFamily="@font/roboto_bold"/>-->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/Bank_Verified"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    tools:text="NEW DELHI"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/roboto_medium"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:visibility="gone"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/grey"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:visibility="gone"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/_8sdp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!--   <androidx.appcompat.widget.AppCompatTextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="ADDRESS"
+                       android:layout_marginBottom="@dimen/_8sdp"
+                       android:textColor="@android:color/black"
+                       android:fontFamily="@font/roboto_bold"/>-->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/Bank_Verified_Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    tools:text="NEW DELHI"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/roboto_medium"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:visibility="gone"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/grey"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:visibility="gone"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/_8sdp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!--   <androidx.appcompat.widget.AppCompatTextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="ADDRESS"
+                       android:layout_marginBottom="@dimen/_8sdp"
+                       android:textColor="@android:color/black"
+                       android:fontFamily="@font/roboto_bold"/>-->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/Bank_Verified_By"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    tools:text="NEW DELHI"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/roboto_medium"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:visibility="gone"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/grey"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:visibility="gone"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/_8sdp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!--   <androidx.appcompat.widget.AppCompatTextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="ADDRESS"
+                       android:layout_marginBottom="@dimen/_8sdp"
+                       android:textColor="@android:color/black"
+                       android:fontFamily="@font/roboto_bold"/>-->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/Status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    tools:text="NEW DELHI"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/roboto_medium"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:visibility="gone"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/grey"/>
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.google.android.material.card.MaterialCardView>
+
+</HorizontalScrollView>

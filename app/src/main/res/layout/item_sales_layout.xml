@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_4sdp"
+    app:cardBackgroundColor="#EDEDED"
+    app:cardElevation="@dimen/_4sdp"
+    app:cardCornerRadius="@dimen/_8sdp">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/llparent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivIntroducerPic"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_margin="@dimen/_12sdp"
+            app:civ_border_width="@dimen/_2sdp"
+            app:civ_border_color="#303F9F"
+            app:civ_circle_background_color="@color/colorPrimaryDark"
+            android:src="@drawable/ic_employee_white"
+            />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:id="@+id/tvMemberName"
+                tools:text="KAMLESH"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/grey"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:id="@+id/tvAddress"
+                tools:text="SM"
+                android:textSize="@dimen/_10ssp"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="#849ca9"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:id="@+id/tvNumber"
+                tools:text="SM"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:textSize="@dimen/_10ssp"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="#849ca9"
+                android:layout_height="wrap_content"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</com.google.android.material.card.MaterialCardView>
+
+
+
+

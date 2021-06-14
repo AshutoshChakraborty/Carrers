@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.project.integratedservices">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name="com.project.supportClasses.IntegratedServiceApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_new_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_new_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".integratedServicesForAllTypes.view.NewAgentJoiningActivity"></activity>
+        <activity android:name="com.project.otherCategory.AgentJoiningActivity" />
+        <activity android:name=".integratedServicesForAllTypes.view.VoucherActivity" />
+        <activity android:name=".integratedServicesForAllTypes.view.SuggestionOrComplainsActivity" />
+        <activity android:name=".integratedServicesForAllTypes.view.CollectionReportActivity" />
+        <activity android:name=".integratedServicesForAllTypes.view.BusinessSummaryActivity" />
+        <activity android:name=".integratedServicesForAllTypes.view.IndividualBusinessReportActivity" />
+        <activity android:name=".integratedServicesForAllTypes.view.BranchWiseBusinessActivity" />
+        <activity android:name=".integratedServicesForAllTypes.view.MisReportActivity" />
+        <activity android:name=".integratedServicesForAllTypes.view.TeamMembersHierarchy" />
+        <activity android:name=".integratedServicesForAllTypes.view.LeaveApplicationActivity" />
+        <activity android:name=".integratedServicesForAllTypes.view.CustomerDetailsActivity" />
+        <activity android:name=".integratedServicesForAllTypes.view.NewAssignCustomerActivity" />
+        <activity android:name=".integratedServicesForAllTypes.view.SalesReportActivity" />
+        <activity android:name=".integratedServicesForAllTypes.view.AttendanceReport" />
+        <activity android:name=".integratedServicesForAllTypes.view.TeamMemberDetailsActivity" />
+        <activity android:name=".integratedServicesForAllTypes.view.PlanWebActivity" />
+        <activity android:name="com.project.otherCategory.LocateUsActivity" />
+        <activity android:name=".integratedServicesForAllTypes.view.ApplicationNoWisePaymentDetailsActivity" />
+        <activity android:name=".integratedServicesForAllTypes.view.AgentCommissionDetailsActivity" />
+        <activity android:name=".integratedServicesForAllTypes.view.AgentDetailsActivity" />
+        <activity android:name=".integratedServicesForAllTypes.view.BranchWiseJoiningActivity" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <activity android:name=".integratedServicesForAllTypes.view.DashboardActivity" />
+        <activity android:name=".authenticate.view.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".authenticate.view.LoginActivity" /> <!-- <activity android:name="com.project.Experiment.TestActivity"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
+        <activity android:name=".authenticate.view.ForgotPasswordActivity" />
+        <activity
+            android:name="com.project.supportClasses.yalantisCroppingLibrary.ImagePickerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>

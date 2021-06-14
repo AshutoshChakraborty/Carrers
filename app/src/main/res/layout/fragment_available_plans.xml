@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+       <!-- <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Large.Circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="@dimen/_4sdp"
+            android:visibility="visible"
+            app:SpinKit_Color="@color/light_blue" />-->
+
+        <androidx.appcompat.widget.LinearLayoutCompat xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/parent"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spAvailablePlans"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginVertical="@dimen/_12sdp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAvailablePlans"
+            android:layout_below="@id/rvCategories"
+            android:paddingVertical="@dimen/_10sdp"
+            android:paddingHorizontal="@dimen/_14sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:itemCount="10"
+            android:layout_marginBottom="@dimen/_10sdp"
+            tools:listitem="@layout/item_available_plans_layout"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+</FrameLayout>

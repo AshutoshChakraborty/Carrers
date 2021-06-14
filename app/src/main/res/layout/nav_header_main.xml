@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_160sdp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#2A277E"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="@dimen/_12sdp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageView"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:contentDescription="@string/nav_header_desc"
+        android:paddingTop="@dimen/_7sdp"
+        android:src="@drawable/profilepic" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_name_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_7sdp"
+        android:text="@string/nav_header_title"
+        android:fontFamily="@font/roboto_regular"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_email_nav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/_2sdp"
+        android:fontFamily="@font/roboto_regular"
+        tools:text="@string/nav_header_subtitle" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

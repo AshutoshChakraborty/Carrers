@@ -73,6 +73,7 @@ public class NewAgentJoiningActivity extends AppCompatActivity {
     private TextInputEditText applicantName;
     private MaterialCardView viewButton;
     private MaterialCardView submit;
+    private MaterialCardView responseCard;
     private ProgressBar pb;
     private String phaseId;
     private IntegratedServicesViewModel integratedServicesViewModel;
@@ -246,6 +247,7 @@ public class NewAgentJoiningActivity extends AppCompatActivity {
             pb.setVisibility(View.GONE);
             Misc.enableScreenTouch(this);
             if (finalResponse.size() > 0) {
+                responseCard.setVisibility(View.VISIBLE);
                 NewJoiningFinalRespons newJoiningFinalRespons = finalResponse.get(0);
                 number.setText(newJoiningFinalRespons.getNumber());
                 name.setText(newJoiningFinalRespons.getName());
@@ -363,6 +365,7 @@ public class NewAgentJoiningActivity extends AppCompatActivity {
         bagGroup = findViewById(R.id.bagGroup);
         withBag = findViewById(R.id.withBag);
         withoutBag = findViewById(R.id.withoutBag);
+        responseCard = findViewById(R.id.responseCard);
 
     }
 

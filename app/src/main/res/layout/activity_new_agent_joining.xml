@@ -449,12 +449,22 @@
 
             </com.google.android.material.card.MaterialCardView>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_32sdp"
+                android:background="@color/et_border_blue"
+                android:layout_height="@dimen/_1sdp" />
+
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/responseCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_32sdp"
                 app:strokeColor="@color/et_border_blue"
                 app:strokeWidth="@dimen/_1sdp"
                 app:cardElevation="@dimen/_5sdp"
+                android:visibility="gone"
+                tools:visibility="visible"
                 app:cardUseCompatPadding="true"
                 app:cardCornerRadius="@dimen/_5sdp"
                 >
@@ -464,6 +474,21 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_8sdp"
                     android:orientation="vertical">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:text="Joining Details"
+                        android:layout_gravity="center_vertical"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/_12ssp" />
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -482,7 +507,7 @@
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="center_vertical"
                             android:text="Number"
-                            android:textColor="@android:color/black"
+                            android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/_12ssp" />
 
 
@@ -518,7 +543,7 @@
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="center_vertical"
                             android:text="Name"
-                            android:textColor="@android:color/black"
+                            android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/_12ssp" />
 
 
@@ -554,7 +579,7 @@
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="center_vertical"
                             android:text="Intro Number"
-                            android:textColor="@android:color/black"
+                            android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/_12ssp" />
 
 
@@ -590,7 +615,7 @@
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="center_vertical"
                             android:text="Intro Name"
-                            android:textColor="@android:color/black"
+                            android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/_12ssp" />
 
 
@@ -626,7 +651,7 @@
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="center_vertical"
                             android:text="Commencement Date"
-                            android:textColor="@android:color/black"
+                            android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/_12ssp" />
 
 
@@ -662,7 +687,7 @@
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="center_vertical"
                             android:text="Location"
-                            android:textColor="@android:color/black"
+                            android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/_12ssp" />
 
 
@@ -698,7 +723,7 @@
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="center_vertical"
                             android:text="Grade"
-                            android:textColor="@android:color/black"
+                            android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/_12ssp" />
 
 
@@ -734,7 +759,7 @@
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="center_vertical"
                             android:text="Intro Grade"
-                            android:textColor="@android:color/black"
+                            android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/_12ssp" />
 
 
@@ -770,7 +795,7 @@
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="center_vertical"
                             android:text="Retirement Date"
-                            android:textColor="@android:color/black"
+                            android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/_12ssp" />
 
 
@@ -795,6 +820,7 @@
                         android:paddingVertical="@dimen/_4sdp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginBottom="@dimen/_8sdp"
                         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
                         <androidx.appcompat.widget.AppCompatTextView
@@ -807,7 +833,7 @@
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="center_vertical"
                             android:text="Item Issue Status"
-                            android:textColor="@android:color/black"
+                            android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/_12ssp" />
 
 

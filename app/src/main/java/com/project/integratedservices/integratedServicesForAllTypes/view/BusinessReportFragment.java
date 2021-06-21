@@ -17,7 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,6 +55,9 @@ public class BusinessReportFragment extends Fragment {
     private AppCompatTextView tvFromDate,tvToDate;
     private AppCompatImageView ivTickSelfReport,ivTickTeamReport;
     private AppCompatButton btCheck;
+    private RadioButton rd_all,rd_agent;
+    private EditText et_agentcode;
+    private String agentCode = "0";
     public BusinessReportFragment() {
         // Required empty public constructor
     }
@@ -161,11 +167,16 @@ public class BusinessReportFragment extends Fragment {
         btCheck.setOnClickListener(v -> {
             if(!isDateFieldsEmpty()) {
                 if(ivTickTeamReport.getVisibility()==View.VISIBLE || ivTickSelfReport.getVisibility()==View.VISIBLE) {
+                    if (rd_all.isChecked()) {
+                        agentCode = "0";
+                    } else {
+                        agentCode = et_agentcode.getText().toString();
+                    }
                     rvBusinessReport.setVisibility(View.INVISIBLE);
                     ((DashboardActivity) getActivity()).spinKitView.setVisibility(View.VISIBLE);
                     Misc.disableScreenTouch(getActivity());
                     BusinessReportRequestPojo requestPojo = new BusinessReportRequestPojo();
-                    requestPojo.setAgentCode(SharedPref.getInstance(getActivity()).getData(AGENT_ID));
+                    requestPojo.setAgentCode(agentCode);
                     requestPojo.setStartDate(tvFromDate.getText().toString());
                     requestPojo.setEndDate(tvToDate.getText().toString());
                     if (ivTickTeamReport.getVisibility() == View.VISIBLE)
@@ -198,11 +209,29 @@ public class BusinessReportFragment extends Fragment {
         ivTickSelfReport = view.findViewById(R.id.ivTickSelfReport);
         ivTickTeamReport = view.findViewById(R.id.ivTickTeamReport);
         btCheck = view.findViewById(R.id.btCheck);
-
+        rd_all = view.findViewById(R.id.rd_all);
+        rd_agent = view.findViewById(R.id.rd_agent);
+        et_agentcode = view.findViewById(R.id.et_agentcode);
+        et_agentcode.setEnabled(false);
 
 
         rvBusinessReport.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         rvBusinessReport.setVisibility(View.INVISIBLE);
+        rd_all.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                rd_agent.setChecked(false);
+                et_agentcode.setEnabled(false);
+                et_agentcode.getEditableText().clear();
+            }
+        });
+        rd_agent.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                rd_all.setChecked(false);
+                et_agentcode.setEnabled(true);
+            }
+        });
+
+
     }
 
     @Override

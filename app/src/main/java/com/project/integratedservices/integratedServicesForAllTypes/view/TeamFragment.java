@@ -78,7 +78,7 @@ public class TeamFragment extends Fragment implements TeamListAdapter.HandleClic
                 Misc.enableScreenTouch(getActivity());
 
 
-                if (teamDetailsResponses.get(0).getStatus().equals("Successful")) {
+                if (teamDetailsResponses.get(0).getStatus().equals("Success") || teamDetailsResponses.get(0).getStatus().equals("Successfull")) {
                     rvTeam.setVisibility(View.VISIBLE);
                     adapter = new TeamListAdapter(getActivity(),teamDetailsResponses,this,true);
                     rvTeam.setAdapter(adapter);

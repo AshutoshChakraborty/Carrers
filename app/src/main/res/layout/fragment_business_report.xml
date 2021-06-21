@@ -216,6 +216,42 @@
                 </LinearLayout>
 
             </LinearLayout>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <RadioButton
+                    android:id="@+id/rd_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="All"
+                    android:checked="true"
+                    />
+
+                <RadioButton
+                    android:id="@+id/rd_agent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Agent code"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    />
+
+                <EditText
+                    android:id="@+id/et_agentcode"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:inputType="number"
+                    android:background="@drawable/et_round_bg"
+                    />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCheck"

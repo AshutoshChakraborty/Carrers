@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.card.MaterialCardView;
 import com.project.integratedservices.R;
 import com.project.integratedservices.integratedServicesForAllTypes.viewModel.IntegratedServicesViewModel;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.AgentDetail;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.mis_agent_joining_details.MisAgentJoiningDetails;
 import com.project.supportClasses.Misc;
 import com.project.supportClasses.MyColorDialog;
@@ -27,6 +28,7 @@ import com.project.supportClasses.SharedPref;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -37,6 +39,7 @@ import static com.project.supportClasses.SharedPref.AGENT_ID;
 public class AgentDetailsActivity extends AppCompatActivity {
     private ImageView ivBack;
     private IntegratedServicesViewModel integratedServicesViewModel;
+    private List<AgentDetail> mainResponseList;
     private RecyclerView rvCollectionReport;
     private AppCompatTextView tvStartDate, tvEndDate;
     private AppCompatTextView dateFromTo;
@@ -53,6 +56,7 @@ public class AgentDetailsActivity extends AppCompatActivity {
     private TextView dateFromTo8;
     private TextView dateFromTo9;
     private TextView dateFromTo10;
+    private AppCompatTextView dateFromTo11;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,8 +73,13 @@ public class AgentDetailsActivity extends AppCompatActivity {
 
             if(misCollectionRegisterResponses.size()>0)
             {
+                int totalJoining = 0;
+                for (AgentDetail misCollectionRegisterRespons : misCollectionRegisterResponses) {
+                    totalJoining = totalJoining + misCollectionRegisterRespons.getSlno();
+                }
                 adapter = new AgentDetailsAdapter(this,misCollectionRegisterResponses);
                 rvCollectionReport.setAdapter(adapter);
+                ((AppCompatTextView)findViewById(R.id.dateFromTo11)).setText(String.valueOf(totalJoining));
             }
         });
         integratedServicesViewModel.getMisAgentJoiningDetails().observe(this,misCollectionRegisterResponses -> {
@@ -226,6 +235,7 @@ public class AgentDetailsActivity extends AppCompatActivity {
         dateFromTo8 = findViewById(R.id.dateFromTo8);
         dateFromTo9 = findViewById(R.id.dateFromTo9);
         dateFromTo10 = findViewById(R.id.dateFromTo10);
+        dateFromTo11 = findViewById(R.id.dateFromTo11);
         pb = findViewById(R.id.pb);
 
         rvCollectionReport.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));

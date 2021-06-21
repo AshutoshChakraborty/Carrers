@@ -423,6 +423,43 @@
                         android:textSize="@dimen/_12ssp"
                         tools:text="End Date : " />
                 </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="@dimen/_4sdp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline11"
+                    app:layout_constraintStart_toStartOf="@+id/guideline10"
+                    app:layout_constraintTop_toBottomOf="@+id/relativeLayout3">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/stoEtitle11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="center_vertical"
+                        android:text="Total Number of Joining: "
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_12ssp" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/dateFromTo11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+
+                        android:layout_toEndOf="@+id/stoEtitle11"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="center_vertical|end"
+                        android:padding="@dimen/_4sdp"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_12ssp"
+                        tools:text="End Date : " />
+                </RelativeLayout>
             </androidx.appcompat.widget.LinearLayoutCompat>
 
 

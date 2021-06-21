@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -47,6 +48,7 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
     private StatementDetailsResponse selectedStatement = null;
     private MaterialCardView cvView;
     private HorizontalScrollView svHorizontal;
+    private AppCompatEditText editEnterCode;
     //    voucherPrint1
     private TextView tvStatementForTheMonth, tvBranch, tvCode, tvGrade, tvName, tvPan, tvPanEntryDate, tvTotalCollection,tvTotalCollectionTillDate,tvLifeHelDupAmount;
 
@@ -145,7 +147,12 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
     }
 
     private void callThirdApi() {
-        integratedServicesViewModel.getVoucherPrint3(selectedStatement.getID().toString(),SharedPref.getInstance(this).getData(SharedPref.AGENT_ID),SharedPref.getInstance(this).getData(SharedPref.AGENT_ID));
+        String agentCodeValue =editEnterCode.getText().toString();
+        String agentCode = "0";
+        if (!agentCodeValue.equalsIgnoreCase("")) {
+            agentCode = agentCodeValue;
+        }
+        integratedServicesViewModel.getVoucherPrint3(selectedStatement.getID().toString(),agentCode,SharedPref.getInstance(this).getData(SharedPref.AGENT_ID));
 //        integratedServicesViewModel.getVoucherPrint3("14", "8000020"); // for testing
     }
 
@@ -165,7 +172,12 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
     }
 
     private void callSecondApi() {
-        integratedServicesViewModel.getVoucherPrint2(selectedStatement.getID().toString(),SharedPref.getInstance(this).getData(SharedPref.AGENT_ID),SharedPref.getInstance(this).getData(SharedPref.AGENT_ID));
+        String agentCodeValue =editEnterCode.getText().toString();
+        String agentCode = "0";
+        if (!agentCodeValue.equalsIgnoreCase("")) {
+            agentCode = agentCodeValue;
+        }
+        integratedServicesViewModel.getVoucherPrint2(selectedStatement.getID().toString(),agentCode,SharedPref.getInstance(this).getData(SharedPref.AGENT_ID));
 //        integratedServicesViewModel.getVoucherPrint2("14", "8000020"); // for testing
     }
 
@@ -207,7 +219,13 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
         if (Misc.isNetworkAvailable(this)) {
             Misc.disableScreenTouch(this);
             pb.setVisibility(View.VISIBLE);
-            integratedServicesViewModel.getVoucherPrint1(selectedStatement.getID().toString(),SharedPref.getInstance(this).getData(SharedPref.AGENT_ID),SharedPref.getInstance(this).getData(SharedPref.AGENT_ID));
+            String agentCodeValue =editEnterCode.getText().toString();
+            String agentCode = "0";
+            if (!agentCodeValue.equalsIgnoreCase("")) {
+                agentCode = agentCodeValue;
+            }
+
+            integratedServicesViewModel.getVoucherPrint1(selectedStatement.getID().toString(),agentCode,SharedPref.getInstance(this).getData(SharedPref.AGENT_ID));
 //            integratedServicesViewModel.getVoucherPrint1("14", "8000020"); // for testing
         } else {
             ColorDialog colorDialog = MyColorDialog.getInstance(this);
@@ -249,6 +267,7 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
         tvTotalCollection = findViewById(R.id.tvTotalCollection);
         tvTotalCollectionTillDate = findViewById(R.id.tvTotalCollectionTillDate);
         tvLifeHelDupAmount = findViewById(R.id.tvLifeHelDupAmount);
+        editEnterCode = findViewById(R.id.editEnterCode);
 
         //    voucherPrint2
 //        tvCID = findViewById(R.id.tvCID);

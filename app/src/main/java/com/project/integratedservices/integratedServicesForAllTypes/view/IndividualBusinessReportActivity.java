@@ -21,6 +21,7 @@ import com.google.gson.Gson;
 import com.project.integratedservices.R;
 import com.project.integratedservices.integratedServicesForAllTypes.viewModel.IntegratedServicesViewModel;
 import com.project.integratedservices.repository.authencationRepo.remote.response.userDetails.UserDetailsResponse;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.MISIndividualBusinessResponse;
 import com.project.supportClasses.Misc;
 import com.project.supportClasses.MyColorDialog;
 import com.project.supportClasses.SharedPref;
@@ -40,7 +41,7 @@ public class IndividualBusinessReportActivity extends AppCompatActivity {
     private ImageView ivBack;
     private RecyclerView rvIndividualBusiness;
     private AppCompatEditText editEnterCode;
-    private AppCompatTextView tvStartDate, tvEndDate;
+    private AppCompatTextView tvStartDate, tvEndDate,freshBussinessAmount,renewalBussinessAmount;
     private MaterialCardView cvSubmit;
     private UserDetailsResponse userDetails;
     private IntegratedServicesViewModel integratedServicesViewModel;
@@ -68,8 +69,26 @@ public class IndividualBusinessReportActivity extends AppCompatActivity {
 
             if(misIndividualBusinessResponses.size()>0)
             {
+                Integer sumWeightedPremiumFresh = 0;
+                Integer sumWeightedPremiumRenewal = 0;
                 hsv.setVisibility(View.VISIBLE);
                 rvIndividualBusiness.setAdapter(new IndividualBusinessReportAdapter(this,misIndividualBusinessResponses));
+                for (MISIndividualBusinessResponse misIndividualBusinessRespons : misIndividualBusinessResponses) {
+                    if (misIndividualBusinessRespons.getBusinessType().equalsIgnoreCase("FRESH")) {
+                        if (misIndividualBusinessRespons.getWeightedPremium() != null || !misIndividualBusinessRespons.getWeightedPremium().equalsIgnoreCase("")) {
+                            Integer value = Integer.parseInt(misIndividualBusinessRespons.getWeightedPremium());
+                            sumWeightedPremiumFresh = sumWeightedPremiumFresh + value;
+                        }
+                    } else {
+                        if (misIndividualBusinessRespons.getWeightedPremium() != null || !misIndividualBusinessRespons.getWeightedPremium().equalsIgnoreCase("")) {
+                            Integer value = Integer.parseInt(misIndividualBusinessRespons.getWeightedPremium());
+                            sumWeightedPremiumRenewal = sumWeightedPremiumRenewal + value;
+                        }
+                    }
+                }
+                renewalBussinessAmount.setText(String.valueOf(sumWeightedPremiumRenewal));
+                freshBussinessAmount.setText(String.valueOf(sumWeightedPremiumFresh));
+
             }
         });
 
@@ -152,6 +171,8 @@ public class IndividualBusinessReportActivity extends AppCompatActivity {
         cvSubmit = findViewById(R.id.cvSubmit);
         pb = findViewById(R.id.pb);
         hsv = findViewById(R.id.hsv);
+        freshBussinessAmount = findViewById(R.id.freshBussinessAmount);
+        renewalBussinessAmount = findViewById(R.id.renewalBussinessAmount);
 
         rvIndividualBusiness.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 

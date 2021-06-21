@@ -20,7 +20,7 @@ public class MisReportActivity extends AppCompatActivity {
     private ImageView ivBack;
     private MaterialCardView cvBranchWiseBusiness, cvIndividualBusiness, cvBusinessSummary, cvCollectionRegister, cvSuggestion, cvVoucher,cv_joining,cvAgent,cv_Commission,cvNoWisePay;
     private UserDetailsResponse userDetails;
-    private AppCompatTextView tvBusinessSummary,tvCollectionRegister,tvSuggestion,tvVoucher,tvBranchWiseBussiness;
+    private AppCompatTextView tvBusinessSummary,tvCollectionRegister,tvSuggestion,tvVoucher,tvBranchWiseBussiness,tvJoining;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +46,7 @@ public class MisReportActivity extends AppCompatActivity {
         tvSuggestion = findViewById(R.id.tvSuggestion);
         tvVoucher = findViewById(R.id.tvVoucher);
         cv_joining = findViewById(R.id.cv_joining);
+        tvJoining = findViewById(R.id.tvJoining);
         cvAgent = findViewById(R.id.cvAgent);
         cv_Commission = findViewById(R.id.cv_Commission);
         tvBusinessSummary = findViewById(R.id.tvBusinessSummary);
@@ -59,6 +60,12 @@ public class MisReportActivity extends AppCompatActivity {
         tvBranchWiseBussiness.setTextColor(getResources().getColor(R.color.grey));
         cvBranchWiseBusiness.setCardElevation(1f);
         cvBranchWiseBusiness.setAlpha(.5f);
+
+        cv_joining.setClickable(false);
+        cv_joining.setEnabled(false);
+        tvJoining.setTextColor(getResources().getColor(R.color.grey));
+        cv_joining.setCardElevation(1f);
+        cv_joining.setAlpha(.5f);
 
 
         if(userDetails.getRoleId().equals("1"))

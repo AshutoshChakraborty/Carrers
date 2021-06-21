@@ -254,7 +254,7 @@ public class NewAgentJoiningActivity extends AppCompatActivity {
                 introNumber.setText(newJoiningFinalRespons.getIntroNumber());
                 intNa.setText(newJoiningFinalRespons.getIntroName());
                 if (newJoiningFinalRespons.getCommencementFrom() != null) {
-                    String commencementFrom = newJoiningFinalRespons.getCommencementFrom();
+                   /* String commencementFrom = newJoiningFinalRespons.getCommencementFrom();
                     String[] ts = commencementFrom.split("T");
                     if (ts.length > 0) {
                         String formattedDate = getFormattedDate(ts[0]);
@@ -262,21 +262,23 @@ public class NewAgentJoiningActivity extends AppCompatActivity {
                             commencementDate.setText(formattedDate);
 
                         }
-                    }
+                    }*/
+                    commencementDate.setText(newJoiningFinalRespons.getCommencementFrom());
 
                 }
                 location.setText(newJoiningFinalRespons.getLocation());
                 grade1.setText(newJoiningFinalRespons.getRank());
                 introGrade.setText(newJoiningFinalRespons.getIntroRank());
                 if (newJoiningFinalRespons.getRDate() != null) {
-                    String rDate = newJoiningFinalRespons.getRDate();
+                    /*String rDate = newJoiningFinalRespons.getRDate();
                     String[] ts = rDate.split("T");
                     if (ts.length > 0) {
                         String formattedDate = getFormattedDate(ts[0]);
                         if (formattedDate != null) {
                             retirementDate.setText(formattedDate);
                         }
-                    }
+                    }*/
+                    retirementDate.setText(newJoiningFinalRespons.getRDate());
                 }
                 itemIssuedStatus.setText(newJoiningFinalRespons.getUnit());
                 itemIssuedStatus.requestFocus();

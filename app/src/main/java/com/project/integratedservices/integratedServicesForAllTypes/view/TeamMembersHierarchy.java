@@ -93,7 +93,7 @@ public class TeamMembersHierarchy extends AppCompatActivity implements TeamListA
                 Misc.enableScreenTouch(this);
 
 
-                if (teamDetailsResponses.get(0).getStatus().equals("Successful")) {
+                if (teamDetailsResponses.get(0).getStatus().equals("Success") || teamDetailsResponses.get(0).getStatus().equals("Successfull")) {
                     rvTeamHierarchy.setVisibility(View.VISIBLE);
                     adapter = new TeamListAdapter(this,teamDetailsResponses,this::handleClick,true);
                     rvTeamHierarchy.setAdapter(adapter);

@@ -275,12 +275,13 @@
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="@dimen/_130sdp"
                 android:layout_height="wrap_content"
-                android:paddingVertical="@dimen/_8sdp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingVertical="@dimen/_8sdp"
+                android:visibility="gone">
 
-               <!-- <androidx.appcompat.widget.AppCompatTextView
+                <!-- <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="SUM ASSURED"
@@ -292,9 +293,9 @@
                     android:id="@+id/tv_premium_frequency"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="NEW DELHI"
+                    android:fontFamily="@font/roboto_medium"
                     android:textColor="@android:color/darker_gray"
-                    android:fontFamily="@font/roboto_medium"/>
+                    tools:text="NEW DELHI" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 

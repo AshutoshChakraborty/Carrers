@@ -74,8 +74,8 @@ public class AgentDetailsActivity extends AppCompatActivity {
             if(misCollectionRegisterResponses.size()>0)
             {
                 int totalJoining = 0;
-                for (AgentDetail misCollectionRegisterRespons : misCollectionRegisterResponses) {
-                    totalJoining = totalJoining + misCollectionRegisterRespons.getSlno();
+                if (!misCollectionRegisterResponses.isEmpty()) {
+                    totalJoining = misCollectionRegisterResponses.get(misCollectionRegisterResponses.size() - 1).getSlno();
                 }
                 adapter = new AgentDetailsAdapter(this,misCollectionRegisterResponses);
                 rvCollectionReport.setAdapter(adapter);

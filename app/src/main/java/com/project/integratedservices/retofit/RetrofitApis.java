@@ -331,5 +331,5 @@ public interface RetrofitApis {
     @GET("AgentDetails/FieldWorkDetails")
     Call<List<FieldWorkResponse>> fetchFieldWorkDetails(@Query("AgCode") String agentCode, @Query("AGLogin") String loggedInAgentsId);
     @GET("AgentDetails/BankDetails")
-    Call<List<BankDetailResponse>> fetchBankDetails(@Query("Ag_Code") String agentCode, @Query("AG_Login") String loggedInAgentsId);
+    Call<List<BankDetailResponse>> fetchBankDetails(@Query("Ag_Code") String agentCode, @Query("AG_goLogin") String loggedInAgentsId);
 }

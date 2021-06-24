@@ -9,6 +9,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 
 import com.google.android.material.card.MaterialCardView;
 import com.google.gson.Gson;
+import com.project.agent_details.AgentDetails;
 import com.project.integratedservices.R;
 import com.project.integratedservices.repository.authencationRepo.remote.response.userDetails.UserDetailsResponse;
 import com.project.supportClasses.SharedPref;
@@ -18,7 +19,7 @@ import static com.project.supportClasses.SharedPref.USER_DETAILS;
 public class MisReportActivity extends AppCompatActivity {
 
     private ImageView ivBack;
-    private MaterialCardView cvBranchWiseBusiness, cvIndividualBusiness, cvBusinessSummary, cvCollectionRegister, cvSuggestion, cvVoucher,cv_joining,cvAgent,cv_Commission,cvNoWisePay;
+    private MaterialCardView cvBranchWiseBusiness, cvIndividualBusiness, cvBusinessSummary, cvCollectionRegister, cvSuggestion, cvVoucher,cv_joining,cvAgent,cv_Commission,cvNoWisePay,cvAgentDetails;
     private UserDetailsResponse userDetails;
     private AppCompatTextView tvBusinessSummary,tvCollectionRegister,tvSuggestion,tvVoucher,tvBranchWiseBussiness,tvJoining;
     @Override
@@ -51,6 +52,7 @@ public class MisReportActivity extends AppCompatActivity {
         cv_Commission = findViewById(R.id.cv_Commission);
         tvBusinessSummary = findViewById(R.id.tvBusinessSummary);
         cvNoWisePay = findViewById(R.id.cvNoWisePay);
+        cvAgentDetails = findViewById(R.id.cv_agent_details);
 
         userDetails = new Gson().fromJson(SharedPref.getInstance(this).getData(USER_DETAILS), UserDetailsResponse.class);
 
@@ -140,6 +142,9 @@ public class MisReportActivity extends AppCompatActivity {
         });
         cvNoWisePay.setOnClickListener(v -> {
             startActivity(new Intent(this, ApplicationNoWisePaymentDetailsActivity.class));
+        });
+        cvAgentDetails.setOnClickListener(v -> {
+            startActivity(new Intent(this, AgentDetails.class));
         });
     }
 

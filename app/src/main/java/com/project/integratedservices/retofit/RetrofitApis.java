@@ -48,6 +48,8 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint1Response;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint2Response;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint3Response;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_bank_detail.BankDetailResponse;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_field_work.FieldWorkResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.branch_details.BranchDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.grade_details.GradeDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.intro_details.IntroDetails;
@@ -326,4 +328,8 @@ public interface RetrofitApis {
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @GET("AgentJoining/FinalAgentJoining")
     Call<List<NewJoiningFinalRespons>> fialSubmitForNewAgent(@Query("AGName") String agName, @Query("Gender")String gender, @Query("DOB")String dob, @Query("Introducer")String introducer, @Query("BranchID")String branchId, @Query("AddedBy")String addedBy, @Query("EnrollAmount")String enrollAmount, @Query("RankID")String rankId, @Query("Code")String code, @Query("PrintStatus")String printStatus, @Query("CompanyID")String compId, @Query("PhaseID")String phaseId, @Query("PhoneNo")String phoneNumber);
+    @GET("AgentDetails/FieldWorkDetails")
+    Call<List<FieldWorkResponse>> fetchFieldWorkDetails(@Query("AgCode") String agentCode, @Query("AGLogin") String loggedInAgentsId);
+    @GET("AgentDetails/BankDetails")
+    Call<List<BankDetailResponse>> fetchBankDetails(@Query("Ag_Code") String agentCode, @Query("AG_Login") String loggedInAgentsId);
 }

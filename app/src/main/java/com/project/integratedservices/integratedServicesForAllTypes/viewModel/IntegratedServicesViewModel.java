@@ -61,6 +61,8 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint1Response;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint2Response;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint3Response;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_bank_detail.BankDetailResponse;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_field_work.FieldWorkResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.branch_details.BranchDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.grade_details.GradeDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.intro_details.IntroDetails;
@@ -71,6 +73,7 @@ import com.project.integratedservices.retofit.RemoteClient;
 import com.project.integratedservices.retofit.RetrofitApis;
 import com.project.supportClasses.SharedPref;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 import retrofit2.Call;
@@ -129,6 +132,8 @@ public class IntegratedServicesViewModel extends ViewModel {
     private MutableLiveData<List<BranchDetails>> joiningBranchLiveData;
     private MutableLiveData<List<GradeDetails>> gradeNameSpinnerLiveData;
     private MutableLiveData<List<NewJoiningFinalRespons>> newJoiningfinalLiveData;
+    private MutableLiveData<List<FieldWorkResponse>> fieldWorkLiveData;
+    private MutableLiveData<List<BankDetailResponse>> bankDetailsLiveData;
     private MutableLiveData<List<AgentCommissionDetailsResponse>> mAgentCommisionDetailsLiveData;
     private MutableLiveData<List<ApplicationNumberWisePaymentResponse>> mApplicationWisePaymentLiveData;
     private MutableLiveData<List<AgentCommisionTotal>> mAgentCommisionTotalLiveData;
@@ -203,6 +208,23 @@ public class IntegratedServicesViewModel extends ViewModel {
             newJoiningfinalLiveData = new MutableLiveData<>();
         }
         return newJoiningfinalLiveData;
+
+    }
+
+    public MutableLiveData<List<FieldWorkResponse>> getFieldWorkObserver() {
+
+        if (fieldWorkLiveData == null) {
+            fieldWorkLiveData = new MutableLiveData<>();
+        }
+        return fieldWorkLiveData;
+
+    }
+    public MutableLiveData<List<BankDetailResponse>> getBankDetailObserver() {
+
+        if (bankDetailsLiveData == null) {
+            bankDetailsLiveData = new MutableLiveData<>();
+        }
+        return bankDetailsLiveData;
 
     }
 
@@ -1292,6 +1314,33 @@ public class IntegratedServicesViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<List<NewJoiningFinalRespons>> call, Throwable t) {
+                apiError.setValue(t.getLocalizedMessage());
+            }
+        });
+    }
+
+    public void fetchFieldWorkDetails(String agentCode, String loggedInAgentsId) {
+        apiClient.fetchFieldWorkDetails(agentCode,loggedInAgentsId ).enqueue(new Callback<List<FieldWorkResponse>>() {
+            @Override
+            public void onResponse(Call<List<FieldWorkResponse>> call, Response<List<FieldWorkResponse>> response) {
+                fieldWorkLiveData.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<FieldWorkResponse>> call, Throwable t) {
+                apiError.setValue(t.getLocalizedMessage());
+            }
+        });
+    }
+    public void fetchBankDetails(String agentCode, String loggedInAgentsId) {
+        apiClient.fetchBankDetails(agentCode,loggedInAgentsId ).enqueue(new Callback<List<BankDetailResponse>>() {
+            @Override
+            public void onResponse(Call<List<BankDetailResponse>> call, Response<List<BankDetailResponse>> response) {
+                bankDetailsLiveData.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<BankDetailResponse>> call, Throwable t) {
                 apiError.setValue(t.getLocalizedMessage());
             }
         });

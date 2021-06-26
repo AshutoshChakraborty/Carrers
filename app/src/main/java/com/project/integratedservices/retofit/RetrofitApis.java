@@ -48,6 +48,7 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint1Response;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint2Response;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint3Response;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_detailis_promotion_detail.PromotionDetailsResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_bank_detail.BankDetailResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_field_work.FieldWorkResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.branch_details.BranchDetails;
@@ -332,4 +333,6 @@ public interface RetrofitApis {
     Call<List<FieldWorkResponse>> fetchFieldWorkDetails(@Query("AgCode") String agentCode, @Query("AGLogin") String loggedInAgentsId);
     @GET("AgentDetails/BankDetails")
     Call<List<BankDetailResponse>> fetchBankDetails(@Query("Ag_Code") String agentCode, @Query("AG_goLogin") String loggedInAgentsId);
+    @GET("AgentDetails/PromotionDetails")
+    Call<List<PromotionDetailsResponse>> fetchPromotionDetails(@Query("AgCodeP") String agentCode, @Query("AGLoginP") String loggedInAgentsId);
 }

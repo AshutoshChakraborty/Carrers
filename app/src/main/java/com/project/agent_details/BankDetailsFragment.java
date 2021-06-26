@@ -52,8 +52,10 @@ public class BankDetailsFragment extends Fragment {
         integratedServicesViewModel.getBankDetailObserver().observe(this, bankDetailResponses -> {
             Misc.enableScreenTouch(getActivity());
 
-            if (bankDetailResponses.size() > 0) {
-                rvBankDetails.setAdapter(new BankDetailsAdapter(requireActivity(),bankDetailResponses));
+            if (bankDetailResponses!=null) {
+                if (bankDetailResponses.size() > 0) {
+                    rvBankDetails.setAdapter(new BankDetailsAdapter(requireActivity(),bankDetailResponses));
+                }
             }
         });
         integratedServicesViewModel.fetchBankDetails(agentCode,loggedInAgentsId);

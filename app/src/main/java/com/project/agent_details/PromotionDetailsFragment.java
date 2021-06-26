@@ -5,21 +5,29 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.project.integratedservices.R;
+import com.project.integratedservices.integratedServicesForAllTypes.viewModel.IntegratedServicesViewModel;
+import com.project.supportClasses.Misc;
+import com.project.supportClasses.SharedPref;
+
+import static com.project.supportClasses.SharedPref.AGENT_ID;
 
 public class PromotionDetailsFragment extends Fragment {
 
     public static final String AGENT_CODE = "agentcode";
-
+    private IntegratedServicesViewModel integratedServicesViewModel;
+    private RecyclerView promotionDetailsRv;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        integratedServicesViewModel = ViewModelProviders.of(this).get(IntegratedServicesViewModel .class);
     }
 
     @Override
@@ -32,7 +40,18 @@ public class PromotionDetailsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        promotionDetailsRv = view.findViewById(R.id.rvBankDetails);
         Bundle args = getArguments();
         String agentCode = args.getString(AGENT_CODE);
+        String loggedInAgentsId = SharedPref.getInstance(getActivity()).getData(AGENT_ID);
+        integratedServicesViewModel.getPromotionDetailObserver().observe(this, bankDetailResponses -> {
+            Misc.enableScreenTouch(getActivity());
+
+            if (bankDetailResponses.size() > 0) {
+                promotionDetailsRv.setAdapter(new PaymentDetailsAdapter(requireActivity(),bankDetailResponses));
+            }
+        });
+        integratedServicesViewModel.fetchPromotionDetails(agentCode,loggedInAgentsId);
+
     }
 }

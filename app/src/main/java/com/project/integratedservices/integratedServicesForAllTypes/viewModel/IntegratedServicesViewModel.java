@@ -61,6 +61,7 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint1Response;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint2Response;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint3Response;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_detailis_promotion_detail.PromotionDetailsResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_bank_detail.BankDetailResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_field_work.FieldWorkResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.branch_details.BranchDetails;
@@ -134,6 +135,7 @@ public class IntegratedServicesViewModel extends ViewModel {
     private MutableLiveData<List<NewJoiningFinalRespons>> newJoiningfinalLiveData;
     private MutableLiveData<List<FieldWorkResponse>> fieldWorkLiveData;
     private MutableLiveData<List<BankDetailResponse>> bankDetailsLiveData;
+    private MutableLiveData<List<PromotionDetailsResponse>> promotionDetailsLiveData;
     private MutableLiveData<List<AgentCommissionDetailsResponse>> mAgentCommisionDetailsLiveData;
     private MutableLiveData<List<ApplicationNumberWisePaymentResponse>> mApplicationWisePaymentLiveData;
     private MutableLiveData<List<AgentCommisionTotal>> mAgentCommisionTotalLiveData;
@@ -227,6 +229,15 @@ public class IntegratedServicesViewModel extends ViewModel {
         return bankDetailsLiveData;
 
     }
+    public MutableLiveData<List<PromotionDetailsResponse>> getPromotionDetailObserver() {
+
+        if (promotionDetailsLiveData == null) {
+            promotionDetailsLiveData = new MutableLiveData<>();
+        }
+        return promotionDetailsLiveData;
+
+    }
+
 
 
     public MutableLiveData<List<PlanDetailsResponse>> getPlanDetails() {
@@ -1341,6 +1352,20 @@ public class IntegratedServicesViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<List<BankDetailResponse>> call, Throwable t) {
+                apiError.setValue(t.getLocalizedMessage());
+            }
+        });
+    }
+
+    public void fetchPromotionDetails(String agentCode, String loggedInAgentsId) {
+        apiClient.fetchPromotionDetails(agentCode,loggedInAgentsId).enqueue(new Callback<List<PromotionDetailsResponse>>() {
+            @Override
+            public void onResponse(Call<List<PromotionDetailsResponse>> call, Response<List<PromotionDetailsResponse>> response) {
+                promotionDetailsLiveData.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<PromotionDetailsResponse>> call, Throwable t) {
                 apiError.setValue(t.getLocalizedMessage());
             }
         });

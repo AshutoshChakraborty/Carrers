@@ -57,4 +57,16 @@ public class Misc {
         format = new SimpleDateFormat("dd-MM-yyyy");
         return format.format(newDate);
     }
+    public static String getFormattedDateMonth(String strCurrentDate) {
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        Date newDate = null;
+        try {
+            newDate = format.parse(strCurrentDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        format = new SimpleDateFormat("dd-MM-yyyy");
+        return format.format(newDate);
+    }
 }

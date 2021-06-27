@@ -97,7 +97,7 @@ public class AgentDetailsActivity extends AppCompatActivity {
                 dateFromTo9.setText(misAgentJoiningDetails.getGradeName());
 //                dateFromTo10.setText(tvStartDate.getText().toString()+" to "+tvEndDate.getText().toString());
                 if (tvStartDate.getText()!=null && tvEndDate.getText()!=null) {
-                    dateFromTo10.setText(Misc.getFormattedDate(tvStartDate.getText().toString())+" to "+Misc.getFormattedDate(tvEndDate.getText().toString()));
+                    dateFromTo10.setText(tvStartDate.getText().toString()+" to "+tvEndDate.getText().toString());
                 }
 
             }
@@ -183,12 +183,12 @@ public class AgentDetailsActivity extends AppCompatActivity {
                 calendar.set(Calendar.MONTH, month);
                 calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                String myFormat = "dd MMM, yyyy"; //In which date Format needed
+                String myFormat = "dd-MM-yyyy"; //In which date Format needed
                 String apiFormat = "yyyy-MM-dd"; //In which date Format needed
                 SimpleDateFormat sdf = new SimpleDateFormat(apiFormat, Locale.ENGLISH);
-                SimpleDateFormat sdfApiFormat = new SimpleDateFormat(apiFormat, Locale.ENGLISH);
+                SimpleDateFormat sdfApiFormat = new SimpleDateFormat(myFormat, Locale.ENGLISH);
 
-                textView.setText(sdf.format(calendar.getTime()));
+                textView.setText(sdfApiFormat.format(calendar.getTime()));
 
                 if(textView == tvStartDate)
                 {

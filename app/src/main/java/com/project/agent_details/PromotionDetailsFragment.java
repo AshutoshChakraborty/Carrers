@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.project.integratedservices.R;
 import com.project.integratedservices.integratedServicesForAllTypes.viewModel.IntegratedServicesViewModel;
@@ -24,6 +25,7 @@ public class PromotionDetailsFragment extends Fragment {
     public static final String AGENT_CODE = "agentcode";
     private IntegratedServicesViewModel integratedServicesViewModel;
     private RecyclerView promotionDetailsRv;
+    private ProgressBar pb;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,14 +43,18 @@ public class PromotionDetailsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         promotionDetailsRv = view.findViewById(R.id.rvBankDetails);
+        pb = view.findViewById(R.id.pb);
         Bundle args = getArguments();
-        String agentCode = args.getString(AGENT_CODE);
+        String agentCode = args.getString(AGENT_CODE,"");
+        if (!agentCode.isEmpty()) {
+            pb.setVisibility(View.VISIBLE);
+        }
         String loggedInAgentsId = SharedPref.getInstance(getActivity()).getData(AGENT_ID);
         integratedServicesViewModel.getPromotionDetailObserver().observe(this, bankDetailResponses -> {
             Misc.enableScreenTouch(getActivity());
-
+            pb.setVisibility(View.GONE);
             if (bankDetailResponses.size() > 0) {
-                promotionDetailsRv.setAdapter(new PaymentDetailsAdapter(requireActivity(),bankDetailResponses));
+                promotionDetailsRv.setAdapter(new PromotionDetailsAdapter(requireActivity(),bankDetailResponses));
             }
         });
         integratedServicesViewModel.fetchPromotionDetails(agentCode,loggedInAgentsId);

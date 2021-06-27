@@ -13,37 +13,36 @@ import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.integratedservices.R;
-import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_payment_detail.PaymentDetail;
-import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_voucher.VoucherDetail;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_detailis_promotion_detail.PromotionDetailsResponse;
 
 import java.util.List;
 
-public class PaymentDetailsAdapter extends RecyclerView.Adapter<PaymentDetailsAdapter.MyViewHolder> {
+public class PromotionDetailsAdapter extends RecyclerView.Adapter<PromotionDetailsAdapter.MyViewHolder> {
 
     private Context context;
-    private List<PaymentDetail> misIndividualBusinessReportList;
+    private List<PromotionDetailsResponse> misIndividualBusinessReportList;
     private int lastPosition = -1;
 
-    public PaymentDetailsAdapter(Context context, List<PaymentDetail> misIndividualBusinessReportList) {
+    public PromotionDetailsAdapter(Context context, List<PromotionDetailsResponse> misIndividualBusinessReportList) {
         this.context = context;
         this.misIndividualBusinessReportList = misIndividualBusinessReportList;
     }
 
     @NonNull
     @Override
-    public PaymentDetailsAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new PaymentDetailsAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.agent_payment_details_child_layout, parent, false));
+    public PromotionDetailsAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new PromotionDetailsAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.bank_details_child_layout, parent, false));
 
     }
 
     @Override
-    public void onViewDetachedFromWindow(@NonNull PaymentDetailsAdapter.MyViewHolder holder) {
+    public void onViewDetachedFromWindow(@NonNull PromotionDetailsAdapter.MyViewHolder holder) {
         super.onViewDetachedFromWindow(holder);
         holder.itemView.clearAnimation();
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PaymentDetailsAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PromotionDetailsAdapter.MyViewHolder holder, int position) {
 
         Animation animation = AnimationUtils.loadAnimation(context,
                 (position > lastPosition) ? R.anim.up_from_bottom
@@ -52,18 +51,18 @@ public class PaymentDetailsAdapter extends RecyclerView.Adapter<PaymentDetailsAd
         lastPosition = position;
 
 
-        holder.tvCode.setText(String.valueOf(misIndividualBusinessReportList.get(position).getId()));
-        holder.tvName.setText(misIndividualBusinessReportList.get(position).getDescription());
-        holder.tvBranchName.setText(misIndividualBusinessReportList.get(position).getStatementDate());
-        holder.tvCompanyName.setText(misIndividualBusinessReportList.get(position).getGrossComm());
-        holder.tvDate.setText(misIndividualBusinessReportList.get(position).getSportComm());
-        holder.tvApplnNo.setText(misIndividualBusinessReportList.get(position).getHptds());
-        holder.tvBusinessType.setText(misIndividualBusinessReportList.get(position).getTds());
-        holder.tvProposerName.setText(misIndividualBusinessReportList.get(position).getTdsNoPan());
-        holder.tvPlanName.setText(misIndividualBusinessReportList.get(position).getFwdf());
-        holder.tvPlanFreq.setText(misIndividualBusinessReportList.get(position).getNetComm());
-        /*holder.tvInstalment.setText(String.valueOf(misIndividualBusinessReportList.get(position).getFrmadj()));
-        holder.tvStatus.setText(misIndividualBusinessReportList.get(position).getInvestor());
+        holder.tvCode.setText(String.valueOf(misIndividualBusinessReportList.get(position).getDescription()));
+        holder.tvName.setText(misIndividualBusinessReportList.get(position).getDate());
+        holder.tvBranchName.setText(misIndividualBusinessReportList.get(position).getRank());
+        holder.tvCompanyName.setText(misIndividualBusinessReportList.get(position).getNewRank());
+        holder.tvDate.setText(misIndividualBusinessReportList.get(position).getOldRank());
+        holder.tvApplnNo.setText(misIndividualBusinessReportList.get(position).getOldIntro());
+        holder.tvBusinessType.setText(misIndividualBusinessReportList.get(position).getNewIntro());
+        holder.tvProposerName.setText(misIndividualBusinessReportList.get(position).getAddedBy());
+        /*holder.tvPlanName.setText(misIndividualBusinessReportList.get(position).getRemarks());
+        holder.tvPlanFreq.setText(misIndividualBusinessReportList.get(position).getPremiumFrequency());
+        holder.tvInstalment.setText(String.valueOf(misIndividualBusinessReportList.get(position).getInstallment()));
+        holder.tvStatus.setText(misIndividualBusinessReportList.get(position).getStatus());
         holder.tvPremTerm.setText(String.valueOf(misIndividualBusinessReportList.get(position).getPremTerm()));
         holder.tvPremiumAmmount.setText(String.valueOf(misIndividualBusinessReportList.get(position).getPremiumAmt()));
         holder.tv_weighted_premium.setText(String.valueOf(misIndividualBusinessReportList.get(position).getWeightedPremium()));
@@ -95,8 +94,8 @@ public class PaymentDetailsAdapter extends RecyclerView.Adapter<PaymentDetailsAd
             tvBusinessType = itemView.findViewById(R.id.tv_business_type);
             tvProposerName = itemView.findViewById(R.id.tv_proposer_name);
             tvPlanName = itemView.findViewById(R.id.tv_plan_name);
-            tvPlanFreq = itemView.findViewById(R.id.tv_plan_freq);
-            /*tvInstalment = itemView.findViewById(R.id.tv_instalment);
+            /*tvPlanFreq = itemView.findViewById(R.id.tv_plan_freq);
+            tvInstalment = itemView.findViewById(R.id.tv_instalment);
             tvStatus = itemView.findViewById(R.id.tv_status);
             tvPremTerm = itemView.findViewById(R.id.tv_prem_term);
             tvPremiumAmmount = itemView.findViewById(R.id.tv_premium_amount);

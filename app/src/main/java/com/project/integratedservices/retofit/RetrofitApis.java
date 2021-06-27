@@ -51,6 +51,8 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_detailis_promotion_detail.PromotionDetailsResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_bank_detail.BankDetailResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_field_work.FieldWorkResponse;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_payment_detail.PaymentDetail;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_voucher.VoucherDetail;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.branch_details.BranchDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.grade_details.GradeDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.intro_details.IntroDetails;
@@ -332,7 +334,11 @@ public interface RetrofitApis {
     @GET("AgentDetails/FieldWorkDetails")
     Call<List<FieldWorkResponse>> fetchFieldWorkDetails(@Query("AgCode") String agentCode, @Query("AGLogin") String loggedInAgentsId);
     @GET("AgentDetails/BankDetails")
-    Call<List<BankDetailResponse>> fetchBankDetails(@Query("Ag_Code") String agentCode, @Query("AG_goLogin") String loggedInAgentsId);
+    Call<List<BankDetailResponse>> fetchBankDetails(@Query("Ag_Code") String agentCode, @Query("AG_Login") String loggedInAgentsId);
     @GET("AgentDetails/PromotionDetails")
     Call<List<PromotionDetailsResponse>> fetchPromotionDetails(@Query("AgCodeP") String agentCode, @Query("AGLoginP") String loggedInAgentsId);
+    @GET("AgentDetails/VoucherDetails")
+    Call<List<VoucherDetail>> fetchVoucherDetails(@Query("AgCodeV") String agentCode, @Query("AGLoginV") String loggedInAgentsId);
+    @GET("AgentDetails/PaymentDetails")
+    Call<List<PaymentDetail>> fetchPaymentDetails(@Query("AgCodePD") String agentCode, @Query("AGLoginPD") String loggedInAgentsId);
 }

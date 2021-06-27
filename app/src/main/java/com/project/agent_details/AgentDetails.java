@@ -34,6 +34,7 @@ public class AgentDetails extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         agenttabadapter = new AgentTabAdapter(this,"");
         viewPager.setAdapter(agenttabadapter);
+        viewPager.setUserInputEnabled(false);
         new TabLayoutMediator(tabLayout, viewPager,
                 (tab, position) -> {
                     switch (position) {

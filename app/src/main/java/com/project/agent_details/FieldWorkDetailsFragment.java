@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.project.integratedservices.R;
 import com.project.integratedservices.integratedServicesForAllTypes.viewModel.IntegratedServicesViewModel;
@@ -38,6 +39,7 @@ public class FieldWorkDetailsFragment extends Fragment {
     private AppCompatTextView branch;
     private AppCompatTextView mobile;
     private AppCompatTextView pan;
+    private ProgressBar pb;
 
 
     public FieldWorkDetailsFragment() {
@@ -74,14 +76,17 @@ public class FieldWorkDetailsFragment extends Fragment {
         branch = view.findViewById(R.id.branch);
         mobile = view.findViewById(R.id.mobile);
         pan = view.findViewById(R.id.pan);
+        pb = view.findViewById(R.id.pb);
 
         Bundle args = getArguments();
-        String agentCode = args.getString(AGENT_CODE);
+        String agentCode = args.getString(AGENT_CODE,"");
         String loggedInAgentsId = SharedPref.getInstance(getActivity()).getData(AGENT_ID);
-
+        if (!agentCode.isEmpty()) {
+            pb.setVisibility(View.VISIBLE);
+        }
         integratedServicesViewModel.getFieldWorkObserver().observe(this, fieldWorkResponses -> {
             Misc.enableScreenTouch(getActivity());
-
+            pb.setVisibility(View.GONE);
             if (fieldWorkResponses.size() > 0) {
                 FieldWorkResponse fieldWorkResponse = fieldWorkResponses.get(0);
                 name.setText(fieldWorkResponse.getName());

@@ -380,12 +380,12 @@ public class NewAgentJoiningActivity extends AppCompatActivity {
             calendar.set(Calendar.MONTH, month);
             calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-            String myFormat = "dd MMM, yyyy"; //In which date Format needed
+            String myFormat = "dd-MM-yyyy"; //In which date Format needed
             String apiFormat = "yyyy-MM-dd"; //In which date Format needed
             SimpleDateFormat sdf = new SimpleDateFormat(apiFormat, Locale.ENGLISH);
-            SimpleDateFormat sdfApiFormat = new SimpleDateFormat(apiFormat, Locale.ENGLISH);
+            SimpleDateFormat sdfApiFormat = new SimpleDateFormat(myFormat, Locale.ENGLISH);
 
-            textView.setText(sdf.format(calendar.getTime()));
+            textView.setText(sdfApiFormat.format(calendar.getTime()));
 
             if (textView == dob) {
                 start = calendar.getTime();

@@ -64,6 +64,8 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_detailis_promotion_detail.PromotionDetailsResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_bank_detail.BankDetailResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_field_work.FieldWorkResponse;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_payment_detail.PaymentDetail;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_voucher.VoucherDetail;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.branch_details.BranchDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.grade_details.GradeDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.intro_details.IntroDetails;
@@ -136,6 +138,8 @@ public class IntegratedServicesViewModel extends ViewModel {
     private MutableLiveData<List<FieldWorkResponse>> fieldWorkLiveData;
     private MutableLiveData<List<BankDetailResponse>> bankDetailsLiveData;
     private MutableLiveData<List<PromotionDetailsResponse>> promotionDetailsLiveData;
+    private MutableLiveData<List<VoucherDetail>> voucherDetailsLiveData;
+    private MutableLiveData<List<PaymentDetail>> paymentDetailsLiveData;
     private MutableLiveData<List<AgentCommissionDetailsResponse>> mAgentCommisionDetailsLiveData;
     private MutableLiveData<List<ApplicationNumberWisePaymentResponse>> mApplicationWisePaymentLiveData;
     private MutableLiveData<List<AgentCommisionTotal>> mAgentCommisionTotalLiveData;
@@ -235,6 +239,22 @@ public class IntegratedServicesViewModel extends ViewModel {
             promotionDetailsLiveData = new MutableLiveData<>();
         }
         return promotionDetailsLiveData;
+
+    }
+    public MutableLiveData<List<VoucherDetail>> getVoucherDetailsObserver() {
+
+        if (voucherDetailsLiveData == null) {
+            voucherDetailsLiveData = new MutableLiveData<>();
+        }
+        return voucherDetailsLiveData;
+
+    }
+    public MutableLiveData<List<PaymentDetail>> getPaymentDetailsObserver() {
+
+        if (paymentDetailsLiveData == null) {
+            paymentDetailsLiveData = new MutableLiveData<>();
+        }
+        return paymentDetailsLiveData;
 
     }
 
@@ -1366,6 +1386,33 @@ public class IntegratedServicesViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<List<PromotionDetailsResponse>> call, Throwable t) {
+                apiError.setValue(t.getLocalizedMessage());
+            }
+        });
+    }
+    public void fetchVoucherDetails(String agentCode, String loggedInAgentsId) {
+        apiClient.fetchVoucherDetails(agentCode,loggedInAgentsId).enqueue(new Callback<List<VoucherDetail>>() {
+            @Override
+            public void onResponse(Call<List<VoucherDetail>> call, Response<List<VoucherDetail>> response) {
+                voucherDetailsLiveData.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<VoucherDetail>> call, Throwable t) {
+                apiError.setValue(t.getLocalizedMessage());
+            }
+        });
+    }
+
+    public void fetchPaymentDetails(String agentCode, String loggedInAgentsId) {
+        apiClient.fetchPaymentDetails(agentCode,loggedInAgentsId).enqueue(new Callback<List<PaymentDetail>>() {
+            @Override
+            public void onResponse(Call<List<PaymentDetail>> call, Response<List<PaymentDetail>> response) {
+                paymentDetailsLiveData.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<PaymentDetail>> call, Throwable t) {
                 apiError.setValue(t.getLocalizedMessage());
             }
         });

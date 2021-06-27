@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.project.integratedservices.R;
 import com.project.integratedservices.integratedServicesForAllTypes.viewModel.IntegratedServicesViewModel;
@@ -27,6 +28,7 @@ public class BankDetailsFragment extends Fragment {
     public static final String AGENT_CODE = "agentcode";
     private IntegratedServicesViewModel integratedServicesViewModel;
     private RecyclerView rvBankDetails;
+    private ProgressBar pb;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,12 +48,16 @@ public class BankDetailsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         rvBankDetails = view.findViewById(R.id.rvBankDetails);
+        pb = view.findViewById(R.id.pb);
         Bundle args = getArguments();
-        String agentCode = args.getString(AGENT_CODE);
+        String agentCode = args.getString(AGENT_CODE,"");
         String loggedInAgentsId = SharedPref.getInstance(getActivity()).getData(AGENT_ID);
+        if (!agentCode.isEmpty()) {
+            pb.setVisibility(View.VISIBLE);
+        }
         integratedServicesViewModel.getBankDetailObserver().observe(this, bankDetailResponses -> {
             Misc.enableScreenTouch(getActivity());
-
+            pb.setVisibility(View.GONE);
             if (bankDetailResponses!=null) {
                 if (bankDetailResponses.size() > 0) {
                     rvBankDetails.setAdapter(new BankDetailsAdapter(requireActivity(),bankDetailResponses));

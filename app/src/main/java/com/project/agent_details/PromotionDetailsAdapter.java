@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.integratedservices.R;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_detailis_promotion_detail.PromotionDetailsResponse;
+import com.project.supportClasses.Misc;
 
 import java.util.List;
 
@@ -52,7 +53,9 @@ public class PromotionDetailsAdapter extends RecyclerView.Adapter<PromotionDetai
 
 
         holder.tvCode.setText(String.valueOf(misIndividualBusinessReportList.get(position).getDescription()));
-        holder.tvName.setText(misIndividualBusinessReportList.get(position).getDate());
+        String date = misIndividualBusinessReportList.get(position).getDate();
+        String newFormattedDateMonth = Misc.getNewFormattedDateMonth(date);
+        holder.tvName.setText(newFormattedDateMonth);
         holder.tvBranchName.setText(misIndividualBusinessReportList.get(position).getRank());
         holder.tvCompanyName.setText(misIndividualBusinessReportList.get(position).getNewRank());
         holder.tvDate.setText(misIndividualBusinessReportList.get(position).getOldRank());

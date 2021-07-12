@@ -26,7 +26,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.project.agent_details.AgentDetails"></activity>
+        <activity android:name=".integratedServicesForAllTypes.view.MessageActivity"></activity>
+        <activity android:name="com.project.agent_details.AgentDetails" />
         <activity android:name=".integratedServicesForAllTypes.view.NewAgentJoiningActivity" />
         <activity android:name="com.project.otherCategory.AgentJoiningActivity" />
         <activity android:name=".integratedServicesForAllTypes.view.VoucherActivity" />

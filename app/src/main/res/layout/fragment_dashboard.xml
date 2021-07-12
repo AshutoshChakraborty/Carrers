@@ -606,6 +606,50 @@
 
                 </com.google.android.material.card.MaterialCardView>
 
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/materialCardViewMessage"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_90sdp"
+                    android:background="@drawable/dashboaed_tiles"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    android:layout_marginVertical="@dimen/_8sdp"
+                    app:cardElevation="@dimen/_4sdp"
+                    app:layout_constraintEnd_toEndOf="@+id/materialCardViewMisReport"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="@+id/materialCardViewMisReport"
+                    app:layout_constraintTop_toBottomOf="@+id/materialCardViewMisReport">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="@dimen/_16sdp">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ivMisReport1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_12sdp"
+                            android:src="@drawable/plan"
+                            app:civ_circle_background_color="#141173" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvMisReport1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_bold"
+                            android:text="@string/message"
+                            android:textColor="#141173"
+                            android:textSize="@dimen/_8ssp"
+                            app:textAllCaps="true" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </com.google.android.material.card.MaterialCardView>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.appcompat.widget.LinearLayoutCompat>

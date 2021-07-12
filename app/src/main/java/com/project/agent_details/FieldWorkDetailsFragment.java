@@ -100,7 +100,7 @@ public class FieldWorkDetailsFragment extends Fragment {
                 pin.setText(fieldWorkResponse.getPin());
                         branch.setText(fieldWorkResponse.getBranchName());
                 mobile.setText(fieldWorkResponse.getMobileNo());
-                        pan.setText(fieldWorkResponse.getPin());
+                        pan.setText(fieldWorkResponse.getPan());
             }
         });
 

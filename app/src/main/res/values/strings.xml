@@ -63,4 +63,5 @@
     <string name="no_items_found">No items found</string>
     <string name="mis_report">MIS Report</string>
     <string name="agent_joining">Agent Joining</string>
+    <string name="message">MESSAGE</string>
 </resources>

@@ -3,6 +3,7 @@ package com.project.integratedservices.integratedServicesForAllTypes.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +40,7 @@ import static com.project.supportClasses.SharedPref.AGENT_ID;
 public class DashboardFragment extends Fragment {
 
 
-    private MaterialCardView cvCustomer, availablePlans, attendance,cvTeam,cvBusinessReport,cvLeave,cvMISReport,agentJoiningCard;
+    private MaterialCardView cvCustomer, availablePlans, attendance,cvTeam,cvBusinessReport,cvLeave,cvMISReport,agentJoiningCard,materialCardViewMessage;
     private AuthenticationViewModel authenticationViewModel;
     private IntegratedServicesViewModel integratedServicesViewModel;
     private String agentId = "";
@@ -307,6 +308,12 @@ public class DashboardFragment extends Fragment {
             startActivity(new Intent(getActivity(),NewAgentJoiningActivity.class));
 
         });
+        materialCardViewMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), MessageActivity.class));
+            }
+        });
 
         return view;
     }
@@ -414,6 +421,7 @@ public class DashboardFragment extends Fragment {
         authenticationViewModel = ViewModelProviders.of(this).get(AuthenticationViewModel.class);
         integratedServicesViewModel = ViewModelProviders.of(this).get(IntegratedServicesViewModel.class);
         cvCustomer = view.findViewById(R.id.materialCardView2);
+        materialCardViewMessage = view.findViewById(R.id.materialCardViewMessage);
         availablePlans = view.findViewById(R.id.materialCardView4);
         attendance = view.findViewById(R.id.materialCardView3);
         tvAgentName = view.findViewById(R.id.tvAgentName);

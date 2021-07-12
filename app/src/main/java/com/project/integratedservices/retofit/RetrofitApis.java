@@ -56,6 +56,8 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.branch_details.BranchDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.grade_details.GradeDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.intro_details.IntroDetails;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.message_response.DeleteSms;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.message_response.SmsDetailsResposne;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.mis_agent_joining_details.MisAgentJoiningDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.new_joinee_final_submit.NewJoiningFinalRespons;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.phas_master.PhaseMasterResponse;
@@ -341,4 +343,12 @@ public interface RetrofitApis {
     Call<List<VoucherDetail>> fetchVoucherDetails(@Query("AgCodeV") String agentCode, @Query("AGLoginV") String loggedInAgentsId);
     @GET("AgentDetails/PaymentDetails")
     Call<List<PaymentDetail>> fetchPaymentDetails(@Query("AgCodePD") String agentCode, @Query("AGLoginPD") String loggedInAgentsId);
+
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    @POST("SMSAlert/SMSDisplay")
+    Call<List<SmsDetailsResposne>> getSmsDetails(@Query("ACode") String AgentCode);
+
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    @POST("SMSAlert/SMSDisplay")
+    Call<List<DeleteSms>> deleteSms(@Query("Slno") String Slno);
 }

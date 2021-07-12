@@ -1,5 +1,7 @@
 package com.project.integratedservices.authenticate.viewmodel;
 
+import android.util.Log;
+
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -101,10 +103,15 @@ public class AuthenticationViewModel extends ViewModel {
 
     public void callUserDetails(String agentCode,String iemiCode,String token)
     {
+        Log.i("agentCode: ",agentCode);
+        Log.i("iemiCode: ",iemiCode);
+        Log.i("token: ",token);
         apiClient.getUserDetails(agentCode,iemiCode,token).enqueue(new Callback<List<UserDetailsResponse>>() {
             @Override
             public void onResponse(Call<List<UserDetailsResponse>> call, Response<List<UserDetailsResponse>> response) {
-                userDetailsResponseMutableLiveData.setValue(response.body().get(0));
+                if (response.body()!=null) {
+                    userDetailsResponseMutableLiveData.setValue(response.body().get(0));
+                }
             }
 
             @Override

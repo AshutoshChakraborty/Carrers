@@ -51,6 +51,7 @@ import static com.project.supportClasses.Constants.isSalaried;
 import static com.project.supportClasses.Constants.startAttendanceGiven;
 import static com.project.supportClasses.SharedPref.AGENT_ID;
 import static com.project.supportClasses.SharedPref.COMPANY_NAME;
+import static com.project.supportClasses.SharedPref.LOGIN_TYPE;
 import static com.project.supportClasses.SharedPref.USER_DETAILS;
 
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -151,44 +152,50 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
         integratedServicesViewModel.getAlertMsgResponseLiveData().observe(this,alertMessageResponses -> {
 
-            if(alertMessageResponses.size()>0) {
-                if (!alertMessageResponses.get(0).getLeaveStatus().equals("0")) {
-                    ColorDialog dialog = new ColorDialog(this);
-                    dialog.setContentText("You cannot use the app when your on leave");
-                    dialog.setPositiveListener("OK", colorDialog -> {
-                        colorDialog.dismiss();
-                        SharedPref.getInstance(this).clearAllPref();
-                        Toast.makeText(this.getApplicationContext(), "logged out", Toast.LENGTH_SHORT).show();
-                        this.finishAffinity();
-                    });
-                    dialog.setCancelable(false);
-                    dialog.show();
-                } else if (!alertMessageResponses.get(0).getSMSTextDisplay().isEmpty() && !alertMessageResponses.get(0).getSMSTextDisplay().equals("0")) {
-                    Dialog dialog = new Dialog(this, android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
-                    dialog.setContentView(R.layout.full_screen_dialog_layout);
-                    dialog.setCancelable(false);
-                    dialog.show();
+            if (alertMessageResponses != null) {
+                if (alertMessageResponses.size() > 0) {
+                    if (alertMessageResponses.get(0).getLeaveStatus() != null && !alertMessageResponses.get(0).getLeaveStatus().equals("0")) {
+                        ColorDialog dialog = new ColorDialog(this);
+                        dialog.setContentText("You cannot use the app when your on leave");
+                        dialog.setPositiveListener("OK", colorDialog -> {
+                            colorDialog.dismiss();
+                            SharedPref.getInstance(this).clearAllPref();
+                            Toast.makeText(this.getApplicationContext(), "logged out", Toast.LENGTH_SHORT).show();
+                            this.finishAffinity();
+                        });
+                        dialog.setCancelable(false);
+                        dialog.show();
+                    } else if (alertMessageResponses.get(0).getSMSTextDisplay() != null && !alertMessageResponses.get(0).getSMSTextDisplay().isEmpty() && !alertMessageResponses.get(0).getSMSTextDisplay().equals("0")) {
+                        Dialog dialog = new Dialog(this, android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
+                        dialog.setContentView(R.layout.full_screen_dialog_layout);
+                        dialog.setCancelable(false);
+                        dialog.show();
 
-                    TextView tv = dialog.findViewById(R.id.tvMessage);
-                    ImageView close = dialog.findViewById(R.id.ivCross);
+                        TextView tv = dialog.findViewById(R.id.tvMessage);
+                        ImageView close = dialog.findViewById(R.id.ivCross);
 
-                    tv.setText(alertMessageResponses.get(0).getSMSTextDisplay());
-                    close.setOnClickListener(v -> {
-                        dialog.dismiss();
-                    });
+                        tv.setText(alertMessageResponses.get(0).getSMSTextDisplay());
+                        close.setOnClickListener(v -> {
+                            dialog.dismiss();
+                        });
 
-//                new PromptDialog(this)
-//                        .setDialogType(PromptDialog.DIALOG_TYPE_INFO)
-//                        .setAnimationEnable(true)
-////                        .setTitleText(getString(R.string.success))
-//                        .setContentText(alertMessageResponses.get(0).getSMSTextDisplay())
-//                        .setPositiveListener("OK", new PromptDialog.OnPositiveListener() {
-//                            @Override
-//                            public void onClick(PromptDialog dialog) {
-//                                dialog.dismiss();
-//                            }
-//                        }).show();
+                        //                new PromptDialog(this)
+                        //                        .setDialogType(PromptDialog.DIALOG_TYPE_INFO)
+                        //                        .setAnimationEnable(true)
+                        ////                        .setTitleText(getString(R.string.success))
+                        //                        .setContentText(alertMessageResponses.get(0).getSMSTextDisplay())
+                        //                        .setPositiveListener("OK", new PromptDialog.OnPositiveListener() {
+                        //                            @Override
+                        //                            public void onClick(PromptDialog dialog) {
+                        //                                dialog.dismiss();
+                        //                            }
+                        //                        }).show();
+                    } else {
+                        spinKitView.setVisibility(View.GONE);
+                    }
                 }
+            } else {
+                spinKitView.setVisibility(View.GONE);
             }
 
         });

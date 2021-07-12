@@ -69,6 +69,8 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.branch_details.BranchDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.grade_details.GradeDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.intro_details.IntroDetails;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.message_response.DeleteSms;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.message_response.SmsDetailsResposne;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.mis_agent_joining_details.MisAgentJoiningDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.new_joinee_final_submit.NewJoiningFinalRespons;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.phas_master.PhaseMasterResponse;
@@ -113,6 +115,8 @@ public class IntegratedServicesViewModel extends ViewModel {
     private MutableLiveData<List<EndNotInterestedVisitResponse>> endNotInterestedVisitResponseLiveData;
     private MutableLiveData<List<ApplyLeaveResponse>> applyLeaveResponseLiveData;
     private MutableLiveData<List<AlertMessageResponse>> alertResponseLiveData;
+    private MutableLiveData<List<DeleteSms>> deleteSmsLiveData;
+    private MutableLiveData<List<SmsDetailsResposne>> smsDetailsLiveData;
     private MutableLiveData<List<VisitStateCheckResponse>> visitStateCheckResponseLiveData;
     private MutableLiveData<List<BranchDetailsResponse>> misBranchDetailsResponseLiveData;
     private MutableLiveData<List<MISCompanyDetailsResponse>> misCompanyDetailsResponseLiveData;
@@ -460,6 +464,20 @@ public class IntegratedServicesViewModel extends ViewModel {
             alertResponseLiveData = new MutableLiveData<>();
         }
         return alertResponseLiveData;
+    }
+    public MutableLiveData<List<DeleteSms>> getDeleteSmsResponseLiveData() {
+
+        if (deleteSmsLiveData == null) {
+            deleteSmsLiveData = new MutableLiveData<>();
+        }
+        return deleteSmsLiveData;
+    }
+    public MutableLiveData<List<SmsDetailsResposne>> getSmsDetailsLiveData() {
+
+        if (smsDetailsLiveData == null) {
+            smsDetailsLiveData = new MutableLiveData<>();
+        }
+        return smsDetailsLiveData;
     }
 
     public MutableLiveData<List<BranchDetailsResponse>> getMISBranchDetailsResponseLiveData() {
@@ -1413,6 +1431,34 @@ public class IntegratedServicesViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<List<PaymentDetail>> call, Throwable t) {
+                apiError.setValue(t.getLocalizedMessage());
+            }
+        });
+    }
+
+    public void getSmsDetails(String data) {
+        apiClient.getSmsDetails(data).enqueue(new Callback<List<SmsDetailsResposne>>() {
+            @Override
+            public void onResponse(Call<List<SmsDetailsResposne>> call, Response<List<SmsDetailsResposne>> response) {
+                smsDetailsLiveData.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<SmsDetailsResposne>> call, Throwable t) {
+                apiError.setValue(t.getLocalizedMessage());
+            }
+        });
+    }
+
+    public void deleteSms(String slNo) {
+        apiClient.deleteSms(slNo).enqueue(new Callback<List<DeleteSms>>() {
+            @Override
+            public void onResponse(Call<List<DeleteSms>> call, Response<List<DeleteSms>> response) {
+                deleteSmsLiveData.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<DeleteSms>> call, Throwable t) {
                 apiError.setValue(t.getLocalizedMessage());
             }
         });

@@ -12,6 +12,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.card.MaterialCardView;
@@ -21,6 +22,7 @@ import com.project.integratedservices.R;
 
 public class AgentDetails extends AppCompatActivity {
     AgentTabAdapter agenttabadapter;
+    private ImageView ivBack;
     ViewPager2 viewPager;
     private AppCompatEditText editEnterCode;
     private MaterialCardView cvSubmit;
@@ -58,6 +60,7 @@ public class AgentDetails extends AppCompatActivity {
         ).attach();
         editEnterCode = findViewById(R.id.editEnterCode);
         cvSubmit = findViewById(R.id.cvSubmit);
+        ivBack = findViewById(R.id.ivBack);
         cvSubmit.setOnClickListener(v -> {
             if (!editEnterCode.getText().toString().isEmpty()) {
                 agenttabadapter = new AgentTabAdapter(this,editEnterCode.getText().toString());
@@ -67,6 +70,9 @@ public class AgentDetails extends AppCompatActivity {
                 Toast.makeText(this, "Please enter agent code", Toast.LENGTH_SHORT).show();
             }
 
+        });
+        ivBack.setOnClickListener(v -> {
+            onBackPressed();
         });
 
     }

@@ -56,6 +56,7 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.branch_details.BranchDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.grade_details.GradeDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.intro_details.IntroDetails;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.menu_status_response.MenueStatusResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.message_response.DeleteSms;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.message_response.SmsDetailsResposne;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.mis_agent_joining_details.MisAgentJoiningDetails;
@@ -351,4 +352,8 @@ public interface RetrofitApis {
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST("SMSAlert/SMSDisplay")
     Call<List<DeleteSms>> deleteSms(@Query("Slno") String Slno);
+
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    @GET("MenuPermission/MenuPermissionDetails")
+    Call<List<MenueStatusResponse>> getMenueStatus(@Query("Rollid")String rolId);
 }

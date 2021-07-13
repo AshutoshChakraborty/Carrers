@@ -69,6 +69,7 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.branch_details.BranchDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.grade_details.GradeDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.intro_details.IntroDetails;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.menu_status_response.MenueStatusResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.message_response.DeleteSms;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.message_response.SmsDetailsResposne;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.mis_agent_joining_details.MisAgentJoiningDetails;
@@ -116,6 +117,7 @@ public class IntegratedServicesViewModel extends ViewModel {
     private MutableLiveData<List<ApplyLeaveResponse>> applyLeaveResponseLiveData;
     private MutableLiveData<List<AlertMessageResponse>> alertResponseLiveData;
     private MutableLiveData<List<DeleteSms>> deleteSmsLiveData;
+    private MutableLiveData<List<MenueStatusResponse>> menueStatusLiveData;
     private MutableLiveData<List<SmsDetailsResposne>> smsDetailsLiveData;
     private MutableLiveData<List<VisitStateCheckResponse>> visitStateCheckResponseLiveData;
     private MutableLiveData<List<BranchDetailsResponse>> misBranchDetailsResponseLiveData;
@@ -471,6 +473,13 @@ public class IntegratedServicesViewModel extends ViewModel {
             deleteSmsLiveData = new MutableLiveData<>();
         }
         return deleteSmsLiveData;
+    }
+    public MutableLiveData<List<MenueStatusResponse>> getMenueStatusLiveData() {
+
+        if (menueStatusLiveData == null) {
+            menueStatusLiveData = new MutableLiveData<>();
+        }
+        return menueStatusLiveData;
     }
     public MutableLiveData<List<SmsDetailsResposne>> getSmsDetailsLiveData() {
 
@@ -1459,6 +1468,20 @@ public class IntegratedServicesViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<List<DeleteSms>> call, Throwable t) {
+                apiError.setValue(t.getLocalizedMessage());
+            }
+        });
+    }
+
+    public void getMenueStatus(String rolId) {
+        apiClient.getMenueStatus(rolId).enqueue(new Callback<List<MenueStatusResponse>>() {
+            @Override
+            public void onResponse(Call<List<MenueStatusResponse>> call, Response<List<MenueStatusResponse>> response) {
+                menueStatusLiveData.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<MenueStatusResponse>> call, Throwable t) {
                 apiError.setValue(t.getLocalizedMessage());
             }
         });

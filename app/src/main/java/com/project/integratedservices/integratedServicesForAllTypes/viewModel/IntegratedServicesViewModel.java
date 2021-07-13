@@ -67,6 +67,7 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_payment_detail.PaymentDetail;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_voucher.VoucherDetail;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.branch_details.BranchDetails;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.circular_response.CircularResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.grade_details.GradeDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.intro_details.IntroDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.menu_status_response.MenueStatusResponse;
@@ -118,6 +119,7 @@ public class IntegratedServicesViewModel extends ViewModel {
     private MutableLiveData<List<AlertMessageResponse>> alertResponseLiveData;
     private MutableLiveData<List<DeleteSms>> deleteSmsLiveData;
     private MutableLiveData<List<MenueStatusResponse>> menueStatusLiveData;
+    private MutableLiveData<List<CircularResponse>> circularResponseLiveData;
     private MutableLiveData<List<SmsDetailsResposne>> smsDetailsLiveData;
     private MutableLiveData<List<VisitStateCheckResponse>> visitStateCheckResponseLiveData;
     private MutableLiveData<List<BranchDetailsResponse>> misBranchDetailsResponseLiveData;
@@ -231,6 +233,7 @@ public class IntegratedServicesViewModel extends ViewModel {
         return fieldWorkLiveData;
 
     }
+
     public MutableLiveData<List<BankDetailResponse>> getBankDetailObserver() {
 
         if (bankDetailsLiveData == null) {
@@ -239,6 +242,7 @@ public class IntegratedServicesViewModel extends ViewModel {
         return bankDetailsLiveData;
 
     }
+
     public MutableLiveData<List<PromotionDetailsResponse>> getPromotionDetailObserver() {
 
         if (promotionDetailsLiveData == null) {
@@ -247,6 +251,7 @@ public class IntegratedServicesViewModel extends ViewModel {
         return promotionDetailsLiveData;
 
     }
+
     public MutableLiveData<List<VoucherDetail>> getVoucherDetailsObserver() {
 
         if (voucherDetailsLiveData == null) {
@@ -255,6 +260,7 @@ public class IntegratedServicesViewModel extends ViewModel {
         return voucherDetailsLiveData;
 
     }
+
     public MutableLiveData<List<PaymentDetail>> getPaymentDetailsObserver() {
 
         if (paymentDetailsLiveData == null) {
@@ -263,7 +269,6 @@ public class IntegratedServicesViewModel extends ViewModel {
         return paymentDetailsLiveData;
 
     }
-
 
 
     public MutableLiveData<List<PlanDetailsResponse>> getPlanDetails() {
@@ -467,6 +472,7 @@ public class IntegratedServicesViewModel extends ViewModel {
         }
         return alertResponseLiveData;
     }
+
     public MutableLiveData<List<DeleteSms>> getDeleteSmsResponseLiveData() {
 
         if (deleteSmsLiveData == null) {
@@ -474,6 +480,7 @@ public class IntegratedServicesViewModel extends ViewModel {
         }
         return deleteSmsLiveData;
     }
+
     public MutableLiveData<List<MenueStatusResponse>> getMenueStatusLiveData() {
 
         if (menueStatusLiveData == null) {
@@ -481,6 +488,15 @@ public class IntegratedServicesViewModel extends ViewModel {
         }
         return menueStatusLiveData;
     }
+
+    public MutableLiveData<List<CircularResponse>> getCircularResponseLiveData() {
+
+        if (circularResponseLiveData == null) {
+            circularResponseLiveData = new MutableLiveData<>();
+        }
+        return circularResponseLiveData;
+    }
+
     public MutableLiveData<List<SmsDetailsResposne>> getSmsDetailsLiveData() {
 
         if (smsDetailsLiveData == null) {
@@ -1378,7 +1394,7 @@ public class IntegratedServicesViewModel extends ViewModel {
     }
 
     public void fetchFieldWorkDetails(String agentCode, String loggedInAgentsId) {
-        apiClient.fetchFieldWorkDetails(agentCode,loggedInAgentsId ).enqueue(new Callback<List<FieldWorkResponse>>() {
+        apiClient.fetchFieldWorkDetails(agentCode, loggedInAgentsId).enqueue(new Callback<List<FieldWorkResponse>>() {
             @Override
             public void onResponse(Call<List<FieldWorkResponse>> call, Response<List<FieldWorkResponse>> response) {
                 fieldWorkLiveData.setValue(response.body());
@@ -1390,8 +1406,9 @@ public class IntegratedServicesViewModel extends ViewModel {
             }
         });
     }
+
     public void fetchBankDetails(String agentCode, String loggedInAgentsId) {
-        apiClient.fetchBankDetails(agentCode,loggedInAgentsId ).enqueue(new Callback<List<BankDetailResponse>>() {
+        apiClient.fetchBankDetails(agentCode, loggedInAgentsId).enqueue(new Callback<List<BankDetailResponse>>() {
             @Override
             public void onResponse(Call<List<BankDetailResponse>> call, Response<List<BankDetailResponse>> response) {
                 bankDetailsLiveData.setValue(response.body());
@@ -1405,7 +1422,7 @@ public class IntegratedServicesViewModel extends ViewModel {
     }
 
     public void fetchPromotionDetails(String agentCode, String loggedInAgentsId) {
-        apiClient.fetchPromotionDetails(agentCode,loggedInAgentsId).enqueue(new Callback<List<PromotionDetailsResponse>>() {
+        apiClient.fetchPromotionDetails(agentCode, loggedInAgentsId).enqueue(new Callback<List<PromotionDetailsResponse>>() {
             @Override
             public void onResponse(Call<List<PromotionDetailsResponse>> call, Response<List<PromotionDetailsResponse>> response) {
                 promotionDetailsLiveData.setValue(response.body());
@@ -1417,8 +1434,9 @@ public class IntegratedServicesViewModel extends ViewModel {
             }
         });
     }
+
     public void fetchVoucherDetails(String agentCode, String loggedInAgentsId) {
-        apiClient.fetchVoucherDetails(agentCode,loggedInAgentsId).enqueue(new Callback<List<VoucherDetail>>() {
+        apiClient.fetchVoucherDetails(agentCode, loggedInAgentsId).enqueue(new Callback<List<VoucherDetail>>() {
             @Override
             public void onResponse(Call<List<VoucherDetail>> call, Response<List<VoucherDetail>> response) {
                 voucherDetailsLiveData.setValue(response.body());
@@ -1432,7 +1450,7 @@ public class IntegratedServicesViewModel extends ViewModel {
     }
 
     public void fetchPaymentDetails(String agentCode, String loggedInAgentsId) {
-        apiClient.fetchPaymentDetails(agentCode,loggedInAgentsId).enqueue(new Callback<List<PaymentDetail>>() {
+        apiClient.fetchPaymentDetails(agentCode, loggedInAgentsId).enqueue(new Callback<List<PaymentDetail>>() {
             @Override
             public void onResponse(Call<List<PaymentDetail>> call, Response<List<PaymentDetail>> response) {
                 paymentDetailsLiveData.setValue(response.body());
@@ -1482,6 +1500,20 @@ public class IntegratedServicesViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<List<MenueStatusResponse>> call, Throwable t) {
+                apiError.setValue(t.getLocalizedMessage());
+            }
+        });
+    }
+
+    public void getPrizeReport(String agentId, String startDate, String endDate) {
+        apiClient.getCircularResponse(startDate, endDate).enqueue(new Callback<List<CircularResponse>>() {
+            @Override
+            public void onResponse(Call<List<CircularResponse>> call, Response<List<CircularResponse>> response) {
+                circularResponseLiveData.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<CircularResponse>> call, Throwable t) {
                 apiError.setValue(t.getLocalizedMessage());
             }
         });

@@ -1,6 +1,7 @@
 package com.project.integratedservices.retofit;
 
 
+import com.project.integratedservices.integratedServicesForAllTypes.view.CircularActivity;
 import com.project.integratedservices.repository.authencationRepo.remote.response.AttendanceCheckResponse;
 import com.project.integratedservices.repository.authencationRepo.remote.response.DailyAttendanceCheck;
 import com.project.integratedservices.repository.authencationRepo.remote.response.DailyAttendanceTime;
@@ -54,6 +55,7 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_payment_detail.PaymentDetail;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_voucher.VoucherDetail;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.branch_details.BranchDetails;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.circular_response.CircularResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.grade_details.GradeDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.intro_details.IntroDetails;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.menu_status_response.MenueStatusResponse;
@@ -356,4 +358,7 @@ public interface RetrofitApis {
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @GET("MenuPermission/MenuPermissionDetails")
     Call<List<MenueStatusResponse>> getMenueStatus(@Query("Rollid")String rolId);
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    @GET("Circular")
+    Call<List<CircularResponse>> getCircularResponse(@Query("SDate")String startDate, @Query("EDate") String endDate);
 }

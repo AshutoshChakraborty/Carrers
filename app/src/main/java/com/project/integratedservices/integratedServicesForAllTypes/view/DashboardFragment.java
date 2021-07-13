@@ -28,6 +28,8 @@ import com.project.supportClasses.Misc;
 import com.project.supportClasses.MyColorDialog;
 import com.project.supportClasses.SharedPref;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 import cn.refactor.lib.colordialog.ColorDialog;
@@ -70,6 +72,9 @@ public class DashboardFragment extends Fragment {
     private TextView tv_agent_joining;
     private TextView tvMisReport1;
     private ImageView ivBusinessReport;
+    private MaterialCardView cvCircular;
+    private ImageView ivCircular;
+    private TextView tvCircular;
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -324,6 +329,10 @@ public class DashboardFragment extends Fragment {
             startActivity(new Intent(getActivity(),MisReportActivity.class));
         });
 
+        cvCircular.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity(),CircularActivity.class));
+        });
+
         agentJoiningCard.setOnClickListener(v -> {
             startActivity(new Intent(getActivity(),NewAgentJoiningActivity.class));
 
@@ -475,6 +484,9 @@ public class DashboardFragment extends Fragment {
         ivMisReport = view.findViewById(R.id.ivMisReport);
         iv_agent_joining = view.findViewById(R.id.iv_agent_joining);
         ivMisReport1 = view.findViewById(R.id.ivMisReport1);
+        cvCircular = view.findViewById(R.id.materialCardViewCircular);
+        ivCircular = view.findViewById(R.id.ivCircular);
+        tvCircular = view.findViewById(R.id.tvCircular);
 
 
 //        disableMenue(attendance, tvAttendance, ivAttendance);
@@ -498,6 +510,7 @@ public class DashboardFragment extends Fragment {
                     checkAndSetStatus(cvMISReport, tvMisReport, ivMisReport,menueStatusResponses);
                     checkAndSetStatus(agentJoiningCard, tv_agent_joining, iv_agent_joining,menueStatusResponses);
                     checkAndSetStatus(materialCardViewMessage, tvMisReport1, ivMisReport1,menueStatusResponses);
+//                    checkAndSetStatus(cvCircular, tvCircular, ivCircular,menueStatusResponses);
                 }
             }
         });

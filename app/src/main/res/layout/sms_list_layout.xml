@@ -17,15 +17,13 @@
             android:weightSum="1"
             android:id="@+id/llparent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <ImageView
                 android:id="@+id/ivIntroducerPic"
                 android:layout_weight=".2"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_margin="@dimen/_12sdp"
-                app:civ_border_width="@dimen/_2sdp"
-                app:civ_border_color="#303F9F"
-                app:civ_circle_background_color="@color/colorPrimaryDark"
+                app:tint="@color/colorPrimaryDark"
                 android:src="@drawable/ic_baseline_message_24"
                 />
 

@@ -16,7 +16,9 @@ import android.transition.TransitionSet;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +26,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -62,7 +65,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     public String agentId = "";
     public SpinKitView spinKitView;
     public UserDetailsResponse userDetails;
-    AppCompatTextView tvCustomerText,tv_name_nav,tv_email_nav;
+    AppCompatTextView tvCustomerText, tv_name_nav, tv_email_nav;
     private NavigationView nav_view;
     private DrawerLayout drawer_layout;
     private IntegratedServicesViewModel integratedServicesViewModel;
@@ -106,10 +109,10 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         setContentView(R.layout.activity_dashboard);
 
         init();
-        if (SharedPref.getInstance(this).getData(COMPANY_NAME) == null ||SharedPref.getInstance(this).getData(COMPANY_NAME) == "") {
+        if (SharedPref.getInstance(this).getData(COMPANY_NAME) == null || SharedPref.getInstance(this).getData(COMPANY_NAME) == "") {
             header.setText(getResources().getString(R.string.integrated_services));
             header.setVisibility(View.GONE);
-        } else{
+        } else {
             header.setText(SharedPref.getInstance(this).getData(COMPANY_NAME));
             header.setVisibility(View.GONE);
         }
@@ -119,12 +122,12 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 //        {
 //            agentId = getIntent().getStringExtra("id");
 //        }
-            if (getIntent().hasExtra("userdata")) {
-                userDetails = getIntent().getParcelableExtra("userdata");
+        if (getIntent().hasExtra("userdata")) {
+            userDetails = getIntent().getParcelableExtra("userdata");
 
-                tv_name_nav.setText(userDetails.getUserName());
-                tv_email_nav.setText(userDetails.getEmail());
-            }
+            tv_name_nav.setText(userDetails.getUserName());
+            tv_email_nav.setText(userDetails.getEmail());
+        }
 
         iv_drawer_menu.setOnClickListener(v -> {
             if (areDrawablesIdentical(iv_drawer_menu.getDrawable(), getResources().getDrawable(R.drawable.ic_left_arrow))) {
@@ -149,8 +152,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         loadFragment(new DashboardFragment());
 
         checkforAlertMsg(SharedPref.getInstance(this).getData(AGENT_ID));
-
-        integratedServicesViewModel.getAlertMsgResponseLiveData().observe(this,alertMessageResponses -> {
+        integratedServicesViewModel.getAlertMsgResponseLiveData().observe(this, alertMessageResponses -> {
 
             if (alertMessageResponses != null) {
                 if (alertMessageResponses.size() > 0) {
@@ -171,10 +173,37 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                         dialog.setCancelable(false);
                         dialog.show();
 
-                        TextView tv = dialog.findViewById(R.id.tvMessage);
+                        LinearLayoutCompat container = dialog.findViewById(R.id.notificationContainer);
+
+                        for (int i = 0; i < alertMessageResponses.size(); i++) {
+                            TextView tv = new TextView(this);
+                            TextView devider = new TextView(this);
+                            container.addView(tv);
+                            if (i != alertMessageResponses.size() - 1) {
+                                container.addView(devider);
+                                LinearLayoutCompat.LayoutParams deviderParam = (LinearLayoutCompat.LayoutParams) devider.getLayoutParams();
+                                deviderParam.height = 1;
+                                deviderParam.width = LinearLayoutCompat.LayoutParams.MATCH_PARENT;
+                                devider.setPadding(20,0,20,0);
+                                devider.setBackgroundColor(getResources().getColor(R.color.white));
+                                devider.setLayoutParams(deviderParam);
+                            }
+                            LinearLayoutCompat.LayoutParams layoutParams = (LinearLayoutCompat.LayoutParams) tv.getLayoutParams();
+                            layoutParams.height = LinearLayoutCompat.LayoutParams.WRAP_CONTENT;
+                            layoutParams.width = LinearLayoutCompat.LayoutParams.WRAP_CONTENT;
+
+
+
+                            tv.setTextColor(getResources().getColor(R.color.white));
+                            tv.setPadding(40,40,40,40);
+
+                            tv.setLayoutParams(layoutParams);
+
+                            tv.setText(alertMessageResponses.get(i).getSMSTextDisplay());
+                        }
                         ImageView close = dialog.findViewById(R.id.ivCross);
 
-                        tv.setText(alertMessageResponses.get(0).getSMSTextDisplay());
+
                         close.setOnClickListener(v -> {
                             dialog.dismiss();
                         });
@@ -201,25 +230,22 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         });
 
 
-        integratedServicesViewModel.getApiError().observe(this,s -> {
-            Toast.makeText(this, ""+s, Toast.LENGTH_SHORT).show();
+        integratedServicesViewModel.getApiError().observe(this, s -> {
+            Toast.makeText(this, "" + s, Toast.LENGTH_SHORT).show();
         });
 
 
     }
 
 
-
     private void checkforAlertMsg(String data) {
-        if(Misc.isNetworkAvailable(this)) {
+        if (Misc.isNetworkAvailable(this)) {
             Misc.disableScreenTouch(this);
             integratedServicesViewModel.getAlertMessage(data);
-        }
-        else
-        {
+        } else {
             ColorDialog colorDialog = MyColorDialog.getInstance(this);
             colorDialog.setContentText("Please check your Internet connection and retry");
-            colorDialog.setPositiveListener("RETRY", ColorDialog->{
+            colorDialog.setPositiveListener("RETRY", ColorDialog -> {
                 ColorDialog.dismiss();
                 checkforAlertMsg(SharedPref.getInstance(this).getData(AGENT_ID));
             });
@@ -282,25 +308,20 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
         switch (id) {
             case R.id.nav_premium_calculator:
-                if(isSalaried)
-                {
-                    if(startAttendanceGiven && endAttendanceGiven)
-                    {
+                if (isSalaried) {
+                    if (startAttendanceGiven && endAttendanceGiven) {
 
-                    }
-                    else if (startAttendanceGiven) {
+                    } else if (startAttendanceGiven) {
                         loadFragment(new PremiumCalculatorFragment());
                     } else {
                         Toast.makeText(this, getString(R.string.make_your_attendance), Toast.LENGTH_SHORT).show();
                     }
-                }
-                else
-                {
+                } else {
                     loadFragment(new PremiumCalculatorFragment());
                 }
 
                 break;
-                case R.id.nav_change_password:
+            case R.id.nav_change_password:
 
                 loadFragment(new ChangePasswordFragment());
 
@@ -319,20 +340,15 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                 }*/
                 break;
             case R.id.nav_locate_us:
-                if(isSalaried)
-                {
-                    if(startAttendanceGiven && endAttendanceGiven)
-                    {
+                if (isSalaried) {
+                    if (startAttendanceGiven && endAttendanceGiven) {
 
-                    }
-                    else if (startAttendanceGiven) {
+                    } else if (startAttendanceGiven) {
                         startActivity(new Intent(this, LocateUsActivity.class));
                     } else {
                         Toast.makeText(this, getString(R.string.make_your_attendance), Toast.LENGTH_SHORT).show();
                     }
-                }
-                else
-                {
+                } else {
                     startActivity(new Intent(this, LocateUsActivity.class));
                 }
 

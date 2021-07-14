@@ -19,6 +19,7 @@ import com.project.integratedservices.R;
 import com.project.integratedservices.integratedServicesForAllTypes.viewModel.IntegratedServicesViewModel;
 import com.project.integratedservices.repository.authencationRepo.remote.response.userDetails.UserDetailsResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.menu_status_response.MenueStatusResponse;
+import com.project.supportClasses.Misc;
 import com.project.supportClasses.SharedPref;
 
 import java.util.List;
@@ -173,6 +174,7 @@ public class MisReportActivity extends AppCompatActivity {
     private void obsevMenueStatus() {
         integratedServicesViewModel.getMenueStatusLiveData().observe(this, menueStatusResponses -> {
             spinKitView.setVisibility(View.GONE);
+            Misc.enableScreenTouch(this);
             if (menueStatusResponses != null) {
                 if (!menueStatusResponses.isEmpty()) {
                     checkAndSetStatus(cvBranchWiseBusiness, tvBranchWiseBussiness, menueStatusResponses);
@@ -195,6 +197,7 @@ public class MisReportActivity extends AppCompatActivity {
 
 
     private void getMenuEnableOrDisable() {
+        Misc.disableScreenTouch(this);
         UserDetailsResponse userDetailsResponse = new Gson().fromJson(SharedPref.getInstance(this).getData(USER_DETAILS), UserDetailsResponse.class);
         String roleId = userDetailsResponse.getRoleId();
         spinKitView.setVisibility(View.VISIBLE);

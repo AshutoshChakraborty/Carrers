@@ -499,6 +499,7 @@ public class DashboardFragment extends Fragment {
 
     private void obsevMenueStatus() {
         integratedServicesViewModel.getMenueStatusLiveData().observe(this, menueStatusResponses -> {
+            Misc.enableScreenTouch(getActivity());
             if (menueStatusResponses != null) {
                 if (!menueStatusResponses.isEmpty()) {
                     checkAndSetStatus(attendance, tvAttendance, ivAttendance,menueStatusResponses);
@@ -510,13 +511,14 @@ public class DashboardFragment extends Fragment {
                     checkAndSetStatus(cvMISReport, tvMisReport, ivMisReport,menueStatusResponses);
                     checkAndSetStatus(agentJoiningCard, tv_agent_joining, iv_agent_joining,menueStatusResponses);
                     checkAndSetStatus(materialCardViewMessage, tvMisReport1, ivMisReport1,menueStatusResponses);
-//                    checkAndSetStatus(cvCircular, tvCircular, ivCircular,menueStatusResponses);
+                    checkAndSetStatus(cvCircular, tvCircular, ivCircular,menueStatusResponses);
                 }
             }
         });
     }
 
     private void getMenuEnableOrDisable() {
+        Misc.disableScreenTouch(getActivity());
         UserDetailsResponse userDetailsResponse = new Gson().fromJson(SharedPref.getInstance(getActivity()).getData(USER_DETAILS), UserDetailsResponse.class);
         String roleId = userDetailsResponse.getRoleId();
         integratedServicesViewModel.getMenueStatus(roleId);

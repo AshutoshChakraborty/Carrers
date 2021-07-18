@@ -175,10 +175,17 @@ public class CircularActivity extends AppCompatActivity implements CircularAdapt
     }
 
     private void showPdf(CircularResponse team) {
-        String url = "https://docs.google.com/gview?embedded=true&url=http://www.webzeminiprint.in/CIRCULAR/"+team.getFileName();
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(url));
-        startActivity(i);
+        if (team.getFileName().contains(".pdf")) {
+            String url = "https://docs.google.com/gview?embedded=true&url=http://www.webzeminiprint.in/CIRCULAR/" + team.getFileName();
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        } else {
+            String url = "http://www.webzeminiprint.in/CIRCULAR/" + team.getFileName();
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        }
 
     }
 

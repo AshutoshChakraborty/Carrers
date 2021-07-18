@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -20,6 +21,8 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.message_response.SmsDetailsResposne;
 
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CircularAdapter extends RecyclerView.Adapter<CircularAdapter.MyViewHolder> {
 
@@ -78,6 +81,12 @@ public class CircularAdapter extends RecyclerView.Adapter<CircularAdapter.MyView
             holder.tvDesignation.setVisibility(View.VISIBLE);
         }
 
+        if (teamDetailsResponses.get(position).getFileName().contains(".pdf")) {
+            holder.ivIntroducerPic.setImageResource(R.drawable.ic_baseline_picture_as_pdf_24);
+        } else {
+            holder.ivIntroducerPic.setImageResource(R.drawable.ic_baseline_image_24);
+        }
+
 
         holder.ivInfo.setOnClickListener(v -> {
             handleClick.handleClick(teamDetailsResponses.get(position));
@@ -95,6 +104,7 @@ public class CircularAdapter extends RecyclerView.Adapter<CircularAdapter.MyView
         LinearLayoutCompat llparent;
         AppCompatImageView ivInfo;
         MaterialCardView parent;
+        CircleImageView ivIntroducerPic;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -106,6 +116,7 @@ public class CircularAdapter extends RecyclerView.Adapter<CircularAdapter.MyView
             parent = itemView.findViewById(R.id.parent);
             rank = itemView.findViewById(R.id.tv_rank);
             code = itemView.findViewById(R.id.tvCode);
+            ivIntroducerPic = itemView.findViewById(R.id.ivIntroducerPic);
 
         }
     }

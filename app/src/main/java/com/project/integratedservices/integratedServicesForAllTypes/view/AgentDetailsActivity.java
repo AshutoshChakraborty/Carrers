@@ -57,6 +57,8 @@ public class AgentDetailsActivity extends AppCompatActivity {
     private TextView dateFromTo9;
     private TextView dateFromTo10;
     private AppCompatTextView dateFromTo11;
+    private String startApiDateFormat;
+    private String endApiDateFormat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,8 +132,8 @@ public class AgentDetailsActivity extends AppCompatActivity {
                     pb.setVisibility(View.VISIBLE);
                     String loggedInAgentsId = SharedPref.getInstance(this).getData(AGENT_ID);
                     if (tvStartDate.getText() != null && tvEndDate.getText() != null && editEnterCode.getText()!=null) {
-                        integratedServicesViewModel.getAgentDetails(tvStartDate.getText().toString(), tvEndDate.getText().toString(), editEnterCode.getText().toString(), loggedInAgentsId);
-                        integratedServicesViewModel.getMisAgentJoiningDetils(tvStartDate.getText().toString(), tvEndDate.getText().toString(), editEnterCode.getText().toString(), loggedInAgentsId);
+                        integratedServicesViewModel.getAgentDetails(startApiDateFormat, endApiDateFormat, editEnterCode.getText().toString(), loggedInAgentsId);
+                        integratedServicesViewModel.getMisAgentJoiningDetils(startApiDateFormat, endApiDateFormat, editEnterCode.getText().toString(), loggedInAgentsId);
                     } else {
                         Toast.makeText(this, "Please enter all details first", Toast.LENGTH_SHORT).show();
                     }
@@ -188,11 +190,15 @@ public class AgentDetailsActivity extends AppCompatActivity {
                 SimpleDateFormat sdf = new SimpleDateFormat(apiFormat, Locale.ENGLISH);
                 SimpleDateFormat sdfApiFormat = new SimpleDateFormat(myFormat, Locale.ENGLISH);
 
+
                 textView.setText(sdfApiFormat.format(calendar.getTime()));
 
-                if(textView == tvStartDate)
-                {
+                if (textView == tvStartDate) {
                     start = calendar.getTime();
+                    startApiDateFormat = sdf.format(calendar.getTime());
+
+                } else {
+                    endApiDateFormat = sdf.format(calendar.getTime());
                 }
                 setDateFromTo();
             }

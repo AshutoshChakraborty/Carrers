@@ -130,7 +130,7 @@ public interface RetrofitApis {
 
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST("SelfDetails/SelfBusinessDetails")
-    Call<List<BusinessReportResponsePojo>> getBusinessReport(@Query("AgentCode") String agentCode, @Query("StartDate") String startDate, @Query("EndDate") String endDate, @Query("Type") String type);
+    Call<List<BusinessReportResponsePojo>> getBusinessReport(@Query("AgentCode") String agentCode, @Query("StartDate") String startDate, @Query("EndDate") String endDate, @Query("Type") String type,@Query("LGCode") String LGCode);
 
 
     @Headers({"Content-Type: application/json", "Accept: application/json"})

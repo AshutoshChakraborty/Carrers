@@ -167,6 +167,28 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/grey"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_8sdp"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_bussiness_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="NEW DELHI"
+                android:textColor="@android:color/darker_gray"
+                android:fontFamily="@font/roboto_medium"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <View

@@ -170,7 +170,11 @@ public class BusinessReportFragment extends Fragment {
                     if (rd_all.isChecked()) {
                         agentCode = "0";
                     } else {
-                        agentCode = et_agentcode.getText().toString();
+                        if (et_agentcode.getText().toString().isEmpty()) {
+                            agentCode = "0";
+                        } else {
+                            agentCode = et_agentcode.getText().toString();
+                        }
                     }
                     rvBusinessReport.setVisibility(View.INVISIBLE);
                     ((DashboardActivity) getActivity()).spinKitView.setVisibility(View.VISIBLE);
@@ -183,7 +187,10 @@ public class BusinessReportFragment extends Fragment {
                         requestPojo.setType("2");
                     else
                         requestPojo.setType("1");
-                    integratedServicesViewModel.getBusinessReport(requestPojo);
+
+
+                    String loggedInAgentsId = SharedPref.getInstance(getActivity()).getData(AGENT_ID);
+                    integratedServicesViewModel.getBusinessReport(requestPojo,loggedInAgentsId);
                 }
                 else
                 {

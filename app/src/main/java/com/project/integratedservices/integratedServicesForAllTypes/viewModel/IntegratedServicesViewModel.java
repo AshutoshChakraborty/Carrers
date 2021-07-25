@@ -751,8 +751,8 @@ public class IntegratedServicesViewModel extends ViewModel {
         });
     }
 
-    public void getBusinessReport(BusinessReportRequestPojo requestPojo) {
-        apiClient.getBusinessReport(requestPojo.getAgentCode(), requestPojo.getStartDate(), requestPojo.getEndDate(), requestPojo.getType()).enqueue(new Callback<List<BusinessReportResponsePojo>>() {
+    public void getBusinessReport(BusinessReportRequestPojo requestPojo,String loginId) {
+        apiClient.getBusinessReport(requestPojo.getAgentCode(), requestPojo.getStartDate(), requestPojo.getEndDate(), requestPojo.getType(),loginId).enqueue(new Callback<List<BusinessReportResponsePojo>>() {
             @Override
             public void onResponse(Call<List<BusinessReportResponsePojo>> call, Response<List<BusinessReportResponsePojo>> response) {
                 businessReportResponseLiveData.setValue(response.body());

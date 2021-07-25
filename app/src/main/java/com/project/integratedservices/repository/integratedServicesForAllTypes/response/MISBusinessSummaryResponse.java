@@ -10,7 +10,7 @@ public class MISBusinessSummaryResponse implements Serializable
 
     @SerializedName("Branch_Code")
     @Expose
-    private Integer branchCode;
+    private String branchCode;
     @SerializedName("Branch_Name")
     @Expose
     private String branchName;
@@ -22,23 +22,31 @@ public class MISBusinessSummaryResponse implements Serializable
     private String companyName;
     @SerializedName("NoOfPolicy")
     @Expose
-    private Integer noOfPolicy;
+    private String noOfPolicy;
     @SerializedName("ActualPremium")
     @Expose
-    private Integer actualPremium;
-    @SerializedName("Premium_Amt")
+    private String actualPremium;
+    @SerializedName("PremiumAmount")
     @Expose
-    private Integer premiumAmt;
+    private String premiumAmt;
     @SerializedName("Status")
     @Expose
     private String status;
+    @SerializedName("BusinessDate")
+    @Expose
+    private String BusinessDate;
+
+    @SerializedName("Weightage")
+    @Expose
+    private String Weightage;
+
     private final static long serialVersionUID = -1744910674576018680L;
 
-    public Integer getBranchCode() {
+    public String getBranchCode() {
         return branchCode;
     }
 
-    public void setBranchCode(Integer branchCode) {
+    public void setBranchCode(String branchCode) {
         this.branchCode = branchCode;
     }
 
@@ -66,27 +74,27 @@ public class MISBusinessSummaryResponse implements Serializable
         this.companyName = companyName;
     }
 
-    public Integer getNoOfPolicy() {
+    public String getNoOfPolicy() {
         return noOfPolicy;
     }
 
-    public void setNoOfPolicy(Integer noOfPolicy) {
+    public void setNoOfPolicy(String noOfPolicy) {
         this.noOfPolicy = noOfPolicy;
     }
 
-    public Integer getActualPremium() {
+    public String getActualPremium() {
         return actualPremium;
     }
 
-    public void setActualPremium(Integer actualPremium) {
+    public void setActualPremium(String actualPremium) {
         this.actualPremium = actualPremium;
     }
 
-    public Integer getPremiumAmt() {
+    public String getPremiumAmt() {
         return premiumAmt;
     }
 
-    public void setPremiumAmt(Integer premiumAmt) {
+    public void setPremiumAmt(String premiumAmt) {
         this.premiumAmt = premiumAmt;
     }
 
@@ -98,4 +106,19 @@ public class MISBusinessSummaryResponse implements Serializable
         this.status = status;
     }
 
+    public String getBusinessDate() {
+        return BusinessDate;
+    }
+
+    public void setBusinessDate(String businessDate) {
+        BusinessDate = businessDate;
+    }
+
+    public String getWeightage() {
+        return Weightage;
+    }
+
+    public void setWeightage(String weightage) {
+        Weightage = weightage;
+    }
 }

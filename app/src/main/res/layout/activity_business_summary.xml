@@ -324,7 +324,7 @@
                             <androidx.appcompat.widget.AppCompatTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="ACTUAL PREMIUM"
+                                android:text="Weightage"
                                 android:textColor="@android:color/white"
                                 android:fontFamily="@font/roboto_bold"/>
 
@@ -347,6 +347,26 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="PREMIUM AMOUNT"
+                                android:textColor="@android:color/white"
+                                android:fontFamily="@font/roboto_bold"/>
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/grey"/>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:paddingVertical="@dimen/_8sdp"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="BUSINESS DATE"
                                 android:textColor="@android:color/white"
                                 android:fontFamily="@font/roboto_bold"/>
 

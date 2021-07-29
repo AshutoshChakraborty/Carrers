@@ -20,6 +20,7 @@ import com.project.integratedservices.R;
 import com.project.integratedservices.integratedServicesForAllTypes.viewModel.IntegratedServicesViewModel;
 import com.project.supportClasses.Misc;
 import com.project.supportClasses.MyColorDialog;
+import com.project.supportClasses.SharedPref;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -88,7 +89,7 @@ public class BusinessSummaryActivity extends AppCompatActivity {
                     Misc.disableScreenTouch(this);
                     pb.setVisibility(View.VISIBLE);
 
-                    integratedServicesViewModel.submitMISIndividualBusinessDetails(tvStartDate.getText().toString(),tvEndDate.getText().toString());
+                    integratedServicesViewModel.submitMISIndividualBusinessDetails(tvStartDate.getText().toString(),tvEndDate.getText().toString(), SharedPref.getInstance(this).getData(SharedPref.AGENT_ID));
                 }
                 else
                 {

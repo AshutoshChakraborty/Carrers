@@ -1105,8 +1105,8 @@ public class IntegratedServicesViewModel extends ViewModel {
         });
     }
 
-    public void submitMISIndividualBusinessDetails(String startdate, String enddate) {
-        apiClient.submitMISBusinessSummary(startdate, enddate).enqueue(new Callback<List<MISBusinessSummaryResponse>>() {
+    public void submitMISIndividualBusinessDetails(String startdate, String enddate,String uid) {
+        apiClient.submitMISBusinessSummary(startdate, enddate,uid).enqueue(new Callback<List<MISBusinessSummaryResponse>>() {
             @Override
             public void onResponse(Call<List<MISBusinessSummaryResponse>> call, Response<List<MISBusinessSummaryResponse>> response) {
                 misBusinessSummaryResponseLiveData.setValue(response.body());

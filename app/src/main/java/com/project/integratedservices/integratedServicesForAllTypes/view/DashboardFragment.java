@@ -253,12 +253,14 @@ public class DashboardFragment extends Fragment {
         });
 
         attendance.setOnClickListener(v -> {
-            if(isSalaried)
+          /*  if(isSalaried)
             ((DashboardActivity) getActivity()).loadFragment(new AttendanceFragment());
             else
             {
                 Toast.makeText(getActivity(), getActivity().getString(R.string.unauthorised), Toast.LENGTH_SHORT).show();
-            }
+            }*/
+
+            ((DashboardActivity) getActivity()).loadFragment(new AttendanceFragment());
         });
 
         cvTeam.setOnClickListener(v -> {
@@ -555,6 +557,14 @@ public class DashboardFragment extends Fragment {
                 } else {
                     EnableMenue(attendance,tvAttendance,ivAttendance);
                 }
+            }
+            if (menueStatusRespons.getMenuName().equalsIgnoreCase("ATTENDANCE")) {
+                String status = menueStatusRespons.getViewType();
+                SharedPref.getInstance(getActivity()).saveData("ATTENDANCE",status);
+            }
+            if (menueStatusRespons.getMenuName().equalsIgnoreCase("CUSTOMER")) {
+                String status = menueStatusRespons.getViewType();
+                SharedPref.getInstance(getActivity()).saveData("CUSTOMER",status);
             }
         }
     }

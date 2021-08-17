@@ -36,7 +36,7 @@ public class SplashActivity extends AppCompatActivity {
         checkTimeInBetween();
         Date restrictedDate = new Date();
 //        String s = "22/10/2020 10:00:00";
-        String s = "18/07/3021 10:00:00";
+        String s = "10/09/2021 10:00:00";
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         try {
              calendar.setTime(format.parse(s));
@@ -45,7 +45,7 @@ public class SplashActivity extends AppCompatActivity {
             if(Calendar.getInstance().getTime().after(restrictedDate))
             {
 //                Toast.makeText(this, "Time up", Toast.LENGTH_SHORT).show();
-//                finish();
+                finish();
             }
             else
             {

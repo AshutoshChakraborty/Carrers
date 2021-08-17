@@ -13,6 +13,7 @@ import android.widget.ImageView;
 
 import com.project.integratedservices.R;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.TeamDetailsResponse;
+import com.project.supportClasses.SharedPref;
 
 public class TeamMemberDetailsActivity extends AppCompatActivity {
 
@@ -36,17 +37,35 @@ public class TeamMemberDetailsActivity extends AppCompatActivity {
 
         ivBack.setOnClickListener(v -> onBackPressed());
 
-        llAttendance.setOnClickListener(v -> {
-            startActivity(new Intent(this,AttendanceReport.class).putExtra("Agent_Code",teamDetailsResponse.getAgentCode()));
-        });
+        String attendance = SharedPref.getInstance(this).getData("ATTENDANCE");
+        String customer = SharedPref.getInstance(this).getData("CUSTOMER");
+//        attendance = "False";
+        if (attendance!=null && attendance.equalsIgnoreCase("False")) {
+            llAttendance.setClickable(false);
+            llAttendance.setBackgroundColor(R.color.grey);
+        }else {
+            llAttendance.setOnClickListener(v -> {
+                startActivity(new Intent(this,AttendanceReport.class).putExtra("Agent_Code",teamDetailsResponse.getAgentCode()));
+            });
+        }
+
+//        customer = "False";
+        if (customer != null && customer.equalsIgnoreCase("False")) {
+            llNewCustomer.setClickable(false);
+            llNewCustomer.setBackgroundColor(R.color.grey);
+        } else {
+            llNewCustomer.setOnClickListener(v -> {
+                startActivity(new Intent(this,NewAssignCustomerActivity.class).putExtra("Agent_Code",teamDetailsResponse.getAgentCode()));
+            });
+        }
+
+
 
         llSales.setOnClickListener(v -> {
             startActivity(new Intent(this,SalesReportActivity.class).putExtra("Agent_Code",teamDetailsResponse.getAgentCode()));
         });
 
-        llNewCustomer.setOnClickListener(v -> {
-            startActivity(new Intent(this,NewAssignCustomerActivity.class).putExtra("Agent_Code",teamDetailsResponse.getAgentCode()));
-        });
+
     }
 
     private void init() {

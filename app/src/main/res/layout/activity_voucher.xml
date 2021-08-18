@@ -161,7 +161,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:fontFamily="@font/roboto_medium"
-                android:hint="Agent Code"
+                android:hint="Ref No"
                 android:inputType="number"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

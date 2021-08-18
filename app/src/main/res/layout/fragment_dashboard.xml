@@ -99,7 +99,7 @@
                                     <androidx.appcompat.widget.AppCompatTextView
                                         android:layout_width="wrap_content"
                                         android:id="@+id/tvAgentCode1"
-                                        tools:text="Salt Lake Branch"
+                                        tools:text="Ref No Branch"
                                         android:textSize="@dimen/_10ssp"
                                         android:fontFamily="@font/roboto_bold"
                                         android:textColor="#03EAE3"
@@ -195,7 +195,7 @@
                                     <androidx.appcompat.widget.AppCompatTextView
                                         android:layout_width="wrap_content"
                                         android:id="@+id/tvAgentCode"
-                                        tools:text="Agent Code #3562"
+                                        tools:text="Ref No #3562"
                                         android:textSize="@dimen/_10ssp"
                                         android:fontFamily="@font/roboto_bold"
                                         android:textColor="#141173"

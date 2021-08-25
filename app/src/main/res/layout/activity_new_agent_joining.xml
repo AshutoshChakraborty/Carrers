@@ -39,7 +39,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center_vertical"
-            android:text="New Agent Joining"
+            android:text="@string/agent_joining"
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="@dimen/_14ssp" />
@@ -110,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_weight="0.5"
-                    android:hint="Introducer Code">
+                    android:hint="@string/refree_number">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/inputintroducerCode"
@@ -163,7 +163,7 @@
                     android:layout_centerVertical="true"
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="center_vertical"
-                    android:text="Introducer Code"
+                    android:text="@string/refree_number"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/_12ssp" />
 
@@ -199,7 +199,7 @@
                     android:layout_centerVertical="true"
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="center_vertical"
-                    android:text="Introducer Name"
+                    android:text="@string/introducer"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/_12ssp" />
 
@@ -312,7 +312,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:hint="Joining Branch">
+                android:hint="Branch">
 
                 <AutoCompleteTextView
                     android:id="@+id/joiningBranch"
@@ -394,7 +394,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:enabled="false"
-                android:hint="Grad">
+                android:hint="Grade">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/grd"
@@ -406,6 +406,7 @@
                 android:id="@+id/bagGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:checkedButton="@id/withBag"
                 android:orientation="horizontal">
 
@@ -484,7 +485,7 @@
                         android:gravity="center"
                         android:layout_marginTop="@dimen/_8sdp"
                         android:layout_marginBottom="@dimen/_8sdp"
-                        android:text="Joining Details"
+                        android:text="Enrollment Details"
                         android:layout_gravity="center_vertical"
                         android:textAllCaps="true"
                         android:textColor="@color/colorPrimaryDark"
@@ -825,7 +826,6 @@
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/itIsStat"
-
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
@@ -833,6 +833,7 @@
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="center_vertical"
                             android:text="Item Issue Status"
+                            android:visibility="gone"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/_12ssp" />
 
@@ -843,6 +844,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:focusable="true"
+                            android:visibility="gone"
                             android:focusableInTouchMode="true"
                             android:layout_toEndOf="@+id/itIsStat"
                             android:fontFamily="@font/roboto_medium"

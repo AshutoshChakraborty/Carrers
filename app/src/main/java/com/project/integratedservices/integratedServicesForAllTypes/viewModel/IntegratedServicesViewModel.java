@@ -1227,7 +1227,7 @@ public class IntegratedServicesViewModel extends ViewModel {
             @Override
             public void onResponse(Call<List<BranchwiseJoiningResponse>> call, Response<List<BranchwiseJoiningResponse>> response) {
                 if (response.body() != null) {
-                    Log.e("branch joining", new Gson().toJson(response.body()));
+                    Log.e("branch Enrollment", new Gson().toJson(response.body()));
                     mBranchWiseJoiningResponseLiveData.setValue(response.body());
                 }
             }

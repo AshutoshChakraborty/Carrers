@@ -27,7 +27,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center_vertical"
-            android:text="Agent Commission Details"
+            android:text="Remuneration Details"
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="@dimen/_14ssp" />
@@ -113,7 +113,7 @@
             android:layout_marginBottom="@dimen/_10sdp"
             android:ems="10"
             android:fontFamily="@font/roboto_regular"
-            android:hint="Agent Code"
+            android:hint="@string/ref_no"
             android:imeOptions="actionNext"
             android:maxLength="100"
             android:textSize="@dimen/_12ssp" />
@@ -185,7 +185,8 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_bold"
                             android:gravity="center"
-                            android:text="AG_CODE"
+                            android:text="@string/ref_no"
+                            android:textAllCaps="true"
                             android:textColor="@android:color/white" />
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -207,7 +208,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="AG_NAME"
+                            android:text="Ref Name"
+                            android:textAllCaps="true"
                             android:textColor="@android:color/white" />
 
                     </androidx.appcompat.widget.LinearLayoutCompat>

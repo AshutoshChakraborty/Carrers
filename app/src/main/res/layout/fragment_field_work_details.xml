@@ -142,7 +142,7 @@
                     android:layout_centerVertical="true"
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="center_vertical"
-                    android:text="Introducer"
+                    android:text="@string/introducer"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/_12ssp" />
 
@@ -214,7 +214,7 @@
                     android:layout_centerVertical="true"
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="center_vertical"
-                    android:text="Date of Joining"
+                    android:text="Date of Enrollment"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/_12ssp" />
 

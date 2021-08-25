@@ -9,13 +9,15 @@
     <string name="nav_header_subtitle">johnDoe@gmail.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-    <string name="agent">NAME</string>
-    <string name="introducer">Introducer</string>
+    <string name="agent">MYSELF</string>
+    <string name="introducer">Referee</string>
+    <string name="refree_number">Referee Number</string>
+    <string name="ref_no">Ref No</string>
     <string name="attendance">Attendance</string>
-    <string name="customer">Customer</string>
+    <string name="customer">Contacts</string>
     <string name="available_plan">Available Plans</string>
     <string name="new_assign_customer">New Assign\nCustomer</string>
-    <string name="team">Team</string>
+    <string name="team">Group</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -65,4 +67,5 @@
     <string name="agent_joining">Enrollment</string>
     <string name="message">MESSAGE</string>
     <string name="circular">CIRCULAR</string>
+    <string name="statement">Statement</string>
 </resources>

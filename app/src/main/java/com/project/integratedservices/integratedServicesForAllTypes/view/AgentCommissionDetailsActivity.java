@@ -113,7 +113,7 @@ public class AgentCommissionDetailsActivity extends AppCompatActivity {
 
     private boolean validated() {
         if (agentcodeValue.getText().toString().isEmpty()) {
-            Toast.makeText(this, "Please Enter Agent Code", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please Enter Ref Number", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;

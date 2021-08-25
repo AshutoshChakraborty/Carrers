@@ -41,7 +41,7 @@ public class AgentDetails extends AppCompatActivity {
                 (tab, position) -> {
                     switch (position) {
                         case 0:
-                            tab.setText("Field Work Detail");
+                            tab.setText("Personal Details");
                             break;
                         case 1:
                             tab.setText("Bank Detail");
@@ -50,7 +50,7 @@ public class AgentDetails extends AppCompatActivity {
                             tab.setText("Promotion Detail");
                             break;
                         case 3:
-                            tab.setText("Voucher Detail");
+                            tab.setText("Statement Detail");
                             break;
                         case 4:
                             tab.setText("Payment Detail");
@@ -67,7 +67,7 @@ public class AgentDetails extends AppCompatActivity {
                 viewPager.setAdapter(agenttabadapter);
 
             } else {
-                Toast.makeText(this, "Please enter agent code", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Please enter Ref Number", Toast.LENGTH_SHORT).show();
             }
 
         });

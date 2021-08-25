@@ -26,7 +26,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center_vertical"
-            android:text="AGENT JOINING DETAILS"
+            android:text="ENROLLMENT DETAILS"
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="@dimen/_14ssp" />
@@ -182,7 +182,7 @@
                         android:layout_centerVertical="true"
                         android:fontFamily="@font/roboto_medium"
                         android:gravity="center_vertical"
-                        android:text="Agent: "
+                        android:text="Ref: "
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/_12ssp" />
 
@@ -293,7 +293,7 @@
                         android:layout_centerVertical="true"
                         android:fontFamily="@font/roboto_medium"
                         android:gravity="center_vertical"
-                        android:text="Introducer Code: "
+                        android:text="@string/introducer"
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/_12ssp" />
 
@@ -441,7 +441,7 @@
                         android:layout_centerVertical="true"
                         android:fontFamily="@font/roboto_medium"
                         android:gravity="center_vertical"
-                        android:text="Total Number of Joining: "
+                        android:text="Total Number of Enrollment: "
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/_12ssp" />
 
@@ -555,7 +555,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/roboto_bold"
-                                    android:text="Code"
+                                    android:text="@string/ref_no"
                                     android:textAllCaps="true"
                                     android:textColor="@android:color/white" />
 
@@ -600,7 +600,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/roboto_bold"
-                                    android:text="Introducer"
+                                    android:text="@string/introducer"
                                     android:textAllCaps="true"
                                     android:textColor="@android:color/white" />
 

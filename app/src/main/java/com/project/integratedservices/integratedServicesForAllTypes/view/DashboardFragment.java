@@ -370,8 +370,8 @@ public class DashboardFragment extends Fragment {
         tvBranchName.setText(userDetails.getBranchName());
 //        llEmployee.setVisibility(View.VISIBLE);
         tvIntroducerName.setText(userDetails.getIntroName());
-        tvAgentCode.setText("Ref No #"+userDetails.getIntroCode());
-        tvAgentCode1.setText("Ref No #" + SharedPref.getInstance(getActivity()).getData(AGENT_ID));
+        tvAgentCode.setText(""+userDetails.getIntroCode());
+        tvAgentCode1.setText("" + SharedPref.getInstance(getActivity()).getData(AGENT_ID));
         tvBranchName1.setText(userDetails.getIntroBranch());
 
 //        if(SharedPref.getInstance(getActivity()).getData(SharedPref.LOGIN_TYPE).equals(Constants.LOGIN_TYPE_AGENT))

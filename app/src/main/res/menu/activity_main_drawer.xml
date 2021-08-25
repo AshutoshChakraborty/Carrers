@@ -8,10 +8,10 @@
 <!--                android:id="@+id/nav_travelling_allowance"-->
 <!--                android:icon="@drawable/ic_delivery_truck"-->
 <!--                android:title="Travelling Allowance"/>-->
-        <item
-                android:id="@+id/nav_premium_calculator"
-                android:icon="@drawable/ic_calculator"
-                android:title="Premium Calculator"/>
+<!--        <item-->
+<!--                android:id="@+id/nav_premium_calculator"-->
+<!--                android:icon="@drawable/ic_calculator"-->
+<!--                android:title="Premium Calculator"/>-->
 <!--        <item-->
 <!--                android:id="@+id/nav_business_report"-->
 <!--                android:icon="@drawable/ic_report"-->

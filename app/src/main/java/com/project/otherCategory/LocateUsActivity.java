@@ -112,9 +112,11 @@ public class LocateUsActivity extends FragmentActivity implements OnMapReadyCall
             markersList.add(mMap.addMarker(new MarkerOptions().position(new LatLng(Double.parseDouble(response.getLatitude()),Double.parseDouble(response.getLongitude()))).title(response.getBranchName())));
         }
 
-        builder = new LatLngBounds.Builder();
-        for (Marker m : markersList) {
-            builder.include(m.getPosition());
+        if(!markersList.isEmpty() ) {
+            builder = new LatLngBounds.Builder();
+            for (Marker m : markersList) {
+                builder.include(m.getPosition());
+            }
         }
 
         //**initialize the padding for map boundary*//*

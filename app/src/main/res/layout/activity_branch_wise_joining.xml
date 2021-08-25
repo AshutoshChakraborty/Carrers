@@ -26,7 +26,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center_vertical"
-            android:text="Branch Wise Joining"
+            android:text="Branch Wise Enrollment"
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="@dimen/_14ssp" />
@@ -227,7 +227,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_bold"
                             android:gravity="center"
-                            android:text="AGENT CODE"
+                            android:text="@string/ref_no"
                             android:textColor="@android:color/white" />
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -271,7 +271,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="AGENT NAME"
+                            android:text="@string/introducer"
                             android:textColor="@android:color/white" />
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -292,7 +292,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="JOINING DATE"
+                            android:text="Enrollment DATE"
+                            android:textAllCaps="true"
                             android:textColor="@android:color/white" />
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -313,7 +314,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="NO OF JOINING"
+                            android:text="NO OF Enrollment"
+                            android:textAllCaps="true"
                             android:textColor="@android:color/white" />
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -357,7 +359,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="INTRODUCER CODE"
+                            android:text="@string/refree_number"
                             android:textColor="@android:color/white" />
 
                     </androidx.appcompat.widget.LinearLayoutCompat>

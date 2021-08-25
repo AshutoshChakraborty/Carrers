@@ -332,7 +332,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="center"
-                        android:text="Voucher"
+                        android:text="@string/statement"
                         android:textColor="#141173"
                         android:textSize="@dimen/_8ssp"
                         app:textAllCaps="true" />
@@ -374,7 +374,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="center"
-                        android:text="Branch Wise Joining"
+                        android:text="Branch Wise Enrollment"
                         android:textColor="#141173"
                         android:textSize="@dimen/_8ssp"
                         app:textAllCaps="true" />
@@ -417,7 +417,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="center"
-                        android:text="AGENT JOINING DETAILS"
+                        android:textAllCaps="true"
+                        android:text="Enrollment DETAILS"
                         android:textColor="#141173"
                         android:textSize="@dimen/_8ssp"
                         app:textAllCaps="true" />
@@ -460,7 +461,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="center"
-                        android:text="Agent Commission Details"
+                        android:text="Remuneration Details"
                         android:textColor="#141173"
                         android:textSize="@dimen/_8ssp"
                         app:textAllCaps="true" />
@@ -546,7 +547,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="center"
-                        android:text="Agent Details"
+                        android:text="Personal Details"
                         android:textColor="#141173"
                         android:textSize="@dimen/_8ssp"
                         app:textAllCaps="true" />

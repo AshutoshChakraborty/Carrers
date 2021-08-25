@@ -307,20 +307,20 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         int id = item.getItemId();
 
         switch (id) {
-            case R.id.nav_premium_calculator:
-                if (isSalaried) {
-                    if (startAttendanceGiven && endAttendanceGiven) {
-
-                    } else if (startAttendanceGiven) {
-                        loadFragment(new PremiumCalculatorFragment());
-                    } else {
-                        Toast.makeText(this, getString(R.string.make_your_attendance), Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    loadFragment(new PremiumCalculatorFragment());
-                }
-
-                break;
+//            case R.id.nav_premium_calculator:
+//                if (isSalaried) {
+//                    if (startAttendanceGiven && endAttendanceGiven) {
+//
+//                    } else if (startAttendanceGiven) {
+//                        loadFragment(new PremiumCalculatorFragment());
+//                    } else {
+//                        Toast.makeText(this, getString(R.string.make_your_attendance), Toast.LENGTH_SHORT).show();
+//                    }
+//                } else {
+//                    loadFragment(new PremiumCalculatorFragment());
+//                }
+//
+//                break;
             case R.id.nav_change_password:
 
                 loadFragment(new ChangePasswordFragment());

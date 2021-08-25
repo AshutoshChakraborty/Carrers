@@ -80,7 +80,7 @@ public class NewAgentJoiningActivity extends AppCompatActivity {
     private String agentId;
     private String branchId;
     private String gender;
-    private String enrollAmount;
+    private String enrollAmount = "0";
     private String dateOfBirth;
     private String companyId;
     private ImageView ivBack;
@@ -106,7 +106,7 @@ public class NewAgentJoiningActivity extends AppCompatActivity {
         viewButton.setOnClickListener(v -> {
 
             if (inputintroducerCode.getText().toString().isEmpty()) {
-                Toast.makeText(this, "Please enter Introducer code", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Please enter Referee number", Toast.LENGTH_SHORT).show();
             } else {
                 pb.setVisibility(View.VISIBLE);
                 callIntroDetailsApi();
@@ -135,9 +135,9 @@ public class NewAgentJoiningActivity extends AppCompatActivity {
         }
         RadioButton bagRadio = (RadioButton) findViewById(bagChecked);
         if (bagRadio.getText().toString().equalsIgnoreCase("With Bag")) {
-            enrollAmount = "1400";
+            enrollAmount = "0";
         } else {
-            enrollAmount = "600";
+            enrollAmount = "0";
         }
 
         dateOfBirth = dob.getText().toString();
@@ -151,7 +151,7 @@ public class NewAgentJoiningActivity extends AppCompatActivity {
         } else if (start==null) {
             Toast.makeText(this, "Please provide Date of Birth", Toast.LENGTH_SHORT).show();
         } else if (introducer.isEmpty()) {
-            Toast.makeText(this, "Please provide Introducer", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please provide Referee", Toast.LENGTH_SHORT).show();
         } else if (branchId == null) {
             Toast.makeText(this, "Please select a branch", Toast.LENGTH_SHORT).show();
         } else if (phoneNumber.length() < 10) {

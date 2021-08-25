@@ -28,7 +28,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center_vertical"
-            android:text="Voucher"
+            android:text="@string/statement"
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="@dimen/_14ssp" />

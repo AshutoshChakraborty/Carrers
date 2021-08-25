@@ -53,7 +53,7 @@ public class BusinessReportAdapter extends RecyclerView.Adapter<BusinessReportAd
         if (businessReportResponse.get(position).getStatus().equals("Successful"))
         {
             holder.tvName.setText(businessReportResponse.get(position).getName());
-            holder.tvPolicyNo.setText("Agent Code - "+businessReportResponse.get(position).getAgentCode());
+            holder.tvPolicyNo.setText("Ref Number - "+businessReportResponse.get(position).getAgentCode());
             holder.tvDate.setText("Intro Code - "+businessReportResponse.get(position).getIntroCode());
             holder.tvCollectionAmount.setText("Total Business - RS "+businessReportResponse.get(position).getTotalBusiness());
             holder.tvStatus.setVisibility(View.GONE);

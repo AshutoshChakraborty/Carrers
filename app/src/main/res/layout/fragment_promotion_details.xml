@@ -185,6 +185,7 @@
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="@dimen/_150sdp"
                         android:layout_height="wrap_content"
+                        android:visibility="gone"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:paddingVertical="@dimen/_8sdp">

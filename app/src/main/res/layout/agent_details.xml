@@ -27,7 +27,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center_vertical"
-            android:text="Agent Details"
+            android:text="Personal Details"
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="@dimen/_14ssp" />
@@ -42,7 +42,7 @@
         android:layout_marginTop="@dimen/_16sdp"
         android:ems="10"
         android:fontFamily="@font/roboto_medium"
-        android:hint="Agent Code"
+        android:hint="@string/ref_no"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toStartOf="@+id/cvSubmit"
         app:layout_constraintHorizontal_bias="0.5"

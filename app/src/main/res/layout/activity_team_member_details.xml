@@ -71,7 +71,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:id="@+id/tvAddress"
-                    android:text="Address goes here"
+                    tools:text="Address goes here"
                     android:textSize="@dimen/_12ssp"
                     android:fontFamily="@font/roboto_regular"
                     android:textColor="#524F96"
@@ -105,11 +105,8 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:orientation="horizontal"
-            android:weightSum="3">
-
-
+            android:weightSum="2">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/llAttendance"
@@ -157,6 +154,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:visibility="gone"
                 android:background="@drawable/selectable"
                 android:gravity="center|top">
                 <FrameLayout

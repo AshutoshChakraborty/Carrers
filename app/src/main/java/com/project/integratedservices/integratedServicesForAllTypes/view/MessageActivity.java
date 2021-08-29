@@ -122,6 +122,7 @@ public class MessageActivity extends AppCompatActivity implements SmsListAdapter
     @Override
     public void handleClick(SmsDetailsResposne team) {
         deleteSms(team);
+        observeSmsLiveData();
 
     }
 

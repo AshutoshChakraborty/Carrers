@@ -55,10 +55,17 @@ public class MISBusinessSummaryAdapter extends RecyclerView.Adapter<MISBusinessS
         holder.tvBusinessType.setText(misBusinessSummaryResponsesList.get(position).getBusinessType());
         holder.tvCompanyName.setText(misBusinessSummaryResponsesList.get(position).getCompanyName());
         holder.tvNoOfPolicy.setText(String.valueOf(misBusinessSummaryResponsesList.get(position).getNoOfPolicy()));
-        holder.tvActualPremium.setText(String.valueOf(misBusinessSummaryResponsesList.get(position).getWeightage().toString()));
+        if (misBusinessSummaryResponsesList.get(position).getWeightage() != null) {
+            holder.tvActualPremium.setText(String.valueOf(misBusinessSummaryResponsesList.get(position).getWeightage().toString()));
+        } else {
+            holder.tvActualPremium.setText("");
+        }
         holder.tvPremiumAmount.setText(String.valueOf(misBusinessSummaryResponsesList.get(position).getPremiumAmt()));
-        holder.tv_bussiness_date.setText(String.valueOf(misBusinessSummaryResponsesList.get(position).getBusinessDate().toString()));
-
+        if (misBusinessSummaryResponsesList.get(position).getBusinessDate() != null) {
+            holder.tv_bussiness_date.setText(String.valueOf(misBusinessSummaryResponsesList.get(position).getBusinessDate().toString()));
+        } else {
+            holder.tv_bussiness_date.setText("");
+        }
     }
 
     @Override

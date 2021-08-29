@@ -33,7 +33,7 @@
     <string name="member_details">Member Details</string>
     <string name="business_report">Business Report</string>
     <string name="self_business_report">Self Business Report</string>
-    <string name="team_business_report">Team Business Report</string>
+    <string name="team_business_report">Group Business Report</string>
     <string name="incorrect_password">Incorrect password</string>
     <string name="from">FROM</string>
     <string name="to">TO</string>

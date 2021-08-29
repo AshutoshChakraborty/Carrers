@@ -53,9 +53,13 @@ public class PromotionDetailsAdapter extends RecyclerView.Adapter<PromotionDetai
 
 
         holder.tvCode.setText(String.valueOf(misIndividualBusinessReportList.get(position).getDescription()));
-        String date = misIndividualBusinessReportList.get(position).getDate();
-        String newFormattedDateMonth = Misc.getNewFormattedDateMonth(date);
-        holder.tvName.setText(newFormattedDateMonth);
+        if (misIndividualBusinessReportList.get(position).getDate() != null) {
+            String date = misIndividualBusinessReportList.get(position).getDate();
+            String newFormattedDateMonth = Misc.getNewFormattedDateMonth(date);
+            holder.tvName.setText(newFormattedDateMonth);
+        } else {
+            holder.tvName.setText("");
+        }
         holder.tvBranchName.setText(misIndividualBusinessReportList.get(position).getRank());
         holder.tvCompanyName.setText(misIndividualBusinessReportList.get(position).getNewRank());
         holder.tvDate.setText(misIndividualBusinessReportList.get(position).getOldRank());

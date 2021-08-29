@@ -1,5 +1,7 @@
 package com.project.integratedservices.integratedServicesForAllTypes.view;
 
+import static com.project.supportClasses.SharedPref.AGENT_ID;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -19,8 +21,12 @@ import com.google.android.material.card.MaterialCardView;
 import com.project.integratedservices.R;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.TeamDetailsResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.message_response.SmsDetailsResposne;
+import com.project.supportClasses.MyColorDialog;
+import com.project.supportClasses.SharedPref;
 
 import java.util.List;
+
+import cn.refactor.lib.colordialog.ColorDialog;
 
 public class SmsListAdapter extends RecyclerView.Adapter<SmsListAdapter.MyViewHolder> {
 
@@ -67,7 +73,7 @@ public class SmsListAdapter extends RecyclerView.Adapter<SmsListAdapter.MyViewHo
         holder.parent.setBackgroundColor(Color.parseColor("#EDEDED"));
 
         if (teamDetailsResponses.get(position).getSms() == null) {
-            holder.tvName.setText("null");
+            holder.tvName.setText("");
         } else
             holder.tvName.setText(teamDetailsResponses.get(position).getSms().trim());
 
@@ -83,6 +89,16 @@ public class SmsListAdapter extends RecyclerView.Adapter<SmsListAdapter.MyViewHo
         holder.ivInfo.setOnClickListener(v -> {
             handleClick.handleClick(teamDetailsResponses.get(position));
         });
+
+        if (teamDetailsResponses.get(position).getSms().trim().length() > 0 ) {
+            holder.parent.setOnClickListener(v -> {
+                ColorDialog colorDialog = MyColorDialog.getInstance(context);
+                colorDialog.setContentText(teamDetailsResponses.get(position).getSms().trim());
+                colorDialog.setCancelable(true);
+                colorDialog.setAnimationEnable(true);
+                colorDialog.show();
+            });
+        }
 
     }
 

@@ -74,15 +74,17 @@ public class IndividualBusinessReportActivity extends AppCompatActivity {
                 hsv.setVisibility(View.VISIBLE);
                 rvIndividualBusiness.setAdapter(new IndividualBusinessReportAdapter(this,misIndividualBusinessResponses));
                 for (MISIndividualBusinessResponse misIndividualBusinessRespons : misIndividualBusinessResponses) {
-                    if (misIndividualBusinessRespons.getBusinessType().equalsIgnoreCase("FRESH")) {
-                        if (misIndividualBusinessRespons.getWeightedPremium() != null || !misIndividualBusinessRespons.getWeightedPremium().equalsIgnoreCase("")) {
-                            Integer value = Integer.parseInt(misIndividualBusinessRespons.getWeightedPremium());
-                            sumWeightedPremiumFresh = sumWeightedPremiumFresh + value;
-                        }
-                    } else {
-                        if (misIndividualBusinessRespons.getWeightedPremium() != null || !misIndividualBusinessRespons.getWeightedPremium().equalsIgnoreCase("")) {
-                            Integer value = Integer.parseInt(misIndividualBusinessRespons.getWeightedPremium());
-                            sumWeightedPremiumRenewal = sumWeightedPremiumRenewal + value;
+                    if (misIndividualBusinessRespons.getBusinessType() != null) {
+                        if (misIndividualBusinessRespons.getBusinessType().equalsIgnoreCase("FRESH")) {
+                            if (misIndividualBusinessRespons.getWeightedPremium() != null || !misIndividualBusinessRespons.getWeightedPremium().equalsIgnoreCase("")) {
+                                Integer value = Integer.parseInt(misIndividualBusinessRespons.getWeightedPremium());
+                                sumWeightedPremiumFresh = sumWeightedPremiumFresh + value;
+                            }
+                        } else {
+                            if (misIndividualBusinessRespons.getWeightedPremium() != null || !misIndividualBusinessRespons.getWeightedPremium().equalsIgnoreCase("")) {
+                                Integer value = Integer.parseInt(misIndividualBusinessRespons.getWeightedPremium());
+                                sumWeightedPremiumRenewal = sumWeightedPremiumRenewal + value;
+                            }
                         }
                     }
                 }
@@ -100,6 +102,8 @@ public class IndividualBusinessReportActivity extends AppCompatActivity {
     }
 
     private void handleClicks() {
+        rvIndividualBusiness = findViewById(R.id.rvIndividualBusiness);
+        rvIndividualBusiness.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         ivBack.setOnClickListener(v -> {
             onBackPressed();
         });

@@ -26,31 +26,56 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".integratedServicesForAllTypes.view.CircularActivity"></activity>
-        <activity android:name=".integratedServicesForAllTypes.view.MessageActivity" />
-        <activity android:name="com.project.agent_details.AgentDetails" />
-        <activity android:name=".integratedServicesForAllTypes.view.NewAgentJoiningActivity" />
-        <activity android:name="com.project.otherCategory.AgentJoiningActivity" />
-        <activity android:name=".integratedServicesForAllTypes.view.VoucherActivity" />
-        <activity android:name=".integratedServicesForAllTypes.view.SuggestionOrComplainsActivity" />
-        <activity android:name=".integratedServicesForAllTypes.view.CollectionReportActivity" />
-        <activity android:name=".integratedServicesForAllTypes.view.BusinessSummaryActivity" />
-        <activity android:name=".integratedServicesForAllTypes.view.IndividualBusinessReportActivity" />
-        <activity android:name=".integratedServicesForAllTypes.view.BranchWiseBusinessActivity" />
-        <activity android:name=".integratedServicesForAllTypes.view.MisReportActivity" />
-        <activity android:name=".integratedServicesForAllTypes.view.TeamMembersHierarchy" />
-        <activity android:name=".integratedServicesForAllTypes.view.LeaveApplicationActivity" />
-        <activity android:name=".integratedServicesForAllTypes.view.CustomerDetailsActivity" />
-        <activity android:name=".integratedServicesForAllTypes.view.NewAssignCustomerActivity" />
-        <activity android:name=".integratedServicesForAllTypes.view.SalesReportActivity" />
-        <activity android:name=".integratedServicesForAllTypes.view.AttendanceReport" />
-        <activity android:name=".integratedServicesForAllTypes.view.TeamMemberDetailsActivity" />
-        <activity android:name=".integratedServicesForAllTypes.view.PlanWebActivity" />
-        <activity android:name="com.project.otherCategory.LocateUsActivity" />
-        <activity android:name=".integratedServicesForAllTypes.view.ApplicationNoWisePaymentDetailsActivity" />
-        <activity android:name=".integratedServicesForAllTypes.view.AgentCommissionDetailsActivity" />
-        <activity android:name=".integratedServicesForAllTypes.view.AgentDetailsActivity" />
-        <activity android:name=".integratedServicesForAllTypes.view.BranchWiseJoiningActivity" />
+        <activity android:name=".integratedServicesForAllTypes.view.CircularActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".integratedServicesForAllTypes.view.MessageActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.project.agent_details.AgentDetails"
+            android:screenOrientation="portrait" />
+        <activity android:name=".integratedServicesForAllTypes.view.NewAgentJoiningActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.project.otherCategory.AgentJoiningActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".integratedServicesForAllTypes.view.VoucherActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".integratedServicesForAllTypes.view.SuggestionOrComplainsActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".integratedServicesForAllTypes.view.CollectionReportActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".integratedServicesForAllTypes.view.BusinessSummaryActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".integratedServicesForAllTypes.view.IndividualBusinessReportActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".integratedServicesForAllTypes.view.BranchWiseBusinessActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".integratedServicesForAllTypes.view.MisReportActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".integratedServicesForAllTypes.view.TeamMembersHierarchy"
+            android:screenOrientation="portrait" />
+        <activity android:name=".integratedServicesForAllTypes.view.LeaveApplicationActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".integratedServicesForAllTypes.view.CustomerDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".integratedServicesForAllTypes.view.NewAssignCustomerActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".integratedServicesForAllTypes.view.SalesReportActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".integratedServicesForAllTypes.view.AttendanceReport"
+            android:screenOrientation="portrait" />
+        <activity android:name=".integratedServicesForAllTypes.view.TeamMemberDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".integratedServicesForAllTypes.view.PlanWebActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.project.otherCategory.LocateUsActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".integratedServicesForAllTypes.view.ApplicationNoWisePaymentDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".integratedServicesForAllTypes.view.AgentCommissionDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".integratedServicesForAllTypes.view.AgentDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".integratedServicesForAllTypes.view.BranchWiseJoiningActivity"
+            android:screenOrientation="portrait"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -60,20 +85,23 @@
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
         <activity android:name=".integratedServicesForAllTypes.view.DashboardActivity" />
-        <activity android:name=".authenticate.view.SplashActivity">
+        <activity android:name=".authenticate.view.SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".authenticate.view.LoginActivity" /> <!-- <activity android:name="com.project.Experiment.TestActivity"> -->
+        <activity android:name=".authenticate.view.LoginActivity"
+            android:screenOrientation="portrait"/> <!-- <activity android:name="com.project.Experiment.TestActivity"> -->
         <!-- <intent-filter> -->
         <!-- <action android:name="android.intent.action.MAIN" /> -->
         <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
         <!-- </intent-filter> -->
         <!-- </activity> -->
-        <activity android:name=".authenticate.view.ForgotPasswordActivity" />
+        <activity android:name=".authenticate.view.ForgotPasswordActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.project.supportClasses.yalantisCroppingLibrary.ImagePickerActivity"
             android:screenOrientation="portrait" />

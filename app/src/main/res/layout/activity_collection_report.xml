@@ -228,7 +228,7 @@
 
 
                         <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="@dimen/_150sdp"
+                            android:layout_width="@dimen/_100sdp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingVertical="@dimen/_8sdp"
@@ -238,6 +238,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="NAME"
+                                android:singleLine="true"
                                 android:textColor="@android:color/white"
                                 android:fontFamily="@font/roboto_bold"/>
 
@@ -262,6 +263,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="BRANCH CODE"
+                                android:singleLine="true"
                                 android:textColor="@android:color/white"
                                 android:fontFamily="@font/roboto_bold"/>
 
@@ -283,6 +285,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="BRANCH NAME"
+                                android:singleLine="true"
                                 android:textColor="@android:color/white"
                                 android:fontFamily="@font/roboto_bold"/>
 
@@ -304,6 +307,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="BUSINESS TYPE"
+                                android:singleLine="true"
                                 android:textColor="@android:color/white"
                                 android:fontFamily="@font/roboto_bold"/>
 
@@ -326,6 +330,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="COMPANY NAME"
+                                android:singleLine="true"
                                 android:textColor="@android:color/white"
                                 android:fontFamily="@font/roboto_bold"/>
 
@@ -348,6 +353,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="ACTUAL PREMIUM"
+                                android:singleLine="true"
                                 android:textColor="@android:color/white"
                                 android:fontFamily="@font/roboto_bold"/>
 
@@ -370,6 +376,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="PREMIUM AMOUNT"
+                                android:singleLine="true"
                                 android:textColor="@android:color/white"
                                 android:fontFamily="@font/roboto_bold"/>
 

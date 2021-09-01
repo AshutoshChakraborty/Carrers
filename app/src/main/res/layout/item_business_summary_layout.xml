@@ -139,6 +139,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="NEW DELHI"
+                app:textAllCaps="true"
+                android:textAllCaps="true"
                 android:textColor="@android:color/darker_gray"
                 android:fontFamily="@font/roboto_medium"/>
 
@@ -162,6 +164,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="NEW DELHI"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:textSize="@dimen/_10sdp"
                 android:textColor="@android:color/darker_gray"
                 android:fontFamily="@font/roboto_medium"/>
 

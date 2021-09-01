@@ -38,7 +38,7 @@ public class TeamMemberDetailsActivity extends AppCompatActivity {
         ivBack.setOnClickListener(v -> onBackPressed());
 
         String attendance = SharedPref.getInstance(this).getData("ATTENDANCE");
-        String customer = SharedPref.getInstance(this).getData("CUSTOMER");
+        String customer = SharedPref.getInstance(this).getData("NEW ASSIGN CUSTOMER");
 //        attendance = "False";
         if (attendance!=null && attendance.equalsIgnoreCase("False")) {
             llAttendance.setClickable(false);

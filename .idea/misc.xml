@@ -12,6 +12,7 @@
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_agent_details.xml" value="0.2421875" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_application_no_wise_payment_details.xml" value="0.19074074074074074" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_branch_wise_joining.xml" value="0.19074074074074074" />
+        <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_business_summary.xml" value="0.2421875" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_circular.xml" value="0.19074074074074074" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_collection_report.xml" value="0.19074074074074074" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_locate_us.xml" value="0.2421875" />
@@ -27,6 +28,9 @@
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/fragment_promotion_details.xml" value="0.2421875" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/fragment_voucher_details.xml" value="0.121875" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/item_agent_details_layout.xml" value="0.2421875" />
+        <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/item_brach_wise_joining_layout.xml" value="0.2421875" />
+        <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/item_business_summary_layout.xml" value="0.2421875" />
+        <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/item_collection_summary_layout.xml" value="0.2421875" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/sms_list_layout.xml" value="0.19074074074074074" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/team_fragment.xml" value="0.19074074074074074" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/menu/activity_main_drawer.xml" value="0.2421875" />

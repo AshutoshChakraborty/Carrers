@@ -48,6 +48,12 @@ public class CircularActivity extends AppCompatActivity implements CircularAdapt
     private Date end;
     private MaterialCardView cvSubmit;
 
+    String myFormat = "dd-MM-yyyy"; //In which date Format needed
+    String apiFormat = "yyyy-MM-dd"; //In which date Format needed
+    SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.ENGLISH);
+    SimpleDateFormat sdfApiFormat = new SimpleDateFormat(apiFormat, Locale.ENGLISH);
+    String startDateApi,endDateApi ="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -152,7 +158,7 @@ public class CircularActivity extends AppCompatActivity implements CircularAdapt
         if(Misc.isNetworkAvailable(this)) {
             Misc.disableScreenTouch(this);
             spinKitView.setVisibility(View.VISIBLE);
-            integratedServicesViewModel.getPrizeReport(SharedPref.getInstance(this).getData(AGENT_ID),tvStartDate.getText().toString(),tvEndDate.getText().toString());
+            integratedServicesViewModel.getPrizeReport(SharedPref.getInstance(this).getData(AGENT_ID),startDateApi,endDateApi);
         }
         else
         {
@@ -200,17 +206,14 @@ public class CircularActivity extends AppCompatActivity implements CircularAdapt
                 calendar.set(Calendar.MONTH, month);
                 calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                String myFormat = "dd-MM-yyyy"; //In which date Format needed
-                String apiFormat = "yyyy-MM-dd"; //In which date Format needed
-                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.ENGLISH);
-                SimpleDateFormat sdfApiFormat = new SimpleDateFormat(apiFormat, Locale.ENGLISH);
-
                 textView.setText(sdf.format(calendar.getTime()));
 
                 if (textView == tvStartDate) {
                     start = calendar.getTime();
+                    startDateApi = sdfApiFormat.format(start);
                 } else {
                     end = calendar.getTime();
+                    endDateApi = sdfApiFormat.format(end);
                 }
 
             }

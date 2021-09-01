@@ -84,6 +84,7 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        obsevMenueStatus();
 //        Toast.makeText(getActivity(), "resume fragment", Toast.LENGTH_SHORT).show();
 //        if(!startAttendanceGiven)
 //            checkAttendance(SharedPref.getInstance(getActivity()).getData(AGENT_ID));
@@ -562,9 +563,9 @@ public class DashboardFragment extends Fragment {
                 String status = menueStatusRespons.getViewType();
                 SharedPref.getInstance(getActivity()).saveData("ATTENDANCE",status);
             }
-            if (menueStatusRespons.getMenuName().equalsIgnoreCase("CUSTOMER")) {
+            if (menueStatusRespons.getMenuName().equalsIgnoreCase("NEW ASSIGN CUSTOMER")) {
                 String status = menueStatusRespons.getViewType();
-                SharedPref.getInstance(getActivity()).saveData("CUSTOMER",status);
+                SharedPref.getInstance(getActivity()).saveData("NEW ASSIGN CUSTOMER",status);
             }
         }
     }

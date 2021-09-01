@@ -228,6 +228,7 @@
                             android:fontFamily="@font/roboto_bold"
                             android:gravity="center"
                             android:text="@string/ref_no"
+                            app:textAllCaps="true"
                             android:textColor="@android:color/white" />
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -249,7 +250,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="AGENT TYPE"
+                            android:text="TYPE"
                             android:textColor="@android:color/white" />
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -272,6 +273,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_bold"
                             android:text="@string/introducer"
+                            app:textAllCaps="true"
                             android:textColor="@android:color/white" />
 
                     </androidx.appcompat.widget.LinearLayoutCompat>

@@ -260,7 +260,7 @@ public interface RetrofitApis {
     Call<List<MISIndividualBusinessResponse>> submitMISIndividualBusinessDetails(@Query("AgentCode") String AgentCode, @Query("startdate") String startdate, @Query("enddate") String enddate, @Query("roleId") String roleId,@Query("LoginId") String loginId);
 
     @Headers({"Content-Type: application/json", "Accept: application/json"})
-    @POST("MIS/MISBusinessSummary")
+    @POST("MIS/MISBusinessSummary?Sl=1")
     Call<List<MISBusinessSummaryResponse>> submitMISBusinessSummary(@Query("startdate") String startdate, @Query("enddate") String enddate,@Query("pCode") String pCode);
 
     @Headers({"Content-Type: application/json", "Accept: application/json"})

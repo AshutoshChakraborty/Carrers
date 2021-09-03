@@ -1,5 +1,7 @@
 package com.project.integratedservices.integratedServicesForAllTypes.view;
 
+import static com.project.supportClasses.SharedPref.AGENT_ID;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.lifecycle.ViewModelProviders;
@@ -21,6 +23,7 @@ import com.project.integratedservices.integratedServicesForAllTypes.viewModel.In
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.MISCollectionRegisterResponse;
 import com.project.supportClasses.Misc;
 import com.project.supportClasses.MyColorDialog;
+import com.project.supportClasses.SharedPref;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -68,7 +71,7 @@ public class CollectionReportActivity extends AppCompatActivity {
         integratedServicesViewModel.getApiError().observe(this,s -> {
             pb.setVisibility(View.GONE);
             Misc.enableScreenTouch(this);
-            Toast.makeText(this, ""+s, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, ""+s, Toast.LENGTH_LONG).show();
         });
     }
 
@@ -89,10 +92,11 @@ public class CollectionReportActivity extends AppCompatActivity {
             {
                 if (Misc.isNetworkAvailable(this))
                 {
+                    String loggedInAgentsId = SharedPref.getInstance(this).getData(AGENT_ID);
                     Misc.disableScreenTouch(this);
                     pb.setVisibility(View.VISIBLE);
 
-                    integratedServicesViewModel.submitMISCollectionRegisterResponse(tvStartDate.getText().toString(),tvEndDate.getText().toString());
+                    integratedServicesViewModel.submitMISCollectionRegisterResponse(tvStartDate.getText().toString(),tvEndDate.getText().toString(),loggedInAgentsId);
                 }
                 else
                 {

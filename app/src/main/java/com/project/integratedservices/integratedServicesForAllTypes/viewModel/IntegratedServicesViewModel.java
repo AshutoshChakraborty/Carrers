@@ -1119,8 +1119,8 @@ public class IntegratedServicesViewModel extends ViewModel {
         });
     }
 
-    public void submitMISCollectionRegisterResponse(String startdate, String enddate) {
-        apiClient.submitMISCollectionRegisterResponse(startdate, enddate).enqueue(new Callback<List<MISCollectionRegisterResponse>>() {
+    public void submitMISCollectionRegisterResponse(String startdate, String enddate , String loginCode) {
+        apiClient.submitMISCollectionRegisterResponse(startdate, enddate ,loginCode).enqueue(new Callback<List<MISCollectionRegisterResponse>>() {
             @Override
             public void onResponse(Call<List<MISCollectionRegisterResponse>> call, Response<List<MISCollectionRegisterResponse>> response) {
                 misCollectionRegisterResponseLiveData.setValue(response.body());

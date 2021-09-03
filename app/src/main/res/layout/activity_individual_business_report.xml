@@ -447,6 +447,7 @@
                                 android:layout_width="@dimen/_100sdp"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
+                                android:visibility="gone"
                                 android:orientation="vertical"
                                 android:paddingVertical="@dimen/_8sdp">
 
@@ -501,6 +502,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/roboto_bold"
                                     android:text="PREMIUM AMOUNT"
+                                    android:textSize="@dimen/_9sdp"
                                     android:textColor="@android:color/white" />
 
                             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -522,6 +524,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/roboto_bold"
                                     android:text="WEIGHTED PREMIUM"
+                                    android:textSize="@dimen/_9sdp"
                                     android:textColor="@android:color/white" />
 
                             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -543,6 +546,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/roboto_bold"
                                     android:text="PREMIUM WITH TAX"
+                                    android:textSize="@dimen/_9sdp"
                                     android:textColor="@android:color/white" />
 
                             </androidx.appcompat.widget.LinearLayoutCompat>

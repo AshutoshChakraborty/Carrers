@@ -265,7 +265,7 @@ public interface RetrofitApis {
 
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST("MIS/MISCollectionRegister")
-    Call<List<MISCollectionRegisterResponse>> submitMISCollectionRegisterResponse(@Query("start_date") String startdate, @Query("end_date") String enddate);
+    Call<List<MISCollectionRegisterResponse>> submitMISCollectionRegisterResponse(@Query("start_date") String startdate, @Query("end_date") String enddate, @Query("code") String loginCode);
 
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @POST("MIS/MISSuggestionComplain")

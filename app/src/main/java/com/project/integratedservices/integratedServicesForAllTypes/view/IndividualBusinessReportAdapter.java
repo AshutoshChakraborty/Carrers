@@ -97,6 +97,7 @@ public class IndividualBusinessReportAdapter extends RecyclerView.Adapter<Indivi
             tvPlanFreq = itemView.findViewById(R.id.tv_plan_freq);
             tvInstalment = itemView.findViewById(R.id.tv_instalment);
             tvStatus = itemView.findViewById(R.id.tv_status);
+            tvStatus.setVisibility(View.GONE);
             tvPremTerm = itemView.findViewById(R.id.tv_prem_term);
             tvPremiumAmmount = itemView.findViewById(R.id.tv_premium_amount);
             tv_weighted_premium = itemView.findViewById(R.id.tv_weighted_premium);

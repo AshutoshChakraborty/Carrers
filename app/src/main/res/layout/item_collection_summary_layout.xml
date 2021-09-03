@@ -106,7 +106,7 @@
             android:background="@color/grey"/>
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="@dimen/_130sdp"
+            android:layout_width="@dimen/_100sdp"
             android:layout_height="wrap_content"
             android:paddingVertical="@dimen/_8sdp"
             android:gravity="center"
@@ -152,7 +152,7 @@
 
 
         <androidx.appcompat.widget.LinearLayoutCompat
-             android:layout_width="@dimen/_130sdp"
+             android:layout_width="@dimen/_100sdp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingVertical="@dimen/_8sdp"
@@ -175,7 +175,7 @@
 
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="@dimen/_150sdp"
+            android:layout_width="@dimen/_100sdp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingVertical="@dimen/_8sdp"

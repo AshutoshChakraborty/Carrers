@@ -177,7 +177,7 @@
             android:layout_height="match_parent"
             android:background="@color/grey"/>
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+      <!--  <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="@dimen/_100sdp"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -192,7 +192,7 @@
                 android:textColor="@android:color/darker_gray"
                 android:fontFamily="@font/roboto_medium"/>
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>-->
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

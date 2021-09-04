@@ -106,10 +106,19 @@ public class AgentDetailsActivity extends AppCompatActivity {
         });
 
 
-        integratedServicesViewModel.getApiError().observe(this,s -> {
+    /*    integratedServicesViewModel.getApiError().observe(this,s -> {
             pb.setVisibility(View.GONE);
             Misc.enableScreenTouch(this);
             Toast.makeText(this, ""+s, Toast.LENGTH_LONG).show();
+        });*/
+
+        integratedServicesViewModel.getApiError().observe(this,s -> {
+            pb.setVisibility(View.GONE);
+            ColorDialog colorDialog = MyColorDialog.getInstance(this);
+            colorDialog.setContentText(s);
+            colorDialog.setCancelable(true);
+            colorDialog.setAnimationEnable(true);
+            colorDialog.show();
         });
     }
 

@@ -130,7 +130,11 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
         integratedServicesViewModel.getApiError().observe(this, s -> {
             pb.setVisibility(View.GONE);
             Misc.enableScreenTouch(this);
-            Toast.makeText(this, "" + s, Toast.LENGTH_LONG).show();
+            ColorDialog colorDialog = MyColorDialog.getInstance(this);
+            colorDialog.setContentText(s);
+            colorDialog.setCancelable(true);
+            colorDialog.setAnimationEnable(true);
+            colorDialog.show();
         });
     }
 

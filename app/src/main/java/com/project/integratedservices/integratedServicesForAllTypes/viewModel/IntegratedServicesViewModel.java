@@ -1095,7 +1095,14 @@ public class IntegratedServicesViewModel extends ViewModel {
         apiClient.submitMISIndividualBusinessDetails(agentCode, startdate, enddate, roleId, loginId).enqueue(new Callback<List<MISIndividualBusinessResponse>>() {
             @Override
             public void onResponse(Call<List<MISIndividualBusinessResponse>> call, Response<List<MISIndividualBusinessResponse>> response) {
-                misIndividualBusinessResponseLiveData.setValue(response.body());
+                if (response.body().get(0).getStatus1() != null && response.body().get(0).getStatus1().equalsIgnoreCase("Success")) {
+                    misIndividualBusinessResponseLiveData.setValue(response.body());
+                } else {
+                    if (response.body().get(0).getStatus()!=null && !response.body().get(0).getStatus().isEmpty()) {
+                        apiError.setValue(response.body().get(0).getStatus());
+                    }
+                }
+
             }
 
             @Override
@@ -1243,6 +1250,13 @@ public class IntegratedServicesViewModel extends ViewModel {
         apiClient.getAgentDetails(startdate, enddate, agentCode, agentId).enqueue(new Callback<List<AgentDetail>>() {
             @Override
             public void onResponse(Call<List<AgentDetail>> call, Response<List<AgentDetail>> response) {
+                if (response.body()!=null && response.body().size() == 1) {
+                    if (response.body().get(0).getCode() == null) {
+                        if (response.body().get(0).getStatus() != null && !response.body().get(0).getStatus().isEmpty()) {
+                            apiError.setValue(response.body().get(0).getStatus());
+                        }
+                    }
+                }
                 mAgentDetailisResponseLiveData.setValue(response.body());
             }
 
@@ -1257,6 +1271,13 @@ public class IntegratedServicesViewModel extends ViewModel {
         apiClient.getAgentCommisionDetails(code, aId).enqueue(new Callback<List<AgentCommissionDetailsResponse>>() {
             @Override
             public void onResponse(Call<List<AgentCommissionDetailsResponse>> call, Response<List<AgentCommissionDetailsResponse>> response) {
+                if (response.body()!=null && response.body().size() == 1) {
+                    if (response.body().get(0).getAGCODE() == null) {
+                        if (response.body().get(0).getStatus()!=null && !response.body().get(0).getStatus().isEmpty()) {
+                            apiError.setValue(response.body().get(0).getStatus());
+                        }
+                    }
+                }
                 mAgentCommisionDetailsLiveData.setValue(response.body());
             }
 

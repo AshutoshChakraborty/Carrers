@@ -61,11 +61,11 @@ public class MISBusinessSummaryAdapter extends RecyclerView.Adapter<MISBusinessS
             holder.tvActualPremium.setText("");
         }
         holder.tvPremiumAmount.setText(String.valueOf(misBusinessSummaryResponsesList.get(position).getPremiumAmt()));
-        if (misBusinessSummaryResponsesList.get(position).getBusinessDate() != null) {
+       /* if (misBusinessSummaryResponsesList.get(position).getBusinessDate() != null) {
             holder.tv_bussiness_date.setText(String.valueOf(misBusinessSummaryResponsesList.get(position).getBusinessDate().toString()));
         } else {
             holder.tv_bussiness_date.setText("");
-        }
+        }*/
     }
 
     @Override
@@ -75,7 +75,7 @@ public class MISBusinessSummaryAdapter extends RecyclerView.Adapter<MISBusinessS
 
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        AppCompatTextView tvBranchCode, tvBusinessType,tvBranchName,tvCompanyName, tvNoOfPolicy,tvActualPremium, tvPremiumAmount,tv_bussiness_date;
+        AppCompatTextView tvBranchCode, tvBusinessType,tvBranchName,tvCompanyName, tvNoOfPolicy,tvActualPremium, tvPremiumAmount/*,tv_bussiness_date*/;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -87,7 +87,7 @@ public class MISBusinessSummaryAdapter extends RecyclerView.Adapter<MISBusinessS
             tvNoOfPolicy = itemView.findViewById(R.id.tv_no_of_policy);
             tvActualPremium = itemView.findViewById(R.id.tv_actual_premium);
             tvPremiumAmount = itemView.findViewById(R.id.tv_premium_amount);
-            tv_bussiness_date = itemView.findViewById(R.id.tv_bussiness_date);
+//            tv_bussiness_date = itemView.findViewById(R.id.tv_bussiness_date);
 
 
 

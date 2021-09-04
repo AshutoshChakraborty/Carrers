@@ -1,6 +1,7 @@
 package com.project.integratedservices.integratedServicesForAllTypes.view;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -48,6 +49,7 @@ import com.project.supportClasses.SharedPref;
 
 import cn.refactor.lib.colordialog.ColorDialog;
 import cn.refactor.lib.colordialog.PromptDialog;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import static com.project.supportClasses.Constants.endAttendanceGiven;
 import static com.project.supportClasses.Constants.isSalaried;
@@ -60,6 +62,7 @@ import static com.project.supportClasses.SharedPref.USER_DETAILS;
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public AppCompatImageView iv_drawer_menu;
     public TextView header;
+    public CircleImageView profileImageView;
     public FloatingActionButton floatingActionButtonAdd,
             floatingActionButtonSearch;
     public String agentId = "";
@@ -127,6 +130,11 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
             tv_name_nav.setText(userDetails.getUserName());
             tv_email_nav.setText(userDetails.getEmail());
+            if (userDetails.getGender().equalsIgnoreCase("F")) {
+                profileImageView.setImageResource(R.drawable.profile);
+            } else {
+                profileImageView.setImageResource(R.drawable.profilepic);
+            }
         }
 
         iv_drawer_menu.setOnClickListener(v -> {
@@ -266,9 +274,11 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         header = findViewById(R.id.tv_header_text);
         spinKitView = findViewById(R.id.spin_kit);
 
+
         View headerView = nav_view.getHeaderView(0);
         tv_name_nav = headerView.findViewById(R.id.tv_name_nav);
         tv_email_nav = headerView.findViewById(R.id.tv_email_nav);
+        profileImageView = headerView.findViewById(R.id.imageView);
     }
 
     public void loadFragment(Fragment fragment) {

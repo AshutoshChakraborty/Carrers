@@ -354,7 +354,7 @@
                                 android:fontFamily="@font/roboto_bold"/>
 
                         </androidx.appcompat.widget.LinearLayoutCompat>
-                        <View
+                        <!--<View
                             android:layout_width="1dp"
                             android:layout_height="match_parent"
                             android:background="@color/grey"/>
@@ -373,7 +373,7 @@
                                 android:textColor="@android:color/white"
                                 android:fontFamily="@font/roboto_bold"/>
 
-                        </androidx.appcompat.widget.LinearLayoutCompat>
+                        </androidx.appcompat.widget.LinearLayoutCompat>-->
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
 

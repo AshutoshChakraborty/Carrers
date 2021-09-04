@@ -130,7 +130,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
             tv_name_nav.setText(userDetails.getUserName());
             tv_email_nav.setText(userDetails.getEmail());
-            if (userDetails.getGender().equalsIgnoreCase("F")) {
+            if (userDetails.getGender().contains("F") || userDetails.getGender().equalsIgnoreCase("F")) {
                 profileImageView.setImageResource(R.drawable.profile);
             } else {
                 profileImageView.setImageResource(R.drawable.profilepic);

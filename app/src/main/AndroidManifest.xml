@@ -94,6 +94,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".authenticate.view.LoginActivity"
+            android:windowSoftInputMode="stateAlwaysVisible"
             android:screenOrientation="portrait"/> <!-- <activity android:name="com.project.Experiment.TestActivity"> -->
         <!-- <intent-filter> -->
         <!-- <action android:name="android.intent.action.MAIN" /> -->

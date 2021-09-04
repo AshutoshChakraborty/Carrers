@@ -96,7 +96,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingHorizontal="@dimen/_16sdp">
+                    android:paddingHorizontal="@dimen/_1sdp">
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/ivbranchWiseBusiness"
@@ -125,15 +125,14 @@
                 android:id="@+id/cvIndividualBusiness"
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="@dimen/_90sdp"
-                android:layout_marginVertical="@dimen/_8sdp"
                 android:background="@drawable/dashboaed_tiles"
                 app:cardCornerRadius="@dimen/_8sdp"
                 app:cardElevation="@dimen/_4sdp"
-                app:layout_constraintBottom_toTopOf="@+id/cvCollectionRegister"
+                app:layout_constraintBottom_toBottomOf="@+id/cvBranchWiseBusiness"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toEndOf="@+id/cvBranchWiseBusiness"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/cvBranchWiseBusiness"
                 app:layout_constraintVertical_chainStyle="spread_inside">
 
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -215,14 +214,13 @@
                 android:id="@+id/cvCollectionRegister"
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="@dimen/_90sdp"
-                android:layout_marginVertical="@dimen/_8sdp"
                 android:background="@drawable/dashboaed_tiles"
                 app:cardCornerRadius="@dimen/_8sdp"
                 app:cardElevation="@dimen/_4sdp"
-                app:layout_constraintBottom_toTopOf="@+id/cvVoucher"
+                app:layout_constraintBottom_toBottomOf="@+id/cvBusinessSummary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/cvBusinessSummary"
-                app:layout_constraintTop_toBottomOf="@+id/cvIndividualBusiness">
+                app:layout_constraintTop_toTopOf="@+id/cvBusinessSummary">
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
@@ -306,10 +304,10 @@
                 android:background="@drawable/dashboaed_tiles"
                 app:cardCornerRadius="@dimen/_8sdp"
                 app:cardElevation="@dimen/_4sdp"
-                app:layout_constraintBottom_toTopOf="@+id/cvAgent"
+                app:layout_constraintBottom_toBottomOf="@+id/cvSuggestion"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/cvSuggestion"
-                app:layout_constraintTop_toBottomOf="@+id/cvCollectionRegister">
+                app:layout_constraintTop_toTopOf="@+id/cvSuggestion">
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
@@ -358,7 +356,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingHorizontal="@dimen/_16sdp">
+                    android:paddingHorizontal="@dimen/_1sdp">
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/ivJoining"
@@ -391,10 +389,10 @@
                 android:background="@drawable/dashboaed_tiles"
                 app:cardCornerRadius="@dimen/_8sdp"
                 app:cardElevation="@dimen/_4sdp"
-                app:layout_constraintBottom_toTopOf="@+id/cvNoWisePay"
+                app:layout_constraintBottom_toBottomOf="@+id/cv_joining"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/cv_joining"
-                app:layout_constraintTop_toBottomOf="@+id/cvVoucher">
+                app:layout_constraintTop_toTopOf="@+id/cv_joining">
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
@@ -417,8 +415,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="center"
-                        android:textAllCaps="true"
                         android:text="Enrollment DETAILS"
+                        android:textAllCaps="true"
                         android:textColor="#141173"
                         android:textSize="@dimen/_8ssp"
                         app:textAllCaps="true" />
@@ -436,8 +434,8 @@
                 app:cardCornerRadius="@dimen/_8sdp"
                 app:cardElevation="@dimen/_4sdp"
                 app:layout_constraintBottom_toTopOf="@+id/cv_agent_details"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/cvAgent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cv_joining">
 
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -445,7 +443,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingHorizontal="@dimen/_16sdp">
+                    android:paddingHorizontal="@dimen/_1sdp">
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/ivCommission"
@@ -457,7 +455,7 @@
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tvCommission"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="center"
@@ -480,14 +478,14 @@
                 app:layout_constraintBottom_toBottomOf="@+id/cv_Commission"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/cv_Commission"
-                app:layout_constraintTop_toBottomOf="@+id/cvAgent">
+                app:layout_constraintTop_toTopOf="@+id/cv_Commission">
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingHorizontal="@dimen/_16sdp">
+                    android:paddingHorizontal="@dimen/_1sdp">
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/ivNoWisePay"

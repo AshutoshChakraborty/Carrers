@@ -140,7 +140,7 @@ public class NewAgentJoiningActivity extends AppCompatActivity {
             enrollAmount = "0";
         }
 
-        dateOfBirth = dob.getText().toString();
+        dateOfBirth = Misc.getApiFormattedDate(dob.getText().toString());
         String introducer = introducerCode.getText().toString();
         String phoneNumber = this.phoneNumber.getText().toString();
 
@@ -382,10 +382,10 @@ public class NewAgentJoiningActivity extends AppCompatActivity {
 
             String myFormat = "dd-MM-yyyy"; //In which date Format needed
             String apiFormat = "yyyy-MM-dd"; //In which date Format needed
-            SimpleDateFormat sdf = new SimpleDateFormat(apiFormat, Locale.ENGLISH);
-            SimpleDateFormat sdfApiFormat = new SimpleDateFormat(myFormat, Locale.ENGLISH);
+            SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.ENGLISH);
+            SimpleDateFormat sdfApiFormat = new SimpleDateFormat(apiFormat, Locale.ENGLISH);
 
-            textView.setText(sdfApiFormat.format(calendar.getTime()));
+            textView.setText(sdf.format(calendar.getTime()));
 
             if (textView == dob) {
                 start = calendar.getTime();

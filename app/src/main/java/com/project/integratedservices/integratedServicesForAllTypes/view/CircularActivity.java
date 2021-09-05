@@ -167,7 +167,7 @@ public class CircularActivity extends AppCompatActivity implements CircularAdapt
             colorDialog.setPositiveListener("RETRY", ColorDialog->{
                 ColorDialog.dismiss();
                 spinKitView.setVisibility(View.VISIBLE);
-                integratedServicesViewModel.getPrizeReport(SharedPref.getInstance(this).getData(AGENT_ID),tvStartDate.getText().toString(),tvEndDate.getText().toString());
+                integratedServicesViewModel.getPrizeReport(SharedPref.getInstance(this).getData(AGENT_ID),Misc.getApiFormattedDate(tvStartDate.getText().toString()),Misc.getApiFormattedDate(tvEndDate.getText().toString()));
             });
             colorDialog.setCancelable(false);
             colorDialog.setAnimationEnable(true);

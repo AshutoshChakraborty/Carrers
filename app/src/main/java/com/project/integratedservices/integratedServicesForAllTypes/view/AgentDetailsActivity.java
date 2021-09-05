@@ -196,18 +196,18 @@ public class AgentDetailsActivity extends AppCompatActivity {
 
                 String myFormat = "dd-MM-yyyy"; //In which date Format needed
                 String apiFormat = "yyyy-MM-dd"; //In which date Format needed
-                SimpleDateFormat sdf = new SimpleDateFormat(apiFormat, Locale.ENGLISH);
-                SimpleDateFormat sdfApiFormat = new SimpleDateFormat(myFormat, Locale.ENGLISH);
+                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.ENGLISH);
+                SimpleDateFormat sdfApiFormat = new SimpleDateFormat(apiFormat, Locale.ENGLISH);
 
 
-                textView.setText(sdfApiFormat.format(calendar.getTime()));
+                textView.setText(sdf.format(calendar.getTime()));
 
                 if (textView == tvStartDate) {
                     start = calendar.getTime();
-                    startApiDateFormat = sdf.format(calendar.getTime());
+                    startApiDateFormat = sdfApiFormat.format(calendar.getTime());
 
                 } else {
-                    endApiDateFormat = sdf.format(calendar.getTime());
+                    endApiDateFormat = sdfApiFormat.format(calendar.getTime());
                 }
                 setDateFromTo();
             }

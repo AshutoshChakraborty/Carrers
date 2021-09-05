@@ -127,7 +127,7 @@ public class IndividualBusinessReportActivity extends AppCompatActivity {
                     Misc.disableScreenTouch(this);
                     pb.setVisibility(View.VISIBLE);
                     String logiId = SharedPref.getInstance(this).getData(AGENT_ID);
-                    integratedServicesViewModel.submitMISIndividualBusinessDetails(editEnterCode.getText().toString().trim(),tvStartDate.getText().toString(),tvEndDate.getText().toString(),userDetails.getRoleId(),logiId);
+                    integratedServicesViewModel.submitMISIndividualBusinessDetails(editEnterCode.getText().toString().trim(),Misc.getApiFormattedDate(tvStartDate.getText().toString()),Misc.getApiFormattedDate(tvEndDate.getText().toString()),userDetails.getRoleId(),logiId);
 //                    integratedServicesViewModel.submitMISIndividualBusinessDetails("8001780","2016-01-01","2020-09-30","3");  // for testing
                 }
                 else
@@ -205,9 +205,9 @@ public class IndividualBusinessReportActivity extends AppCompatActivity {
                 calendar.set(Calendar.MONTH, month);
                 calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                String myFormat = "dd MMM, yyyy"; //In which date Format needed
+                String myFormat = "dd-MM-yyyy"; //In which date Format needed
                 String apiFormat = "yyyy-MM-dd"; //In which date Format needed
-                SimpleDateFormat sdf = new SimpleDateFormat(apiFormat, Locale.ENGLISH);
+                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.ENGLISH);
                 SimpleDateFormat sdfApiFormat = new SimpleDateFormat(apiFormat, Locale.ENGLISH);
 
                 textView.setText(sdf.format(calendar.getTime()));

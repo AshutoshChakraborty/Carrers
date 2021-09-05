@@ -666,7 +666,7 @@ public class CustomerDetailsActivity extends AppCompatActivity implements Spinne
                 datecalendar.set(Calendar.MONTH, month);
                 datecalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                String myFormat = "dd MMM, yyyy"; //In which date Format needed
+                String myFormat = "dd-MM-yyyy"; //In which date Format needed
                 String apiFormat = "yyyy-MM-dd"; //In which date Format needed
                 SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.ENGLISH);
                 SimpleDateFormat sdfApiFormat = new SimpleDateFormat(apiFormat, Locale.ENGLISH);

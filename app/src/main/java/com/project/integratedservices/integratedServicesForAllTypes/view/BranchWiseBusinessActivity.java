@@ -215,7 +215,7 @@ public class BranchWiseBusinessActivity extends AppCompatActivity implements Spi
                     Misc.disableScreenTouch(this);
                     pb.setVisibility(View.VISIBLE);
 
-                    integratedServicesViewModel.submitMISBRanchWiseBusinessDetails(selectedBranchId,tvStartDate.getText().toString(),tvEndDate.getText().toString(),String.valueOf(code),
+                    integratedServicesViewModel.submitMISBRanchWiseBusinessDetails(selectedBranchId,Misc.getApiFormattedDate(tvStartDate.getText().toString()),Misc.getApiFormattedDate(tvEndDate.getText().toString()),String.valueOf(code),
                             String.valueOf(insurance),String.valueOf(type),codeType,selectedInsuranceCompany,selectedBusinessType);
                 }
                 else
@@ -331,9 +331,9 @@ public class BranchWiseBusinessActivity extends AppCompatActivity implements Spi
                 calendar.set(Calendar.MONTH, month);
                 calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                String myFormat = "dd MMM, yyyy"; //In which date Format needed
+                String myFormat = "dd-MM-yyyy"; //In which date Format needed
                 String apiFormat = "yyyy-MM-dd"; //In which date Format needed
-                SimpleDateFormat sdf = new SimpleDateFormat(apiFormat, Locale.ENGLISH);
+                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.ENGLISH);
                 SimpleDateFormat sdfApiFormat = new SimpleDateFormat(apiFormat, Locale.ENGLISH);
 
                 textView.setText(sdf.format(calendar.getTime()));

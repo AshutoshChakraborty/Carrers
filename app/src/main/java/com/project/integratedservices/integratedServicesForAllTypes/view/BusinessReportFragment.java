@@ -181,8 +181,8 @@ public class BusinessReportFragment extends Fragment {
                     Misc.disableScreenTouch(getActivity());
                     BusinessReportRequestPojo requestPojo = new BusinessReportRequestPojo();
                     requestPojo.setAgentCode(agentCode);
-                    requestPojo.setStartDate(tvFromDate.getText().toString());
-                    requestPojo.setEndDate(tvToDate.getText().toString());
+                    requestPojo.setStartDate(Misc.getApiFormattedDate(tvFromDate.getText().toString()));
+                    requestPojo.setEndDate(Misc.getApiFormattedDate(tvToDate.getText().toString()));
                     if (ivTickTeamReport.getVisibility() == View.VISIBLE)
                         requestPojo.setType("2");
                     else
@@ -269,7 +269,7 @@ public class BusinessReportFragment extends Fragment {
             }
             else if(isFrom)
             {
-                textView.setText(sdfApiFormat.format(datecalendar.getTime()));
+                textView.setText(sdf.format(datecalendar.getTime()));
             }
             else if(!isFrom && getDateFromString(tvToBeChecked)!=null && datecalendar.getTime().before(getDateFromString(tvToBeChecked)))
             {
@@ -278,7 +278,7 @@ public class BusinessReportFragment extends Fragment {
             }
             else if(!isFrom)
             {
-                textView.setText(sdfApiFormat.format(datecalendar.getTime()));
+                textView.setText(sdf.format(datecalendar.getTime()));
             }
         };
 

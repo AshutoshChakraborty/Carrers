@@ -89,7 +89,7 @@ public class BusinessSummaryActivity extends AppCompatActivity {
                     Misc.disableScreenTouch(this);
                     pb.setVisibility(View.VISIBLE);
 
-                    integratedServicesViewModel.submitMISIndividualBusinessDetails(tvStartDate.getText().toString(),tvEndDate.getText().toString(), SharedPref.getInstance(this).getData(SharedPref.AGENT_ID));
+                    integratedServicesViewModel.submitMISIndividualBusinessDetails(Misc.getApiFormattedDate(tvStartDate.getText().toString()),Misc.getApiFormattedDate(tvEndDate.getText().toString()), SharedPref.getInstance(this).getData(SharedPref.AGENT_ID));
                 }
                 else
                 {
@@ -138,9 +138,9 @@ public class BusinessSummaryActivity extends AppCompatActivity {
                 calendar.set(Calendar.MONTH, month);
                 calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                String myFormat = "dd MMM, yyyy"; //In which date Format needed
+                String myFormat = "dd-MM-yyyy"; //In which date Format needed
                 String apiFormat = "yyyy-MM-dd"; //In which date Format needed
-                SimpleDateFormat sdf = new SimpleDateFormat(apiFormat, Locale.ENGLISH);
+                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.ENGLISH);
                 SimpleDateFormat sdfApiFormat = new SimpleDateFormat(apiFormat, Locale.ENGLISH);
 
                 textView.setText(sdf.format(calendar.getTime()));

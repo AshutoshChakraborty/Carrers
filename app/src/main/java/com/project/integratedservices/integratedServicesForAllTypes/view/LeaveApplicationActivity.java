@@ -139,8 +139,8 @@ public class LeaveApplicationActivity extends AppCompatActivity {
 
                         ApplyLeaveRequestPojo requestPojo = new ApplyLeaveRequestPojo();
                         requestPojo.setAgentCode(SharedPref.getInstance(LeaveApplicationActivity.this).getData(SharedPref.AGENT_ID));
-                        requestPojo.setLeaveEndDate(tvEndDate.getText().toString());
-                        requestPojo.setLeaveStartDate(tvStartDate.getText().toString());
+                        requestPojo.setLeaveEndDate(Misc.getApiFormattedDate(tvEndDate.getText().toString()));
+                        requestPojo.setLeaveStartDate(Misc.getApiFormattedDate(tvStartDate.getText().toString()));
                         requestPojo.setLeaveText(etReason.getText().toString());
 
                         integratedServicesViewModel.applyLeave(requestPojo);
@@ -160,9 +160,9 @@ public class LeaveApplicationActivity extends AppCompatActivity {
                 datecalendar.set(Calendar.MONTH, month);
                 datecalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                String myFormat = "dd MMM, yyyy"; //In which date Format needed
+                String myFormat = "dd-MM-yyyy"; //In which date Format needed
                 String apiFormat = "yyyy-MM-dd"; //In which date Format needed
-                SimpleDateFormat sdf = new SimpleDateFormat(apiFormat, Locale.ENGLISH);
+                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.ENGLISH);
                 SimpleDateFormat sdfApiFormat = new SimpleDateFormat(apiFormat, Locale.ENGLISH);
 
 //                followUpDate = sdfApiFormat.format(datecalendar.getTime());

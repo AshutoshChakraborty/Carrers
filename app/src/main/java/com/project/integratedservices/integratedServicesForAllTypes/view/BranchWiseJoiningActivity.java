@@ -94,7 +94,7 @@ public class BranchWiseJoiningActivity extends AppCompatActivity {
                     Misc.disableScreenTouch(this);
                     pb.setVisibility(View.VISIBLE);
 
-                    integratedServicesViewModel.getBranchwiseJoiningDetails(tvStartDate.getText().toString(),tvEndDate.getText().toString(),/*agentCode.getText().toString()*/"8000250");
+                    integratedServicesViewModel.getBranchwiseJoiningDetails(Misc.getApiFormattedDate(tvStartDate.getText().toString()),Misc.getApiFormattedDate(tvEndDate.getText().toString()),/*agentCode.getText().toString()*/"8000250");
                 }
                 else
                 {
@@ -146,9 +146,9 @@ public class BranchWiseJoiningActivity extends AppCompatActivity {
                 calendar.set(Calendar.MONTH, month);
                 calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                String myFormat = "dd MMM, yyyy"; //In which date Format needed
+                String myFormat = "dd-MM-yyyy"; //In which date Format needed
                 String apiFormat = "yyyy-MM-dd"; //In which date Format needed
-                SimpleDateFormat sdf = new SimpleDateFormat(apiFormat, Locale.ENGLISH);
+                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.ENGLISH);
                 SimpleDateFormat sdfApiFormat = new SimpleDateFormat(apiFormat, Locale.ENGLISH);
 
                 textView.setText(sdf.format(calendar.getTime()));

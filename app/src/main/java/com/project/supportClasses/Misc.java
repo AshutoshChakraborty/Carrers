@@ -66,7 +66,7 @@ public class Misc {
             e.printStackTrace();
         }
 
-        format = new SimpleDateFormat("yyyy-dd-MM");
+        format = new SimpleDateFormat("yyyy-MM-dd");
         return format.format(newDate);
     }
 

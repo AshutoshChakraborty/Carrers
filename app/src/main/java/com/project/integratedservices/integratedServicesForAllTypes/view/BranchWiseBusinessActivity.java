@@ -154,7 +154,11 @@ public class BranchWiseBusinessActivity extends AppCompatActivity implements Spi
         integratedServicesViewModel.getApiError().observe(this,s -> {
             pb.setVisibility(View.GONE);
             Misc.enableScreenTouch(this);
-            Toast.makeText(this, ""+s, Toast.LENGTH_SHORT).show();
+            ColorDialog colorDialog = MyColorDialog.getInstance(this);
+            colorDialog.setContentText(s);
+            colorDialog.setCancelable(true);
+            colorDialog.setAnimationEnable(true);
+            colorDialog.show();
         });
     }
 

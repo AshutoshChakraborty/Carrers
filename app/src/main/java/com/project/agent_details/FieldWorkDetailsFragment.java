@@ -18,9 +18,12 @@ import com.project.integratedservices.integratedServicesForAllTypes.viewModel.In
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_field_work.FieldWorkResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.phas_master.PhaseMasterResponse;
 import com.project.supportClasses.Misc;
+import com.project.supportClasses.MyColorDialog;
 import com.project.supportClasses.SharedPref;
 
 import static com.project.supportClasses.SharedPref.AGENT_ID;
+
+import cn.refactor.lib.colordialog.ColorDialog;
 
 public class FieldWorkDetailsFragment extends Fragment {
 
@@ -102,6 +105,14 @@ public class FieldWorkDetailsFragment extends Fragment {
                 mobile.setText(fieldWorkResponse.getMobileNo());
                         pan.setText(fieldWorkResponse.getPan());
             }
+        });
+        integratedServicesViewModel.getApiError().observe(this,s -> {
+            pb.setVisibility(View.GONE);
+            ColorDialog colorDialog = MyColorDialog.getInstance(getContext());
+            colorDialog.setContentText(s);
+            colorDialog.setCancelable(true);
+            colorDialog.setAnimationEnable(true);
+            colorDialog.show();
         });
 
 

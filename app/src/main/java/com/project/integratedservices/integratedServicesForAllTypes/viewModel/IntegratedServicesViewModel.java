@@ -1130,6 +1130,7 @@ public class IntegratedServicesViewModel extends ViewModel {
         apiClient.submitMISCollectionRegisterResponse(startdate, enddate ,loginCode).enqueue(new Callback<List<MISCollectionRegisterResponse>>() {
             @Override
             public void onResponse(Call<List<MISCollectionRegisterResponse>> call, Response<List<MISCollectionRegisterResponse>> response) {
+
                 misCollectionRegisterResponseLiveData.setValue(response.body());
             }
 
@@ -1235,6 +1236,13 @@ public class IntegratedServicesViewModel extends ViewModel {
             public void onResponse(Call<List<BranchwiseJoiningResponse>> call, Response<List<BranchwiseJoiningResponse>> response) {
                 if (response.body() != null) {
                     Log.e("branch Enrollment", new Gson().toJson(response.body()));
+                    if (response.body() != null && response.body().size() == 1) {
+                        if (response.body().get(0).getAgentCode() == null) {
+                            if (response.body().get(0).getStatus() != null && !response.body().get(0).getStatus().isEmpty()) {
+                                apiError.setValue(response.body().get(0).getStatus());
+                            }
+                        }
+                    }
                     mBranchWiseJoiningResponseLiveData.setValue(response.body());
                 }
             }
@@ -1418,6 +1426,13 @@ public class IntegratedServicesViewModel extends ViewModel {
         apiClient.fetchFieldWorkDetails(agentCode, loggedInAgentsId).enqueue(new Callback<List<FieldWorkResponse>>() {
             @Override
             public void onResponse(Call<List<FieldWorkResponse>> call, Response<List<FieldWorkResponse>> response) {
+                if (response.body() != null && response.body().size() == 1) {
+                    if (response.body().get(0).getAgRankId() == null) {
+                        if (response.body().get(0).getStatus() != null && !response.body().get(0).getStatus().isEmpty()) {
+                            apiError.setValue(response.body().get(0).getStatus());
+                        }
+                    }
+                }
                 fieldWorkLiveData.setValue(response.body());
             }
 

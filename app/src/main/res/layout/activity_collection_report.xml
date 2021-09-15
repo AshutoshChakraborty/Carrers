@@ -216,6 +216,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="@string/refree_number"
+                                android:textAllCaps="true"
                                 android:textColor="@android:color/white"
                                 android:fontFamily="@font/roboto_bold"/>
 
@@ -262,7 +263,8 @@
                             <androidx.appcompat.widget.AppCompatTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="BRANCH CODE"
+                                android:text="Total Collection"
+                                android:textAllCaps="true"
                                 android:singleLine="true"
                                 android:textColor="@android:color/white"
                                 android:fontFamily="@font/roboto_bold"/>
@@ -284,7 +286,8 @@
                             <androidx.appcompat.widget.AppCompatTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="BRANCH NAME"
+                                android:text="Total Joining"
+                                android:textAllCaps="true"
                                 android:singleLine="true"
                                 android:textColor="@android:color/white"
                                 android:fontFamily="@font/roboto_bold"/>
@@ -301,6 +304,7 @@
                             android:layout_height="wrap_content"
                             android:paddingVertical="@dimen/_8sdp"
                             android:gravity="center"
+                            android:visibility="gone"
                             android:orientation="vertical">
 
                             <androidx.appcompat.widget.AppCompatTextView
@@ -315,6 +319,7 @@
 
                         <View
                             android:layout_width="1dp"
+                            android:visibility="gone"
                             android:layout_height="match_parent"
                             android:background="@color/grey"/>
 
@@ -324,6 +329,7 @@
                             android:layout_height="wrap_content"
                             android:paddingVertical="@dimen/_8sdp"
                             android:gravity="center"
+                            android:visibility="gone"
                             android:orientation="vertical">
 
                             <androidx.appcompat.widget.AppCompatTextView
@@ -338,6 +344,7 @@
 
                         <View
                             android:layout_width="1dp"
+                            android:visibility="gone"
                             android:layout_height="match_parent"
                             android:background="@color/grey"/>
 
@@ -346,6 +353,7 @@
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:visibility="gone"
                             android:paddingVertical="@dimen/_8sdp"
                             android:orientation="vertical">
 
@@ -361,6 +369,7 @@
 
                         <View
                             android:layout_width="1dp"
+                            android:visibility="gone"
                             android:layout_height="match_parent"
                             android:background="@color/grey"/>
 
@@ -369,6 +378,7 @@
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:visibility="gone"
                             android:paddingVertical="@dimen/_8sdp"
                             android:orientation="vertical">
 

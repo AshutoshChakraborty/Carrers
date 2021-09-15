@@ -1,5 +1,7 @@
 package com.project.integratedservices.integratedServicesForAllTypes.view;
 
+import static com.project.supportClasses.SharedPref.AGENT_ID;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -8,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -19,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.card.MaterialCardView;
 import com.project.integratedservices.R;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.TeamDetailsResponse;
+import com.project.supportClasses.SharedPref;
 
 import java.util.List;
 
@@ -66,7 +70,7 @@ public class TeamListAdapter extends RecyclerView.Adapter<TeamListAdapter.MyView
         }
 
         if (teamDetailsResponses.get(position).getName() == null) {
-            holder.tvName.setText("null");
+            holder.tvName.setText("");
         } else
             holder.tvName.setText(teamDetailsResponses.get(position).getName().trim());
 
@@ -78,10 +82,14 @@ public class TeamListAdapter extends RecyclerView.Adapter<TeamListAdapter.MyView
             holder.tvDesignation.setVisibility(View.VISIBLE);
         }
 
-
-        holder.llparent.setOnClickListener(v -> {
-            context.startActivity(new Intent(context, TeamMemberDetailsActivity.class).putExtra("details", teamDetailsResponses.get(position)));
-        });
+        String loggedInAgentsId = SharedPref.getInstance(context).getData(AGENT_ID);
+            holder.llparent.setOnClickListener(v -> {
+                if(loggedInAgentsId.length() != 7) {
+                context.startActivity(new Intent(context, TeamMemberDetailsActivity.class).putExtra("details", teamDetailsResponses.get(position)));
+                } else {
+                    Toast.makeText(context,"Permission not Granted",Toast.LENGTH_LONG).show();
+                }
+            });
 
         holder.ivInfo.setVisibility(shouldShow ? View.VISIBLE : View.GONE);
 

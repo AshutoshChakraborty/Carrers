@@ -27,12 +27,15 @@ import com.project.integratedservices.integratedServicesForAllTypes.view.Dashboa
 import com.project.integratedservices.repository.authencationRepo.remote.response.userDetails.UserDetailsResponse;
 import com.project.supportClasses.Constants;
 import com.project.supportClasses.Misc;
+import com.project.supportClasses.MyColorDialog;
 import com.project.supportClasses.SharedPref;
 
 import static com.project.supportClasses.SharedPref.AGENT_ID;
 import static com.project.supportClasses.SharedPref.COMPANY_NAME;
 import static com.project.supportClasses.SharedPref.LOGIN_TYPE;
 import static com.project.supportClasses.SharedPref.USER_DETAILS;
+
+import cn.refactor.lib.colordialog.ColorDialog;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -197,16 +200,30 @@ public class LoginActivity extends AppCompatActivity {
                         viewModel.getApiError().setValue(getResources().getString(R.string.incorrect_username_or_password));
                     }
                 } else {
-                    Toast.makeText(this, "This id is registered with a different device", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(this, "This id is registered with a different device", Toast.LENGTH_SHORT).show();
+                    ColorDialog colorDialog = MyColorDialog.getInstance(this);
+                    colorDialog.setContentText("This id is registered with a different device");
+                    colorDialog.setCancelable(true);
+                    colorDialog.setAnimationEnable(true);
+                    colorDialog.show();
                 }
             } else {
-                Toast.makeText(this, userDetailsResponse.getStatus(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, userDetailsResponse.getStatus(), Toast.LENGTH_SHORT).show();
+                ColorDialog colorDialog = MyColorDialog.getInstance(this);
+                colorDialog.setContentText(userDetailsResponse.getStatus());
+                colorDialog.setCancelable(true);
+                colorDialog.setAnimationEnable(true);
+                colorDialog.show();
             }
         });
 
         viewModel.getApiError().observe(this, s -> {
             Misc.enableScreenTouch(LoginActivity.this);
-            Toast.makeText(this, "" + s, Toast.LENGTH_SHORT).show();
+            ColorDialog colorDialog = MyColorDialog.getInstance(this);
+            colorDialog.setContentText(s);
+            colorDialog.setCancelable(true);
+            colorDialog.setAnimationEnable(true);
+            colorDialog.show();
             spin_kit.setVisibility(View.GONE);
         });
 
@@ -356,7 +373,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 
-                        System.out.println("@@@IMEI " + telephonyManager.getDeviceId());
+//                        System.out.println("@@@IMEI " + telephonyManager.getDeviceId());
                     } else {
                         ActivityCompat.requestPermissions(this,
                                 new String[]{Manifest.permission.READ_PHONE_STATE},

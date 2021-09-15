@@ -187,7 +187,16 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
 
     private void populateDataInView(VoucherPrint1Response voucherPrint1Response) {
         svHorizontal.setVisibility(View.VISIBLE);
-        tvStatementForTheMonth.setText(voucherPrint1Response.getDESCRIPTION());
+        if(voucherPrint1Response.getDESCRIPTION().equalsIgnoreCase("Referee does not belongs to your group")) {
+            ColorDialog colorDialog = MyColorDialog.getInstance(this);
+            colorDialog.setContentText(voucherPrint1Response.getDESCRIPTION());
+            colorDialog.setCancelable(true);
+            colorDialog.setAnimationEnable(true);
+            colorDialog.show();
+        }
+        if(voucherPrint1Response.getDESCRIPTION() != null) {
+            tvStatementForTheMonth.setText(voucherPrint1Response.getDESCRIPTION());
+        }
         tvBranch.setText(voucherPrint1Response.getBRANCH1());
         tvCode.setText("" + voucherPrint1Response.getCODE());
         tvGrade.setText("" + voucherPrint1Response.getRANK());

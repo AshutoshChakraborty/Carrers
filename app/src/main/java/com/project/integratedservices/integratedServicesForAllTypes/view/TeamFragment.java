@@ -82,14 +82,8 @@ public class TeamFragment extends Fragment implements TeamListAdapter.HandleClic
 
                 if (teamDetailsResponses.get(0).getStatus().equals("Success") || teamDetailsResponses.get(0).getStatus().equals("Successfull")) {
                     rvTeam.setVisibility(View.VISIBLE);
-                    String loggedInAgentsId = SharedPref.getInstance(getActivity()).getData(AGENT_ID);
                     adapter = new TeamListAdapter(getActivity(),teamDetailsResponses,this,true);
                     rvTeam.setAdapter(adapter);
-                    if(loggedInAgentsId.length() > 6) {
-                        rvTeam.setClickable(true);
-                    } else {
-                        rvTeam.setClickable(false);
-                    }
                 } else {
 //                    Toast.makeText(getActivity(), teamDetailsResponses.get(0).getStatus(), Toast.LENGTH_LONG).show();
                     Toast.makeText(getActivity(), R.string.no_items_found, Toast.LENGTH_SHORT).show();

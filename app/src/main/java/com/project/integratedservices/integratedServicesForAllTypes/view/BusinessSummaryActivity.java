@@ -73,23 +73,23 @@ public class BusinessSummaryActivity extends AppCompatActivity {
         ivBack.setOnClickListener(v -> {
             onBackPressed();
         });
-        tvStartDate.setOnClickListener(v -> {
-            openDatePicker(tvStartDate);
-        });
-        tvEndDate.setOnClickListener(v -> {
-            if(start != null)
-                openDatePicker(tvEndDate);
-            else Toast.makeText(this, "First select start date", Toast.LENGTH_SHORT).show();
-        });
+//        tvStartDate.setOnClickListener(v -> {
+//            openDatePicker(tvStartDate);
+//        });
+//        tvEndDate.setOnClickListener(v -> {
+//            if(start != null)
+//                openDatePicker(tvEndDate);
+//            else Toast.makeText(this, "First select start date", Toast.LENGTH_SHORT).show();
+//        });
         cvSubmit.setOnClickListener(v -> {
-            if(validated())
-            {
+//            if(validated())
+//            {
                 if (Misc.isNetworkAvailable(this))
                 {
                     Misc.disableScreenTouch(this);
                     pb.setVisibility(View.VISIBLE);
 
-                    integratedServicesViewModel.submitMISIndividualBusinessDetails(Misc.getApiFormattedDate(tvStartDate.getText().toString()),Misc.getApiFormattedDate(tvEndDate.getText().toString()), SharedPref.getInstance(this).getData(SharedPref.AGENT_ID));
+                    integratedServicesViewModel.submitMISIndividualBusinessDetails("2021-01-01","2021-01-30", SharedPref.getInstance(this).getData(SharedPref.AGENT_ID));
                 }
                 else
                 {
@@ -107,7 +107,7 @@ public class BusinessSummaryActivity extends AppCompatActivity {
                     colorDialog.setAnimationEnable(true);
                     colorDialog.show();
                 }
-            }
+//            }
         });
 
 

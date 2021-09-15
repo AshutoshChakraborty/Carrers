@@ -52,12 +52,12 @@ public class CollectionReportAdapter  extends RecyclerView.Adapter<CollectionRep
 
         holder.tvAgentCode.setText(String.valueOf(misCollectionRegisterResponsesList.get(position).getAgentCode()));
         holder.tvName.setText(String.valueOf(misCollectionRegisterResponsesList.get(position).getName()));
-        holder.tvBranchCode.setText(String.valueOf(misCollectionRegisterResponsesList.get(position).getBranchCode()));
-        holder.tvBranchName.setText(String.valueOf(misCollectionRegisterResponsesList.get(position).getBranchName()));
-        holder.tvBusinessType.setText(String.valueOf(misCollectionRegisterResponsesList.get(position).getBusinessType()));
-        holder.tvCompanyName.setText(String.valueOf(misCollectionRegisterResponsesList.get(position).getCompanyName()));
-        holder.tvActualPremium.setText(String.valueOf(misCollectionRegisterResponsesList.get(position).getActualPremium()));
-        holder.tvPremiumAmount.setText(String.valueOf(misCollectionRegisterResponsesList.get(position).getPremiumAmt()));
+        holder.tvBranchCode.setText(String.valueOf(misCollectionRegisterResponsesList.get(position).getTotalCollection()));
+        holder.tvBranchName.setText(String.valueOf(misCollectionRegisterResponsesList.get(position).getTotalJoining()));
+//        holder.tvBusinessType.setText(String.valueOf(misCollectionRegisterResponsesList.get(position).getBusinessType()));
+//        holder.tvCompanyName.setText(String.valueOf(misCollectionRegisterResponsesList.get(position).getCompanyName()));
+//        holder.tvActualPremium.setText(String.valueOf(misCollectionRegisterResponsesList.get(position).getActualPremium()));
+//        holder.tvPremiumAmount.setText(String.valueOf(misCollectionRegisterResponsesList.get(position).getPremiumAmt()));
 
 
     }

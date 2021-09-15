@@ -30,6 +30,7 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.new_joinee_final_submit.NewJoiningFinalRespons;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.phas_master.PhaseMasterResponse;
 import com.project.supportClasses.Misc;
+import com.project.supportClasses.MyColorDialog;
 import com.project.supportClasses.SharedPref;
 
 import java.text.ParseException;
@@ -42,6 +43,8 @@ import java.util.Locale;
 import java.util.Objects;
 
 import static com.project.supportClasses.SharedPref.AGENT_ID;
+
+import cn.refactor.lib.colordialog.ColorDialog;
 
 public class NewAgentJoiningActivity extends AppCompatActivity {
     private Date start;
@@ -106,7 +109,7 @@ public class NewAgentJoiningActivity extends AppCompatActivity {
         viewButton.setOnClickListener(v -> {
 
             if (inputintroducerCode.getText().toString().isEmpty()) {
-                Toast.makeText(this, "Please enter Referee number", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Please Enter Referee number", Toast.LENGTH_SHORT).show();
             } else {
                 pb.setVisibility(View.VISIBLE);
                 callIntroDetailsApi();
@@ -195,6 +198,14 @@ public class NewAgentJoiningActivity extends AppCompatActivity {
                 }
                 if (introDeails.getName() != null) {
                     introducerName.setText(introDeails.getName());
+                } else {
+                    ColorDialog colorDialog = MyColorDialog.getInstance(this);
+                    colorDialog.setContentText(introDeails.getStatus());
+                    colorDialog.setCancelable(true);
+                    colorDialog.setAnimationEnable(true);
+                    colorDialog.show();
+                    introducerCode.setText("");
+                    introducerName.setText("");
                 }
                 if (introDeails.getGrade() != null) {
                     grade.setText(introDeails.getGrade());
@@ -206,7 +217,6 @@ public class NewAgentJoiningActivity extends AppCompatActivity {
                     gradeId = introDeails.getGradeId();
                     integratedServicesViewModel.getGradeNameSpinner(gradeId);
                 }
-
             }
         });
         integratedServicesViewModel.getJoiningBrachDetailsObsever().observe(this, joiningBranchDetals -> {
@@ -286,6 +296,16 @@ public class NewAgentJoiningActivity extends AppCompatActivity {
                 clearAllData();
 
             }
+        });
+
+        integratedServicesViewModel.getApiError().observe(this,s -> {
+            pb.setVisibility(View.GONE);
+            Misc.enableScreenTouch(this);
+            ColorDialog colorDialog = MyColorDialog.getInstance(this);
+            colorDialog.setContentText(s);
+            colorDialog.setCancelable(true);
+            colorDialog.setAnimationEnable(true);
+            colorDialog.show();
         });
 
     }

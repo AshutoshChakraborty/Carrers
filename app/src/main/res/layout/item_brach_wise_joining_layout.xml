@@ -178,6 +178,7 @@
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="wrap_content"
                 android:paddingVertical="@dimen/_8sdp"
+                android:visibility="gone"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -201,6 +202,7 @@
 
             <View
                 android:layout_width="1dp"
+                android:visibility="gone"
                 android:layout_height="match_parent"
                 android:background="@color/grey"/>
 

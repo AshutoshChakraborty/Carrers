@@ -50,11 +50,10 @@ public class FieldWorkDetailsFragment extends Fragment {
     }
 
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        integratedServicesViewModel = ViewModelProviders.of(this).get(IntegratedServicesViewModel .class);
+        integratedServicesViewModel = ViewModelProviders.of(this).get(IntegratedServicesViewModel.class);
     }
 
     @Override
@@ -82,40 +81,48 @@ public class FieldWorkDetailsFragment extends Fragment {
         pb = view.findViewById(R.id.pb);
 
         Bundle args = getArguments();
-        String agentCode = args.getString(AGENT_CODE,"");
+        String agentCode = args.getString(AGENT_CODE, "");
         String loggedInAgentsId = SharedPref.getInstance(getActivity()).getData(AGENT_ID);
         if (!agentCode.isEmpty()) {
             pb.setVisibility(View.VISIBLE);
-        }
-        integratedServicesViewModel.getFieldWorkObserver().observe(this, fieldWorkResponses -> {
-            Misc.enableScreenTouch(getActivity());
-            pb.setVisibility(View.GONE);
-            if (fieldWorkResponses.size() > 0) {
-                FieldWorkResponse fieldWorkResponse = fieldWorkResponses.get(0);
-                name.setText(fieldWorkResponse.getName());
+            integratedServicesViewModel.getFieldWorkObserver().observe(this, fieldWorkResponses -> {
+                Misc.enableScreenTouch(getActivity());
+                pb.setVisibility(View.GONE);
+                if (fieldWorkResponses.size() > 0) {
+                    FieldWorkResponse fieldWorkResponse = fieldWorkResponses.get(0);
+                    if(fieldWorkResponse.getStatus().equalsIgnoreCase("Success")) {
+                        name.setText(fieldWorkResponse.getName());
                         rank.setText(fieldWorkResponse.getAgRankId());
-                grade1.setText(fieldWorkResponse.getGradeName());
+                        grade1.setText(fieldWorkResponse.getGradeName());
                         introducer.setText(fieldWorkResponse.getIntroCode());
-                gender.setText(fieldWorkResponse.getGender());
+                        gender.setText(fieldWorkResponse.getGender());
                         doj.setText(fieldWorkResponse.getDoj());
-                address.setText(fieldWorkResponse.getAddress());
+                        address.setText(fieldWorkResponse.getAddress());
                         state.setText(fieldWorkResponse.getState());
-                pin.setText(fieldWorkResponse.getPin());
+                        pin.setText(fieldWorkResponse.getPin());
                         branch.setText(fieldWorkResponse.getBranchName());
-                mobile.setText(fieldWorkResponse.getMobileNo());
+                        mobile.setText(fieldWorkResponse.getMobileNo());
                         pan.setText(fieldWorkResponse.getPan());
-            }
-        });
-        integratedServicesViewModel.getApiError().observe(this,s -> {
-            pb.setVisibility(View.GONE);
-            ColorDialog colorDialog = MyColorDialog.getInstance(getContext());
-            colorDialog.setContentText(s);
-            colorDialog.setCancelable(true);
-            colorDialog.setAnimationEnable(true);
-            colorDialog.show();
-        });
 
+                    } else if(!(fieldWorkResponse.getStatus().equalsIgnoreCase("Success") || fieldWorkResponse.getStatus().equalsIgnoreCase("UnSuccess"))) {
+                        ColorDialog colorDialog = MyColorDialog.getInstance(getContext());
+                        colorDialog.setContentText(fieldWorkResponse.getStatus());
+                        colorDialog.setCancelable(true);
+                        colorDialog.setAnimationEnable(true);
+                        colorDialog.show();
+                    }
 
-        integratedServicesViewModel.fetchFieldWorkDetails(agentCode,loggedInAgentsId);
+                }
+            });
+            integratedServicesViewModel.getApiError().observe(this, s -> {
+                pb.setVisibility(View.GONE);
+                ColorDialog colorDialog = MyColorDialog.getInstance(getContext());
+                colorDialog.setContentText(s);
+                colorDialog.setCancelable(true);
+                colorDialog.setAnimationEnable(true);
+                colorDialog.show();
+            });
+            integratedServicesViewModel.fetchFieldWorkDetails(agentCode, loggedInAgentsId);
+        }
     }
 }

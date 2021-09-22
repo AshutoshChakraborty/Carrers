@@ -2,6 +2,7 @@ package com.project.integratedservices.integratedServicesForAllTypes.view;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.HorizontalScrollView;
@@ -67,11 +68,15 @@ public class IndividualBusinessReportActivity extends AppCompatActivity {
             Misc.enableScreenTouch(this);
             pb.setVisibility(View.GONE);
 
+            Log.d("IndividualBusiness", "size1 "+misIndividualBusinessResponses.size());
+
             if(misIndividualBusinessResponses.size()>0)
             {
                 Integer sumWeightedPremiumFresh = 0;
                 Integer sumWeightedPremiumRenewal = 0;
                 hsv.setVisibility(View.VISIBLE);
+                Log.d("IndividualBusiness", "size "+misIndividualBusinessResponses.size());
+
                 rvIndividualBusiness.setAdapter(new IndividualBusinessReportAdapter(this,misIndividualBusinessResponses));
                 for (MISIndividualBusinessResponse misIndividualBusinessRespons : misIndividualBusinessResponses) {
                     if (misIndividualBusinessRespons.getBusinessType() != null) {
@@ -90,18 +95,20 @@ public class IndividualBusinessReportActivity extends AppCompatActivity {
                 }
                 renewalBussinessAmount.setText(String.valueOf(sumWeightedPremiumRenewal));
                 freshBussinessAmount.setText(String.valueOf(sumWeightedPremiumFresh));
-
             }
         });
 
         integratedServicesViewModel.getApiError().observe(this,s -> {
             pb.setVisibility(View.GONE);
             Misc.enableScreenTouch(this);
-            ColorDialog colorDialog = MyColorDialog.getInstance(this);
-            colorDialog.setContentText(s);
-            colorDialog.setCancelable(true);
-            colorDialog.setAnimationEnable(true);
-            colorDialog.show();
+            Log.d("IndividualBusiness", "error");
+            if (!(s.equalsIgnoreCase("Success") || s.equalsIgnoreCase("UnSuccess"))) {
+                ColorDialog colorDialog = MyColorDialog.getInstance(this);
+                colorDialog.setContentText(s);
+                colorDialog.setCancelable(true);
+                colorDialog.setAnimationEnable(true);
+                colorDialog.show();
+            }
         });
     }
 

@@ -8,14 +8,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_business_summary.xml" value="0.15185185185185185" />
+        <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_agent_details.xml" value="0.16799999999999998" />
+        <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_branch_wise_joining.xml" value="0.2" />
+        <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_business_summary.xml" value="0.2" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_collection_report.xml" value="0.16574074074074074" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_dashboard.xml" value="0.15185185185185185" />
+        <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_individual_business_report.xml" value="0.121875" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_new_agent_joining.xml" value="0.15185185185185185" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_team_members_hirarchy.xml" value="0.15185185185185185" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_voucher.xml" value="0.15185185185185185" />
+        <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/agent_details.xml" value="0.1638888888888889" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/app_bar_main.xml" value="0.2421875" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/content_main.xml" value="0.2421875" />
+        <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/fragment_business_report.xml" value="0.18055555555555555" />
+        <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/item_brach_wise_joining_layout.xml" value="0.1638888888888889" />
+        <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/item_business_report_layout.xml" value="0.2421875" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/item_collection_summary_layout.xml" value="0.16574074074074074" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/team_fragment.xml" value="0.16574074074074074" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.19444444444444445" />

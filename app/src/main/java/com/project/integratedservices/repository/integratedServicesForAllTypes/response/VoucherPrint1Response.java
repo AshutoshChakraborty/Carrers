@@ -41,7 +41,7 @@ public class VoucherPrint1Response implements Serializable
     @SerializedName("PanEntryDate")
     @Expose
     private String panEntryDate;
-    @SerializedName("Status0")
+    @SerializedName("Status")
     @Expose
     private String status0;
     private final static long serialVersionUID = -7697565700624826239L;

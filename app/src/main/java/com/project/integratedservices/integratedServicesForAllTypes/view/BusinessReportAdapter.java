@@ -50,11 +50,11 @@ public class BusinessReportAdapter extends RecyclerView.Adapter<BusinessReportAd
         holder.itemView.startAnimation(animation);
         lastPosition = position;
 
-        if (businessReportResponse.get(position).getStatus().equals("Successful"))
+        if (businessReportResponse.get(position).getStatus().equals("Success"))
         {
             holder.tvName.setText(businessReportResponse.get(position).getName());
             holder.tvPolicyNo.setText("Ref Number - "+businessReportResponse.get(position).getAgentCode());
-            holder.tvDate.setText("Intro Code - "+businessReportResponse.get(position).getIntroCode());
+            holder.tvDate.setText("Referee Number - "+businessReportResponse.get(position).getIntroCode());
             holder.tvCollectionAmount.setText("Total Business - RS "+businessReportResponse.get(position).getTotalBusiness());
             holder.tvStatus.setVisibility(View.GONE);
         }

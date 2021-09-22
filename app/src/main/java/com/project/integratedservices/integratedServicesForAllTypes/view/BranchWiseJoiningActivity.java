@@ -72,11 +72,13 @@ public class BranchWiseJoiningActivity extends AppCompatActivity {
         integratedServicesViewModel.getApiError().observe(this,s -> {
             pb.setVisibility(View.GONE);
             Misc.enableScreenTouch(this);
-            ColorDialog colorDialog = MyColorDialog.getInstance(this);
-            colorDialog.setContentText(s);
-            colorDialog.setCancelable(true);
-            colorDialog.setAnimationEnable(true);
-            colorDialog.show();
+            if (!(s.equalsIgnoreCase("Success") || s.equalsIgnoreCase("UnSuccess"))) {
+                ColorDialog colorDialog = MyColorDialog.getInstance(this);
+                colorDialog.setContentText(s);
+                colorDialog.setCancelable(true);
+                colorDialog.setAnimationEnable(true);
+                colorDialog.show();
+            }
         });
     }
 

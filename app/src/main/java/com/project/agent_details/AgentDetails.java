@@ -65,7 +65,6 @@ public class AgentDetails extends AppCompatActivity {
             if (!editEnterCode.getText().toString().isEmpty()) {
                 agenttabadapter = new AgentTabAdapter(this,editEnterCode.getText().toString());
                 viewPager.setAdapter(agenttabadapter);
-
             } else {
                 Toast.makeText(this, "Please enter Ref Number", Toast.LENGTH_SHORT).show();
             }

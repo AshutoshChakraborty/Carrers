@@ -2,6 +2,7 @@ package com.project.integratedservices.integratedServicesForAllTypes.view;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.ImageView;
@@ -75,13 +76,33 @@ public class AgentDetailsActivity extends AppCompatActivity {
 
             if(misCollectionRegisterResponses.size()>0)
             {
-                int totalJoining = 0;
-                if (!misCollectionRegisterResponses.isEmpty()) {
-                    totalJoining = misCollectionRegisterResponses.get(misCollectionRegisterResponses.size() - 1).getSlno();
-                }
-                adapter = new AgentDetailsAdapter(this,misCollectionRegisterResponses);
-                rvCollectionReport.setAdapter(adapter);
-                ((AppCompatTextView)findViewById(R.id.dateFromTo11)).setText(String.valueOf(totalJoining));
+                if (!(misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("Success") || misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess"))) {
+                    ColorDialog colorDialog = MyColorDialog.getInstance(this);
+                    colorDialog.setContentText(misCollectionRegisterResponses.get(0).getStatus());
+                    colorDialog.setCancelable(true);
+                    colorDialog.setAnimationEnable(true);
+                    colorDialog.show();
+
+                    dateFromTo4.setText("");
+                    dateFromTo5.setText("");
+                    dateFromTo6.setText("");
+                    dateFromTo7.setText("");
+                    dateFromTo8.setText("");
+                    dateFromTo9.setText("");
+                    dateFromTo10.setText("");
+                    rvCollectionReport.setVisibility(View.GONE);
+
+                } else if (misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("Success")) {
+                    int totalJoining = 0;
+                    if (!misCollectionRegisterResponses.isEmpty()) {
+                        totalJoining = misCollectionRegisterResponses.get(misCollectionRegisterResponses.size() - 1).getSlno();
+                    }
+                    rvCollectionReport.setVisibility(View.VISIBLE);
+                    adapter = new AgentDetailsAdapter(this,misCollectionRegisterResponses);
+                    rvCollectionReport.setAdapter(adapter);
+                    ((AppCompatTextView)findViewById(R.id.dateFromTo11)).setText(String.valueOf(totalJoining));
+                   }
+
             }
         });
         integratedServicesViewModel.getMisAgentJoiningDetails().observe(this,misCollectionRegisterResponses -> {
@@ -91,18 +112,17 @@ public class AgentDetailsActivity extends AppCompatActivity {
             if(misCollectionRegisterResponses.size()>0)
             {
                 MisAgentJoiningDetails misAgentJoiningDetails = misCollectionRegisterResponses.get(0);
-                dateFromTo4.setText(misAgentJoiningDetails.getAgent());
-                dateFromTo5.setText(misAgentJoiningDetails.getBranchName());
-                dateFromTo6.setText(misAgentJoiningDetails.getDoj());
-                dateFromTo7.setText(misAgentJoiningDetails.getIntroducer());
-                dateFromTo8.setText(misAgentJoiningDetails.getRankId());
-                dateFromTo9.setText(misAgentJoiningDetails.getGradeName());
+                    dateFromTo4.setText(misAgentJoiningDetails.getAgent());
+                    dateFromTo5.setText(misAgentJoiningDetails.getBranchName());
+                    dateFromTo6.setText(misAgentJoiningDetails.getDoj());
+                    dateFromTo7.setText(misAgentJoiningDetails.getIntroducer());
+                    dateFromTo8.setText(misAgentJoiningDetails.getRankId());
+                    dateFromTo9.setText(misAgentJoiningDetails.getGradeName());
 //                dateFromTo10.setText(tvStartDate.getText().toString()+" to "+tvEndDate.getText().toString());
-                if (tvStartDate.getText()!=null && tvEndDate.getText()!=null) {
-                    dateFromTo10.setText(tvStartDate.getText().toString()+" to "+tvEndDate.getText().toString());
+                    if (tvStartDate.getText() != null && tvEndDate.getText() != null) {
+                        dateFromTo10.setText(tvStartDate.getText().toString() + " to " + tvEndDate.getText().toString());
+                    }
                 }
-
-            }
         });
 
 
@@ -114,11 +134,13 @@ public class AgentDetailsActivity extends AppCompatActivity {
 
         integratedServicesViewModel.getApiError().observe(this,s -> {
             pb.setVisibility(View.GONE);
-            ColorDialog colorDialog = MyColorDialog.getInstance(this);
-            colorDialog.setContentText(s);
-            colorDialog.setCancelable(true);
-            colorDialog.setAnimationEnable(true);
-            colorDialog.show();
+            if (!(s.equalsIgnoreCase("Success") || s.equalsIgnoreCase("UnSuccess"))) {
+                ColorDialog colorDialog = MyColorDialog.getInstance(this);
+                colorDialog.setContentText(s);
+                colorDialog.setCancelable(true);
+                colorDialog.setAnimationEnable(true);
+                colorDialog.show();
+            }
         });
     }
 

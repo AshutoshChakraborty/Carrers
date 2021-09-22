@@ -12,7 +12,7 @@ public class BusinessReportResponsePojo implements Serializable {
     @SerializedName("Name")
     @Expose
     private String name;
-    @SerializedName("Intro_Code")
+    @SerializedName("IntroCode")
     @Expose
     private String introCode;
     @SerializedName("Ag_Rank_Id")

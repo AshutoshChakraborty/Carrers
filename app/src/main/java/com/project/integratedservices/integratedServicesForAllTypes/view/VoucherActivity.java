@@ -1,6 +1,7 @@
 package com.project.integratedservices.integratedServicesForAllTypes.view;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
@@ -101,8 +102,18 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
         integratedServicesViewModel.getVoucherPrint1ResponseLiveData().observe(this, voucherPrint1Responses -> {
             callSecondApi();
 
-            if (voucherPrint1Responses.size() > 0) {
-                populateDataInView(voucherPrint1Responses.get(0));
+            if(voucherPrint1Responses.size() > 0) {
+                if (!(voucherPrint1Responses.get(0).getStatus0().equalsIgnoreCase("Success") || voucherPrint1Responses.get(0).getStatus0().equalsIgnoreCase("UnSuccess"))) {
+                    ColorDialog colorDialog = MyColorDialog.getInstance(this);
+                    colorDialog.setContentText(voucherPrint1Responses.get(0).getStatus0());
+                    colorDialog.setCancelable(true);
+                    colorDialog.setAnimationEnable(true);
+                    colorDialog.show();
+                    svHorizontal.setVisibility(View.GONE);
+                } else if (voucherPrint1Responses.get(0).getStatus0().equalsIgnoreCase("Success")) {
+                    populateDataInView(voucherPrint1Responses.get(0));
+                    svHorizontal.setVisibility(View.VISIBLE);
+                }
             }
 
         });
@@ -254,6 +265,18 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
             colorDialog.setAnimationEnable(true);
             colorDialog.show();
         }
+
+        integratedServicesViewModel.getApiError().observe(this,s -> {
+            pb.setVisibility(View.GONE);
+            Misc.enableScreenTouch(this);
+            if (!(s.equalsIgnoreCase("Success") || s.equalsIgnoreCase("UnSuccess"))) {
+                ColorDialog colorDialog = MyColorDialog.getInstance(this);
+                colorDialog.setContentText(s);
+                colorDialog.setCancelable(true);
+                colorDialog.setAnimationEnable(true);
+                colorDialog.show();
+            }
+        });
     }
 
     private void init() {

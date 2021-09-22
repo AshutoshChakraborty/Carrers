@@ -87,8 +87,8 @@ public class BusinessReportFragment extends Fragment {
                 ((DashboardActivity) getActivity()).spinKitView.setVisibility(View.GONE);
                 Misc.enableScreenTouch(getActivity());
                 rvBusinessReport.setVisibility(View.VISIBLE);
-                if(businessReportResponsePojos.get(0).getStatus().equals("Successful"))
-                businessReportAdapter = new BusinessReportAdapter(getActivity(),businessReportResponsePojos);
+                if(businessReportResponsePojos.get(0).getStatus().equals("Success"))
+                    businessReportAdapter = new BusinessReportAdapter(getActivity(),businessReportResponsePojos);
                 else {
                     businessReportResponsePojos.clear();
                     businessReportAdapter = new BusinessReportAdapter(getActivity(), businessReportResponsePojos);
@@ -181,8 +181,8 @@ public class BusinessReportFragment extends Fragment {
                     Misc.disableScreenTouch(getActivity());
                     BusinessReportRequestPojo requestPojo = new BusinessReportRequestPojo();
                     requestPojo.setAgentCode(agentCode);
-                    requestPojo.setStartDate(Misc.getApiFormattedDate(tvFromDate.getText().toString()));
-                    requestPojo.setEndDate(Misc.getApiFormattedDate(tvToDate.getText().toString()));
+                    requestPojo.setStartDate(tvFromDate.getText().toString());
+                    requestPojo.setEndDate(tvToDate.getText().toString());
                     if (ivTickTeamReport.getVisibility() == View.VISIBLE)
                         requestPojo.setType("2");
                     else
@@ -194,11 +194,11 @@ public class BusinessReportFragment extends Fragment {
                 }
                 else
                 {
-                Toast.makeText(getActivity(), "Select the type of report you want to view", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Select the type of report you want to view", Toast.LENGTH_SHORT).show();
                 }
             }
             else
-                    Toast.makeText(getActivity(), "Select from & to date", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Select from & to date", Toast.LENGTH_SHORT).show();
         });
 
         return view;
@@ -269,7 +269,7 @@ public class BusinessReportFragment extends Fragment {
             }
             else if(isFrom)
             {
-                textView.setText(sdf.format(datecalendar.getTime()));
+                textView.setText(sdfApiFormat.format(datecalendar.getTime()));
             }
             else if(!isFrom && getDateFromString(tvToBeChecked)!=null && datecalendar.getTime().before(getDateFromString(tvToBeChecked)))
             {
@@ -278,7 +278,7 @@ public class BusinessReportFragment extends Fragment {
             }
             else if(!isFrom)
             {
-                textView.setText(sdf.format(datecalendar.getTime()));
+                textView.setText(sdfApiFormat.format(datecalendar.getTime()));
             }
         };
 

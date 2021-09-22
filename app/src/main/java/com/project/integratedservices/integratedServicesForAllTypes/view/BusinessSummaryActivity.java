@@ -1,7 +1,10 @@
 package com.project.integratedservices.integratedServicesForAllTypes.view;
 
+import static com.project.supportClasses.SharedPref.AGENT_ID;
+
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.HorizontalScrollView;
@@ -16,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.textfield.TextInputEditText;
 import com.project.integratedservices.R;
 import com.project.integratedservices.integratedServicesForAllTypes.viewModel.IntegratedServicesViewModel;
 import com.project.supportClasses.Misc;
@@ -32,7 +36,7 @@ import cn.refactor.lib.colordialog.ColorDialog;
 
 public class BusinessSummaryActivity extends AppCompatActivity {
     private ImageView ivBack;
-        private IntegratedServicesViewModel integratedServicesViewModel;
+    private IntegratedServicesViewModel integratedServicesViewModel;
     private RecyclerView rvBusinessSummary;
     private AppCompatTextView tvStartDate, tvEndDate;
     private MaterialCardView cvSubmit;
@@ -40,6 +44,7 @@ public class BusinessSummaryActivity extends AppCompatActivity {
     private Calendar calendar;
     private ProgressBar pb;
     private HorizontalScrollView hsv;
+    private TextInputEditText agentCode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,15 +62,32 @@ public class BusinessSummaryActivity extends AppCompatActivity {
 
             if(misBusinessSummaryResponses.size()>0)
             {
-                hsv.setVisibility(View.VISIBLE);
-                rvBusinessSummary.setAdapter(new MISBusinessSummaryAdapter(this,misBusinessSummaryResponses));
+                if (!(misBusinessSummaryResponses.get(0).getStatus().equalsIgnoreCase("Success") || misBusinessSummaryResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess"))) {
+                    ColorDialog colorDialog = MyColorDialog.getInstance(this);
+                    colorDialog.setContentText(misBusinessSummaryResponses.get(0).getStatus());
+                    colorDialog.setCancelable(true);
+                    colorDialog.setAnimationEnable(true);
+                    colorDialog.show();
+                    hsv.setVisibility(View.GONE);
+                } else if (misBusinessSummaryResponses.get(0).getStatus().equalsIgnoreCase("Success")) {
+                    Log.d("BusinessSummery", "size "+ misBusinessSummaryResponses.size());
+                    hsv.setVisibility(View.VISIBLE);
+                    rvBusinessSummary.setAdapter(new MISBusinessSummaryAdapter(this,misBusinessSummaryResponses));
+                }
             }
         });
 
         integratedServicesViewModel.getApiError().observe(this,s -> {
             pb.setVisibility(View.GONE);
             Misc.enableScreenTouch(this);
-            Toast.makeText(this, ""+s, Toast.LENGTH_SHORT).show();
+            Log.d("BusinessSummery", "error ");
+            if (!(s.equalsIgnoreCase("Success") || s.equalsIgnoreCase("UnSuccess"))) {
+                ColorDialog colorDialog = MyColorDialog.getInstance(this);
+                colorDialog.setContentText(s);
+                colorDialog.setCancelable(true);
+                colorDialog.setAnimationEnable(true);
+                colorDialog.show();
+            }
         });
     }
 
@@ -73,23 +95,25 @@ public class BusinessSummaryActivity extends AppCompatActivity {
         ivBack.setOnClickListener(v -> {
             onBackPressed();
         });
-//        tvStartDate.setOnClickListener(v -> {
-//            openDatePicker(tvStartDate);
-//        });
-//        tvEndDate.setOnClickListener(v -> {
-//            if(start != null)
-//                openDatePicker(tvEndDate);
-//            else Toast.makeText(this, "First select start date", Toast.LENGTH_SHORT).show();
-//        });
+        tvStartDate.setOnClickListener(v -> {
+            openDatePicker(tvStartDate);
+        });
+        tvEndDate.setOnClickListener(v -> {
+            if(start != null)
+                openDatePicker(tvEndDate);
+            else Toast.makeText(this, "First select start date", Toast.LENGTH_SHORT).show();
+        });
         cvSubmit.setOnClickListener(v -> {
-//            if(validated())
-//            {
+            if(validated())
+            {
                 if (Misc.isNetworkAvailable(this))
                 {
                     Misc.disableScreenTouch(this);
                     pb.setVisibility(View.VISIBLE);
+                    String agentCodeStr = "0";
+                    agentCodeStr = agentCode.getText().toString();
 
-                    integratedServicesViewModel.submitMISIndividualBusinessDetails("2021-01-01","2021-01-30", SharedPref.getInstance(this).getData(SharedPref.AGENT_ID));
+                    integratedServicesViewModel.submitMISIndividualBusinessDetails(Misc.getApiFormattedDate(tvStartDate.getText().toString()),Misc.getApiFormattedDate(tvEndDate.getText().toString()), agentCodeStr,SharedPref.getInstance(this).getData(AGENT_ID));
                 }
                 else
                 {
@@ -107,7 +131,7 @@ public class BusinessSummaryActivity extends AppCompatActivity {
                     colorDialog.setAnimationEnable(true);
                     colorDialog.show();
                 }
-//            }
+            }
         });
 
 
@@ -122,6 +146,10 @@ public class BusinessSummaryActivity extends AppCompatActivity {
         else if(tvEndDate.getText().toString().isEmpty())
         {
             Toast.makeText(this, "Please select end date", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if (agentCode.getText().toString().isEmpty()) {
+            Toast.makeText(this, "Please enter Application Number", Toast.LENGTH_SHORT).show();
             return false;
         }
         return  true;
@@ -183,6 +211,7 @@ public class BusinessSummaryActivity extends AppCompatActivity {
         cvSubmit = findViewById(R.id.cvSubmit);
         pb = findViewById(R.id.pb);
         hsv = findViewById(R.id.hsv);
+        agentCode = findViewById(R.id.agentcodeValue);
 
         rvBusinessSummary.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
     }

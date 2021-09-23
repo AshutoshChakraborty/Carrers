@@ -58,21 +58,27 @@ public class AgentCommissionDetailsActivity extends AppCompatActivity {
             pb.setVisibility(View.GONE);
             Misc.enableScreenTouch(this);
 
-            if (misCollectionRegisterResponses.size() > 0 && misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("Success")) {
-                adapter = new AgentCommisionDetailsAdapter(this, misCollectionRegisterResponses);
-                rvCollectionReport.setAdapter(adapter);
-                rvCollectionReport.setVisibility(View.VISIBLE);
-            } else if(misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess")) {
-                rvCollectionReport.setVisibility(View.GONE);
-                totalFrmamt.setText("0");
-                totalFrmcomm.setText("0");
-            } else if (!(misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("Success") || misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess"))) {
-                ColorDialog colorDialog = MyColorDialog.getInstance(this);
-                colorDialog.setContentText(misCollectionRegisterResponses.get(0).getStatus());
-                colorDialog.setCancelable(true);
-                colorDialog.setAnimationEnable(true);
-                colorDialog.show();
+            if(misCollectionRegisterResponses.size() > 0) {
+                if (misCollectionRegisterResponses.size() > 0 && misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("Success")) {
+                    adapter = new AgentCommisionDetailsAdapter(this, misCollectionRegisterResponses);
+                    rvCollectionReport.setAdapter(adapter);
+                    rvCollectionReport.setVisibility(View.VISIBLE);
+                } else if(misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess")) {
+                    rvCollectionReport.setVisibility(View.GONE);
+                    totalFrmamt.setText("0");
+                    totalFrmcomm.setText("0");
+                } else if (!(misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("Success") || misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess"))) {
+                    ColorDialog colorDialog = MyColorDialog.getInstance(this);
+                    colorDialog.setContentText(misCollectionRegisterResponses.get(0).getStatus());
+                    colorDialog.setCancelable(true);
+                    colorDialog.setAnimationEnable(true);
+                    colorDialog.show();
 
+                    rvCollectionReport.setVisibility(View.GONE);
+                    totalFrmamt.setText("0");
+                    totalFrmcomm.setText("0");
+                }
+            } else {
                 rvCollectionReport.setVisibility(View.GONE);
                 totalFrmamt.setText("0");
                 totalFrmcomm.setText("0");
@@ -81,8 +87,13 @@ public class AgentCommissionDetailsActivity extends AppCompatActivity {
         integratedServicesViewModel.getmAgentCommisionTotalLiveData().observe(this, misCollectionRegisterResponses -> {
             pb.setVisibility(View.GONE);
             Misc.enableScreenTouch(this);
-            totalFrmamt.setText(misCollectionRegisterResponses.get(0).getFRMAMT());
-            totalFrmcomm.setText(misCollectionRegisterResponses.get(0).getFRMCOMM());
+            if(misCollectionRegisterResponses.size() > 0 && misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("Success")) {
+                totalFrmamt.setText(misCollectionRegisterResponses.get(0).getFRMAMT());
+                totalFrmcomm.setText(misCollectionRegisterResponses.get(0).getFRMCOMM());
+            } else {
+                totalFrmamt.setText("0");
+                totalFrmcomm.setText("0");
+            }
 
         });
 
@@ -95,6 +106,8 @@ public class AgentCommissionDetailsActivity extends AppCompatActivity {
                 colorDialog.setCancelable(true);
                 colorDialog.setAnimationEnable(true);
                 colorDialog.show();
+
+                rvCollectionReport.setVisibility(View.GONE);
             }
         });
     }

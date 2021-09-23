@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.HorizontalScrollView;
@@ -59,11 +60,21 @@ public class CollectionReportActivity extends AppCompatActivity {
             pb.setVisibility(View.GONE);
             Misc.enableScreenTouch(this);
 
-            if(misCollectionRegisterResponses.size()>0)
+            if(misCollectionRegisterResponses.size()>0 && misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("Success"))
             {
                 hsv.setVisibility(View.VISIBLE);
                 adapter = new CollectionReportAdapter(this,misCollectionRegisterResponses);
                 rvCollectionReport.setAdapter(adapter);
+            } else if(misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess")) {
+                hsv.setVisibility(View.GONE);
+            } else if (!(misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("Success") || misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess"))) {
+                ColorDialog colorDialog = MyColorDialog.getInstance(this);
+                colorDialog.setContentText(misCollectionRegisterResponses.get(0).getStatus());
+                colorDialog.setCancelable(true);
+                colorDialog.setAnimationEnable(true);
+                colorDialog.show();
+
+                hsv.setVisibility(View.GONE);
             }
         });
 
@@ -71,7 +82,15 @@ public class CollectionReportActivity extends AppCompatActivity {
         integratedServicesViewModel.getApiError().observe(this,s -> {
             pb.setVisibility(View.GONE);
             Misc.enableScreenTouch(this);
-            Toast.makeText(this, ""+s, Toast.LENGTH_LONG).show();
+            if (!(s.equalsIgnoreCase("Success") || s.equalsIgnoreCase("UnSuccess"))) {
+                ColorDialog colorDialog = MyColorDialog.getInstance(this);
+                colorDialog.setContentText(s);
+                colorDialog.setCancelable(true);
+                colorDialog.setAnimationEnable(true);
+                colorDialog.show();
+
+                hsv.setVisibility(View.GONE);
+            }
         });
     }
 

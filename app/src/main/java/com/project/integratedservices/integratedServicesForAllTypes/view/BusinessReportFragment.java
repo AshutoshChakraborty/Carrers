@@ -86,15 +86,31 @@ public class BusinessReportFragment extends Fragment {
             try {
                 ((DashboardActivity) getActivity()).spinKitView.setVisibility(View.GONE);
                 Misc.enableScreenTouch(getActivity());
-                rvBusinessReport.setVisibility(View.VISIBLE);
-                if(businessReportResponsePojos.get(0).getStatus().equals("Success"))
-                    businessReportAdapter = new BusinessReportAdapter(getActivity(),businessReportResponsePojos);
-                else {
-                    businessReportResponsePojos.clear();
-                    businessReportAdapter = new BusinessReportAdapter(getActivity(), businessReportResponsePojos);
 
-                    Toast.makeText(getActivity(), R.string.no_items_found, Toast.LENGTH_SHORT).show();
+                if(businessReportResponsePojos.get(0).getStatus().equals("Success")) {
+                    rvBusinessReport.setVisibility(View.VISIBLE);
+                    businessReportAdapter = new BusinessReportAdapter(getActivity(),businessReportResponsePojos);
                 }
+                else if(businessReportResponsePojos.get(0).getStatus().equals("UnSuccess")) {
+                    rvBusinessReport.setVisibility(View.GONE);
+                }
+                else if (!(businessReportResponsePojos.get(0).getStatus().equalsIgnoreCase("Success") || businessReportResponsePojos.get(0).getStatus().equalsIgnoreCase("UnSuccess"))) {
+                    ColorDialog colorDialog = MyColorDialog.getInstance(getContext());
+                    colorDialog.setContentText(businessReportResponsePojos.get(0).getStatus());
+                    colorDialog.setCancelable(true);
+                    colorDialog.setAnimationEnable(true);
+                    colorDialog.show();
+
+                    rvBusinessReport.setVisibility(View.GONE);
+                }
+
+//
+//                {
+//                    businessReportResponsePojos.clear();
+//                    businessReportAdapter = new BusinessReportAdapter(getActivity(), businessReportResponsePojos);
+//
+//                    Toast.makeText(getActivity(), R.string.no_items_found, Toast.LENGTH_SHORT).show();
+//                }
 
                 rvBusinessReport.setAdapter(businessReportAdapter);
             } catch (Exception e) {

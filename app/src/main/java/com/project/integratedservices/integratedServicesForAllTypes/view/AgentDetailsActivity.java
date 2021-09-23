@@ -76,7 +76,7 @@ public class AgentDetailsActivity extends AppCompatActivity {
 
             if(misCollectionRegisterResponses.size()>0)
             {
-                if (!(misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("Success") || !misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess"))) {
+                if (!(misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("Success") || misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess"))) {
                     ColorDialog colorDialog = MyColorDialog.getInstance(this);
                     colorDialog.setContentText(misCollectionRegisterResponses.get(0).getStatus());
                     colorDialog.setCancelable(true);

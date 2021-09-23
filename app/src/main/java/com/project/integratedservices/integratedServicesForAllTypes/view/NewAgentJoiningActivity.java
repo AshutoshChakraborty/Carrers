@@ -209,6 +209,8 @@ public class NewAgentJoiningActivity extends AppCompatActivity {
                 }
                 if (introDeails.getGrade() != null) {
                     grade.setText(introDeails.getGrade());
+                } else {
+                    grade.setText("");
                 }
                 if (introDeails.getCompanyName() != null) {
                     companyName.setText(introDeails.getCompanyName());
@@ -306,6 +308,8 @@ public class NewAgentJoiningActivity extends AppCompatActivity {
             colorDialog.setCancelable(true);
             colorDialog.setAnimationEnable(true);
             colorDialog.show();
+
+            clearAllData();
         });
 
     }
@@ -313,18 +317,17 @@ public class NewAgentJoiningActivity extends AppCompatActivity {
     private void clearAllData() {
         applicantName.setText("");
         phoneNumber.setText("");
+        grade.setText("");
         enrollAmount = null;
         dob.setText("");
         start = null;
         dateOfBirth = null;
         introducerCode.setText("");
         introducerName.setText("");
-        grade.setText("");
         branchId = null;
         joiningBranch.setText("");
         gradeSpinner.setText("");
         grd.setText("");
-        grade.setText("");
         companyName.setText("");
         companyId="";
         inputintroducerCode.setText("");

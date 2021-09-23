@@ -8,13 +8,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_agent_commission_details.xml" value="0.12708333333333333" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_agent_details.xml" value="0.16799999999999998" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_branch_wise_joining.xml" value="0.2" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_business_summary.xml" value="0.2" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_collection_report.xml" value="0.16574074074074074" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_dashboard.xml" value="0.15185185185185185" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_individual_business_report.xml" value="0.121875" />
-        <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_new_agent_joining.xml" value="0.15185185185185185" />
+        <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_new_agent_joining.xml" value="0.264" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_team_members_hirarchy.xml" value="0.15185185185185185" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/activity_voucher.xml" value="0.15185185185185185" />
         <entry key="..\:/Freelancing Projects/Carrers/app/src/main/res/layout/agent_details.xml" value="0.1638888888888889" />

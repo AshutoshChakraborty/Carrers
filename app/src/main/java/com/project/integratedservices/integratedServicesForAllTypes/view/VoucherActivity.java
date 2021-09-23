@@ -110,9 +110,14 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
                     colorDialog.setAnimationEnable(true);
                     colorDialog.show();
                     svHorizontal.setVisibility(View.GONE);
+                    Log.d("Voucher", "Gone");
                 } else if (voucherPrint1Responses.get(0).getStatus0().equalsIgnoreCase("Success")) {
                     populateDataInView(voucherPrint1Responses.get(0));
                     svHorizontal.setVisibility(View.VISIBLE);
+                    Log.d("Voucher", "Success");
+                } else if (voucherPrint1Responses.get(0).getStatus0().equalsIgnoreCase("UnSuccess")) {
+                    svHorizontal.setVisibility(View.GONE);
+                    Log.d("Voucher", "UnSuccess");
                 }
             }
 
@@ -141,6 +146,8 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
         integratedServicesViewModel.getApiError().observe(this, s -> {
             pb.setVisibility(View.GONE);
             Misc.enableScreenTouch(this);
+
+            Log.d("Voucher", "error");
             ColorDialog colorDialog = MyColorDialog.getInstance(this);
             colorDialog.setContentText(s);
             colorDialog.setCancelable(true);
@@ -275,6 +282,8 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
                 colorDialog.setCancelable(true);
                 colorDialog.setAnimationEnable(true);
                 colorDialog.show();
+            } else if (s.equalsIgnoreCase("UnSuccess")) {
+                svHorizontal.setVisibility(View.GONE);
             }
         });
     }

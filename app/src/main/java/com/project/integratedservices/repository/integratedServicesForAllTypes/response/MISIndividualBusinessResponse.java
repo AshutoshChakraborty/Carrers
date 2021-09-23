@@ -50,9 +50,9 @@ public class MISIndividualBusinessResponse implements Serializable
     @SerializedName("Premium_Amt")
     @Expose
     private String premiumAmt;
-    @SerializedName("Status1")
-    @Expose
-    private String status1;
+//    @SerializedName("Status1")
+//    @Expose
+//    private String status1;
     @SerializedName("Weighted_Premium")
     @Expose
     private String weightedPremium;
@@ -176,13 +176,13 @@ public class MISIndividualBusinessResponse implements Serializable
         this.premiumAmt = premiumAmt;
     }
 
-    public String getStatus1() {
-        return status1;
-    }
-
-    public void setStatus1(String status1) {
-        this.status1 = status1;
-    }
+//    public String getStatus1() {
+//        return status1;
+//    }
+//
+//    public void setStatus1(String status1) {
+//        this.status1 = status1;
+//    }
 
     public String getWeightedPremium() {
         return weightedPremium;

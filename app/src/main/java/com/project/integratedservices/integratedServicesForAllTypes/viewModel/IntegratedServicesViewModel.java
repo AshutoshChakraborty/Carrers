@@ -1095,7 +1095,7 @@ public class IntegratedServicesViewModel extends ViewModel {
         apiClient.submitMISIndividualBusinessDetails(agentCode, startdate, enddate, roleId, loginId).enqueue(new Callback<List<MISIndividualBusinessResponse>>() {
             @Override
             public void onResponse(Call<List<MISIndividualBusinessResponse>> call, Response<List<MISIndividualBusinessResponse>> response) {
-                if (response.body().get(0).getStatus1() != null && response.body().get(0).getStatus1().equalsIgnoreCase("Success")) {
+                if (response.body().get(0).getStatus() != null && response.body().get(0).getStatus().equalsIgnoreCase("Success")) {
                     misIndividualBusinessResponseLiveData.setValue(response.body());
                 } else {
                     if (response.body().get(0).getStatus()!=null && !response.body().get(0).getStatus().isEmpty()) {

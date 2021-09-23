@@ -70,7 +70,7 @@ public class IndividualBusinessReportActivity extends AppCompatActivity {
 
             Log.d("IndividualBusiness", "size1 "+misIndividualBusinessResponses.size());
 
-            if(misIndividualBusinessResponses.size()>0)
+            if(misIndividualBusinessResponses.size()>0 && misIndividualBusinessResponses.get(0).getStatus().equalsIgnoreCase("Success"))
             {
                 Integer sumWeightedPremiumFresh = 0;
                 Integer sumWeightedPremiumRenewal = 0;
@@ -95,6 +95,10 @@ public class IndividualBusinessReportActivity extends AppCompatActivity {
                 }
                 renewalBussinessAmount.setText(String.valueOf(sumWeightedPremiumRenewal));
                 freshBussinessAmount.setText(String.valueOf(sumWeightedPremiumFresh));
+            } else if (misIndividualBusinessResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess")) {
+                hsv.setVisibility(View.GONE);
+                renewalBussinessAmount.setText("0");
+                freshBussinessAmount.setText("0");
             }
         });
 
@@ -108,6 +112,13 @@ public class IndividualBusinessReportActivity extends AppCompatActivity {
                 colorDialog.setCancelable(true);
                 colorDialog.setAnimationEnable(true);
                 colorDialog.show();
+                hsv.setVisibility(View.GONE);
+                renewalBussinessAmount.setText("0");
+                freshBussinessAmount.setText("0");
+            } else if (s.equalsIgnoreCase("UnSuccess")) {
+                hsv.setVisibility(View.GONE);
+                renewalBussinessAmount.setText("0");
+                freshBussinessAmount.setText("0");
             }
         });
     }

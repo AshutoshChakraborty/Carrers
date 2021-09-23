@@ -76,12 +76,13 @@ public class AgentDetailsActivity extends AppCompatActivity {
 
             if(misCollectionRegisterResponses.size()>0)
             {
-                if (!(misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("Success") || misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess"))) {
+                if (!(misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("Success") || !misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess"))) {
                     ColorDialog colorDialog = MyColorDialog.getInstance(this);
                     colorDialog.setContentText(misCollectionRegisterResponses.get(0).getStatus());
                     colorDialog.setCancelable(true);
                     colorDialog.setAnimationEnable(true);
                     colorDialog.show();
+                    Log.d("Enrollment Details", "1");
 
                     dateFromTo4.setText("");
                     dateFromTo5.setText("");
@@ -90,10 +91,12 @@ public class AgentDetailsActivity extends AppCompatActivity {
                     dateFromTo8.setText("");
                     dateFromTo9.setText("");
                     dateFromTo10.setText("");
+                    ((AppCompatTextView)findViewById(R.id.dateFromTo11)).setText("");
                     rvCollectionReport.setVisibility(View.GONE);
 
                 } else if (misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("Success")) {
                     int totalJoining = 0;
+                    Log.d("Enrollment Details", "2");
                     if (!misCollectionRegisterResponses.isEmpty()) {
                         totalJoining = misCollectionRegisterResponses.get(misCollectionRegisterResponses.size() - 1).getSlno();
                     }
@@ -102,6 +105,18 @@ public class AgentDetailsActivity extends AppCompatActivity {
                     rvCollectionReport.setAdapter(adapter);
                     ((AppCompatTextView)findViewById(R.id.dateFromTo11)).setText(String.valueOf(totalJoining));
                    }
+                else if(misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess")) {
+                    rvCollectionReport.setVisibility(View.GONE);
+                    dateFromTo4.setText("");
+                    dateFromTo5.setText("");
+                    dateFromTo6.setText("");
+                    dateFromTo7.setText("");
+                    dateFromTo8.setText("");
+                    dateFromTo9.setText("");
+                    dateFromTo10.setText("");
+                    ((AppCompatTextView)findViewById(R.id.dateFromTo11)).setText("");
+                    Log.d("Enrollment Details", "3");
+                }
 
             }
         });
@@ -109,8 +124,10 @@ public class AgentDetailsActivity extends AppCompatActivity {
             pb.setVisibility(View.GONE);
             Misc.enableScreenTouch(this);
 
-            if(misCollectionRegisterResponses.size()>0)
+            if(misCollectionRegisterResponses.size()>0 && misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("Success"))
             {
+
+                Log.d("Enrollment Details", "4");
                 MisAgentJoiningDetails misAgentJoiningDetails = misCollectionRegisterResponses.get(0);
                     dateFromTo4.setText(misAgentJoiningDetails.getAgent());
                     dateFromTo5.setText(misAgentJoiningDetails.getBranchName());
@@ -134,12 +151,23 @@ public class AgentDetailsActivity extends AppCompatActivity {
 
         integratedServicesViewModel.getApiError().observe(this,s -> {
             pb.setVisibility(View.GONE);
+            Log.d("Enrollment Details", "5");
             if (!(s.equalsIgnoreCase("Success") || s.equalsIgnoreCase("UnSuccess"))) {
                 ColorDialog colorDialog = MyColorDialog.getInstance(this);
                 colorDialog.setContentText(s);
                 colorDialog.setCancelable(true);
                 colorDialog.setAnimationEnable(true);
                 colorDialog.show();
+
+                rvCollectionReport.setVisibility(View.GONE);
+                dateFromTo4.setText("");
+                dateFromTo5.setText("");
+                dateFromTo6.setText("");
+                dateFromTo7.setText("");
+                dateFromTo8.setText("");
+                dateFromTo9.setText("");
+                dateFromTo10.setText("");
+                ((AppCompatTextView)findViewById(R.id.dateFromTo11)).setText("");
             }
         });
     }

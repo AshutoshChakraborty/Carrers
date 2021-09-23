@@ -17,6 +17,7 @@
             android:layout_width="@dimen/_100sdp"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:visibility="gone"
             android:paddingVertical="@dimen/_8sdp"
             android:orientation="vertical">
 
@@ -32,6 +33,7 @@
 
         <View
             android:layout_width="1dp"
+            android:visibility="gone"
             android:layout_height="match_parent"
             android:background="@color/grey"/>
 

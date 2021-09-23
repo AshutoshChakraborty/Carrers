@@ -61,10 +61,19 @@ public class BranchWiseJoiningActivity extends AppCompatActivity {
             pb.setVisibility(View.GONE);
             Misc.enableScreenTouch(this);
 
-            if(misCollectionRegisterResponses.size()>0)
+            if(misCollectionRegisterResponses.size()>0 && misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("Success"))
             {
+                rvCollectionReport.setVisibility(View.VISIBLE);
                 adapter = new BranchwiseJoiningAdapter(this,misCollectionRegisterResponses);
                 rvCollectionReport.setAdapter(adapter);
+            } else if(misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess")) {
+                rvCollectionReport.setVisibility(View.GONE);
+            } else if (!(misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("Success") || misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess"))) {
+                ColorDialog colorDialog = MyColorDialog.getInstance(this);
+                colorDialog.setContentText(misCollectionRegisterResponses.get(0).getStatus());
+                colorDialog.setCancelable(true);
+                colorDialog.setAnimationEnable(true);
+                colorDialog.show();
             }
         });
 

@@ -1230,8 +1230,8 @@ public class IntegratedServicesViewModel extends ViewModel {
      * ***************************   New code On Mis Report   **********************************************************************************
      */
 
-    public void getBranchwiseJoiningDetails(String startdate, String enddate, String agentCode) {
-        apiClient.getBranchwiseJoiningDetails(startdate, enddate, agentCode).enqueue(new Callback<List<BranchwiseJoiningResponse>>() {
+    public void getBranchwiseJoiningDetails(String startdate, String enddate, String agentCode , String loginCode) {
+        apiClient.getBranchwiseJoiningDetails(startdate, enddate, agentCode,loginCode).enqueue(new Callback<List<BranchwiseJoiningResponse>>() {
             @Override
             public void onResponse(Call<List<BranchwiseJoiningResponse>> call, Response<List<BranchwiseJoiningResponse>> response) {
                 if (response.body() != null) {

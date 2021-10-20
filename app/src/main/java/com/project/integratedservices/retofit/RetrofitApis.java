@@ -294,7 +294,7 @@ public interface RetrofitApis {
 
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @GET("MIS/MISBranchWiseJoining")
-    Call<List<BranchwiseJoiningResponse>> getBranchwiseJoiningDetails( @Query("SDate") String startdate, @Query("EDate") String enddate,@Query("AgCode") String aCode);
+    Call<List<BranchwiseJoiningResponse>> getBranchwiseJoiningDetails( @Query("SDate") String startdate, @Query("EDate") String enddate,@Query("AgCode") String aCode , @Query("LoginCode")String loginCode);
 
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @GET("AgentJoining/MISAgentAll")

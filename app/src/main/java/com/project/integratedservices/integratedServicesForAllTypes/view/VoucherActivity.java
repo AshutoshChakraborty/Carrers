@@ -51,7 +51,7 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
     private HorizontalScrollView svHorizontal;
     private AppCompatEditText editEnterCode;
     //    voucherPrint1
-    private TextView tvStatementForTheMonth, tvBranch, tvCode, tvGrade, tvName, tvPan, tvPanEntryDate, tvTotalCollection,tvTotalCollectionTillDate,tvLifeHelDupAmount;
+    private TextView tvStatementForTheMonth, tvBranch, tvCode, tvGrade, tvName, tvPan, tvPanEntryDate, tvTotalCollection,tvTotalCollectionTillDate,tvLifeHelDupAmount,tvChainDetails,tvTotalCollectionTillDate1;
 
     //    voucherPrint2
 //    private TextView tvCID, tvBranchCode, tvcdapl, tvdate, tvScheme, tvCollection, tvPercentage, tvComm, tvSpot, tvadjust, tvRtype, tvInvestorJunior;
@@ -216,13 +216,15 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
             tvStatementForTheMonth.setText(voucherPrint1Response.getDESCRIPTION());
         }
         tvBranch.setText(voucherPrint1Response.getBRANCH1());
+        tvChainDetails.setText(voucherPrint1Response.getChainDetails());
+        tvTotalCollectionTillDate1.setText(voucherPrint1Response.getTOTALTILLDATE());
         tvCode.setText("" + voucherPrint1Response.getCODE());
         tvGrade.setText("" + voucherPrint1Response.getRANK());
         tvName.setText("" + voucherPrint1Response.getNAME());
         tvPan.setText(voucherPrint1Response.getPAN());
         tvPanEntryDate.setText(Misc.getFormattedDate(voucherPrint1Response.getPanEntryDate()));
         tvTotalCollection.setText("" + voucherPrint1Response.getTOTALCOLLECTION());
-        tvTotalCollectionTillDate.setText("" + voucherPrint1Response.getTOTALTILLDATE());
+        tvTotalCollectionTillDate.setText("" + voucherPrint1Response.getUptoDate());
         tvLifeHelDupAmount.setText("" + voucherPrint1Response.getLIFEHELDUPAMOUNT());
     }
 
@@ -312,6 +314,8 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
         tvTotalCollection = findViewById(R.id.tvTotalCollection);
         tvTotalCollectionTillDate = findViewById(R.id.tvTotalCollectionTillDate);
         tvLifeHelDupAmount = findViewById(R.id.tvLifeHelDupAmount);
+        tvChainDetails = findViewById(R.id.tv_chain_details);
+        tvTotalCollectionTillDate1 = findViewById(R.id.tvTotalCollectionTillDate1);
         editEnterCode = findViewById(R.id.editEnterCode);
 
         //    voucherPrint2

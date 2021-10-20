@@ -153,11 +153,11 @@ public class AgentDetailsActivity extends AppCompatActivity {
             pb.setVisibility(View.GONE);
             Log.d("Enrollment Details", "5");
             if (!(s.equalsIgnoreCase("Success") || s.equalsIgnoreCase("UnSuccess"))) {
-                ColorDialog colorDialog = MyColorDialog.getInstance(this);
-                colorDialog.setContentText(s);
-                colorDialog.setCancelable(true);
-                colorDialog.setAnimationEnable(true);
-                colorDialog.show();
+//                ColorDialog colorDialog = MyColorDialog.getInstance(this);
+//                colorDialog.setContentText(s);
+//                colorDialog.setCancelable(true);
+//                colorDialog.setAnimationEnable(true);
+//                colorDialog.show();
 
                 rvCollectionReport.setVisibility(View.GONE);
                 dateFromTo4.setText("");

@@ -41,6 +41,15 @@ public class VoucherPrint1Response implements Serializable
     @SerializedName("PanEntryDate")
     @Expose
     private String panEntryDate;
+    @SerializedName("CurrentDate")
+    @Expose
+    private String currrentDate;
+    @SerializedName("UpToDate")
+    @Expose
+    private String uptoDate;
+    @SerializedName("ChainDetails")
+    @Expose
+    private String chainDetails;
     @SerializedName("Status")
     @Expose
     private String status0;
@@ -133,6 +142,31 @@ public class VoucherPrint1Response implements Serializable
     public void setPanEntryDate(String panEntryDate) {
         this.panEntryDate = panEntryDate;
     }
+
+    public String getCurrrentDate() {
+        return currrentDate;
+    }
+
+    public void setCurrrentDate(String currrentDate) {
+        this.currrentDate = currrentDate;
+    }
+
+    public String getChainDetails() {
+        return chainDetails;
+    }
+
+    public void setChainDetails(String chainDetails) {
+        this.chainDetails = chainDetails;
+    }
+
+    public String getUptoDate() {
+        return uptoDate;
+    }
+
+    public void setUptoDate(String uptoDate) {
+        this.uptoDate = uptoDate;
+    }
+
 
     public String getStatus0() {
         return status0;

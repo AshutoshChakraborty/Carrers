@@ -218,7 +218,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12ssp"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="CONSOLIDATED STATEMENT FOR THE MONTH : "/>
+                            android:text="CONSOLIDATED STATEMENT FOR : "/>
 
 
                         <TextView
@@ -370,6 +370,18 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_chain_details"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:layout_marginEnd="@dimen/_30sdp"
+                            android:minWidth="@dimen/_60sdp"
+                            android:textSize="@dimen/_12ssp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text=""/>
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -695,7 +707,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12ssp"
                             android:fontFamily="@font/roboto_bold"
-                            android:text="TOTAL COLLECTION  : "/>
+                            android:text="TOTAL COLLECTION : "/>
 
                         <TextView
                             android:id="@+id/tvTotalCollection"
@@ -1070,7 +1082,7 @@
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_12ssp"
                                 android:fontFamily="@font/roboto_bold"
-                                android:text="TOTAL COLLECTION TILL DATE  : "/>
+                                android:text="TOTAL COLLECTION TILL : "/>
 
                             <TextView
                                 android:id="@+id/tvTotalCollectionTillDate"
@@ -1081,6 +1093,25 @@
                                 android:paddingHorizontal="@dimen/_4sdp"
                                 android:fontFamily="@font/roboto_bold"
                                 android:text=""/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                android:paddingHorizontal="@dimen/_4sdp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text=" OF CURRENT BUSINESS YEAR : "/>
+
+                            <TextView
+                                android:id="@+id/tvTotalCollectionTillDate1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/light_grey"
+                                android:textSize="@dimen/_12ssp"
+                                android:paddingHorizontal="@dimen/_4sdp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text=" OF CURRENT BUSINESS YEAR : "/>
 
                         </LinearLayout>
 
@@ -1101,7 +1132,7 @@
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_12ssp"
                                 android:fontFamily="@font/roboto_bold"
-                                android:text="LIFE HELDUP AMOUNT  :  "/>
+                                android:text="HELDUP  :  "/>
 
                             <TextView
                                 android:id="@+id/tvLifeHelDupAmount"

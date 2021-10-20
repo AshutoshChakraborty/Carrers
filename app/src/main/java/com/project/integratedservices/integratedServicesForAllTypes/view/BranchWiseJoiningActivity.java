@@ -108,8 +108,8 @@ public class BranchWiseJoiningActivity extends AppCompatActivity {
                 {
                     Misc.disableScreenTouch(this);
                     pb.setVisibility(View.VISIBLE);
-
-                    integratedServicesViewModel.getBranchwiseJoiningDetails(Misc.getApiFormattedDate(tvStartDate.getText().toString()),Misc.getApiFormattedDate(tvEndDate.getText().toString()),/*agentCode.getText().toString()*/"8000250");
+                    String loggedInAgentsId = SharedPref.getInstance(getApplicationContext()).getData(AGENT_ID);
+                    integratedServicesViewModel.getBranchwiseJoiningDetails(Misc.getApiFormattedDate(tvStartDate.getText().toString()),Misc.getApiFormattedDate(tvEndDate.getText().toString()),agentCode.getText().toString(),loggedInAgentsId);
                 }
                 else
                 {

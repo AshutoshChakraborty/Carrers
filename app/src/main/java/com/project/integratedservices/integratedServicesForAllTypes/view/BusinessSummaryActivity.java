@@ -22,6 +22,8 @@ import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.project.integratedservices.R;
 import com.project.integratedservices.integratedServicesForAllTypes.viewModel.IntegratedServicesViewModel;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.MISBusinessSummaryResponse;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.MISIndividualBusinessResponse;
 import com.project.supportClasses.Misc;
 import com.project.supportClasses.MyColorDialog;
 import com.project.supportClasses.SharedPref;
@@ -38,7 +40,7 @@ public class BusinessSummaryActivity extends AppCompatActivity {
     private ImageView ivBack;
     private IntegratedServicesViewModel integratedServicesViewModel;
     private RecyclerView rvBusinessSummary;
-    private AppCompatTextView tvStartDate, tvEndDate;
+    private AppCompatTextView tvStartDate, tvEndDate,freshBussinessAmount,renewalBussinessAmount;
     private MaterialCardView cvSubmit;
     private Date start;
     private Calendar calendar;
@@ -72,7 +74,26 @@ public class BusinessSummaryActivity extends AppCompatActivity {
                 } else if (misBusinessSummaryResponses.get(0).getStatus().equalsIgnoreCase("Success")) {
                     Log.d("BusinessSummery", "size "+ misBusinessSummaryResponses.size());
                     hsv.setVisibility(View.VISIBLE);
+                    Double sumWeightedPremiumFresh = 0.0;
+                    Double sumWeightedPremiumRenewal = 0.0;
                     rvBusinessSummary.setAdapter(new MISBusinessSummaryAdapter(this,misBusinessSummaryResponses));
+                    for (MISBusinessSummaryResponse misIndividualBusinessRespons : misBusinessSummaryResponses) {
+                        if (misIndividualBusinessRespons.getBusinessType() != null) {
+                            if (misIndividualBusinessRespons.getBusinessType().equalsIgnoreCase("FRESH")) {
+                                if (misIndividualBusinessRespons.getWeightage() != null || !misIndividualBusinessRespons.getWeightage().equalsIgnoreCase("")) {
+                                    Double value = Double.parseDouble(misIndividualBusinessRespons.getWeightage());
+                                    sumWeightedPremiumFresh = sumWeightedPremiumFresh + value;
+                                }
+                            } else {
+                                if (misIndividualBusinessRespons.getWeightage() != null || !misIndividualBusinessRespons.getWeightage().equalsIgnoreCase("")) {
+                                    Double value = Double.parseDouble(misIndividualBusinessRespons.getWeightage());
+                                    sumWeightedPremiumRenewal = sumWeightedPremiumRenewal + value;
+                                }
+                            }
+                        }
+                    }
+                    renewalBussinessAmount.setText(String.valueOf(sumWeightedPremiumRenewal));
+                    freshBussinessAmount.setText(String.valueOf(sumWeightedPremiumFresh));
                 }
             }
         });
@@ -212,6 +233,8 @@ public class BusinessSummaryActivity extends AppCompatActivity {
         pb = findViewById(R.id.pb);
         hsv = findViewById(R.id.hsv);
         agentCode = findViewById(R.id.agentcodeValue);
+        freshBussinessAmount = findViewById(R.id.freshBussinessAmount);
+        renewalBussinessAmount = findViewById(R.id.renewalBussinessAmount);
 
         rvBusinessSummary.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
     }

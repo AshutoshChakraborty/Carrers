@@ -84,11 +84,11 @@
                     android:id="@+id/lineGender"
                     android:layout_width="fill_parent"
                     android:layout_height="1dp"
-                    android:visibility="gone"
-                    tools:visibility="visible"
                     android:layout_below="@id/tvPhaseId"
                     android:layout_marginHorizontal="@dimen/_3sdp"
-                    android:background="@color/light_grey" />
+                    android:background="@color/light_grey"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvPhaseId"
@@ -98,22 +98,21 @@
                     android:ellipsize="end"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="PHASE ID"
-                    tools:visibility="visible"
-                    android:visibility="visible"
                     android:paddingVertical="@dimen/_8sdp"
                     android:paddingStart="@dimen/_4sdp"
                     android:singleLine="true"
                     android:textColor="@color/colorPrimaryDark"
                     android:textColorHint="@color/light_grey"
-                    android:textSize="@dimen/_10sdp" />
+                    android:textSize="@dimen/_10sdp"
+                    android:visibility="visible"
+                    tools:visibility="visible" />
 
                 <com.project.supportClasses.CustomSpinner
                     android:id="@+id/spPhaseId"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
-                    tools:visibility="visible"
-                    />
+                    tools:visibility="visible" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -1153,6 +1152,785 @@
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:background="@color/light_grey"/>
 
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </HorizontalScrollView>
+
+
+            <HorizontalScrollView
+                android:id="@+id/svHorizontal1"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:scrollbars="horizontal|vertical"
+                android:background="#f8f8f8"
+                android:padding="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/consolidate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:text="CONSOLIDATED REPORTED AS ON DATED : "/>
+
+
+
+                    </LinearLayout>
+                    <View
+                        android:layout_height="1.2dp"
+                        android:layout_width="match_parent"
+                        android:layout_marginVertical="@dimen/_4sdp"
+                        android:background="@color/light_grey"/>
+
+
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_gravity="center_vertical">
+
+                                <LinearLayout
+                                    android:layout_width="@dimen/_110sdp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="@dimen/_110sdp"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_12ssp"
+                                        android:textAllCaps="true"
+                                        android:paddingVertical="@dimen/_4sdp"
+                                        android:fontFamily="@font/roboto_bold"
+                                        android:text="Business years"/>
+
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="1.2dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/light_grey"/>
+
+                                <LinearLayout
+                                    android:layout_width="@dimen/_200sdp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_12ssp"
+                                        android:textAllCaps="true"
+                                        android:paddingVertical="@dimen/_4sdp"
+                                        android:fontFamily="@font/roboto_bold"
+                                        android:text="total collection statement"/>
+
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="1.2dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/light_grey"/>
+
+                                <LinearLayout
+                                    android:layout_width="@dimen/_100sdp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_12ssp"
+                                        android:paddingVertical="@dimen/_4sdp"
+                                        android:fontFamily="@font/roboto_bold"
+                                        android:textAllCaps="true"
+                                        android:text="Heldup"/>
+
+                                </LinearLayout>
+
+
+                                <View
+                                    android:layout_width="1.2dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/light_grey"/>
+
+
+
+
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_height="1.2dp"
+                                android:layout_width="match_parent"
+                                android:background="@color/light_grey"/>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rvVoucher1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+                    <View
+                        android:layout_height="1.2dp"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@color/light_grey"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="@dimen/_4sdp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="@dimen/_110sdp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:text="TOTAL"/>
+
+                        <TextView
+                            android:id="@+id/tvTotalCollection1"
+                            android:layout_width="@dimen/_200sdp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/light_grey"
+                            android:textSize="@dimen/_12ssp"
+                            android:paddingHorizontal="@dimen/_4sdp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:text=""/>
+                        <TextView
+                            android:id="@+id/tvTotalCollection2"
+                            android:layout_width="@dimen/_200sdp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/light_grey"
+                            android:textSize="@dimen/_12ssp"
+                            android:paddingHorizontal="@dimen/_4sdp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:text=""/>
+                    </LinearLayout>
+                    <View
+                        android:layout_height="1.2dp"
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@color/light_grey"/>
+
+                    <View
+                        android:layout_height="1.2dp"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@color/light_grey"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="SUR" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.2dp"
+                                android:layout_marginVertical="@dimen/_4sdp"
+                                android:background="@color/light_grey" />
+
+                            <TextView
+                                android:id="@+id/sur"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/light_grey"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1.2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/light_grey" />
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="TMA-I" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.2dp"
+                                android:layout_marginVertical="@dimen/_4sdp"
+                                android:background="@color/light_grey" />
+
+                            <TextView
+                                android:id="@+id/tma1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/light_grey"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1.2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/light_grey" />
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="TMA-II" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.2dp"
+                                android:layout_marginVertical="@dimen/_4sdp"
+                                android:background="@color/light_grey" />
+
+                            <TextView
+                                android:id="@+id/tma2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/light_grey"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="" />
+
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="1.2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/light_grey" />
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="JMA" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.2dp"
+                                android:layout_marginVertical="@dimen/_4sdp"
+                                android:background="@color/light_grey" />
+
+                            <TextView
+                                android:id="@+id/jma"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/light_grey"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1.2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/light_grey" />
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="DMA" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.2dp"
+                                android:layout_marginVertical="@dimen/_4sdp"
+                                android:background="@color/light_grey" />
+
+                            <TextView
+                                android:id="@+id/dma"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/light_grey"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="" />
+
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="1.2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/light_grey" />
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="MA" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.2dp"
+                                android:layout_marginVertical="@dimen/_4sdp"
+                                android:background="@color/light_grey" />
+
+                            <TextView
+                                android:id="@+id/ma"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/light_grey"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1.2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/light_grey" />
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="SMA" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.2dp"
+                                android:layout_marginVertical="@dimen/_4sdp"
+                                android:background="@color/light_grey" />
+
+                            <TextView
+                                android:id="@+id/sma"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/light_grey"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="" />
+
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="1.2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/light_grey" />
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="AMO" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.2dp"
+                                android:layout_marginVertical="@dimen/_4sdp"
+                                android:background="@color/light_grey" />
+
+                            <TextView
+                                android:id="@+id/amo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/light_grey"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1.2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/light_grey" />
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="MO" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.2dp"
+                                android:layout_marginVertical="@dimen/_4sdp"
+                                android:background="@color/light_grey" />
+
+                            <TextView
+                                android:id="@+id/mo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/light_grey"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1.2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/light_grey" />
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="SMO" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.2dp"
+                                android:layout_marginVertical="@dimen/_4sdp"
+                                android:background="@color/light_grey" />
+
+                            <TextView
+                                android:id="@+id/smo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/light_grey"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1.2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/light_grey" />
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="PMO" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.2dp"
+                                android:layout_marginVertical="@dimen/_4sdp"
+                                android:background="@color/light_grey" />
+
+                            <TextView
+                                android:id="@+id/pmo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/light_grey"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1.2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/light_grey" />
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="JRM" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.2dp"
+                                android:layout_marginVertical="@dimen/_4sdp"
+                                android:background="@color/light_grey" />
+
+                            <TextView
+                                android:id="@+id/jrm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/light_grey"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1.2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/light_grey" />
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="ARM" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.2dp"
+                                android:layout_marginVertical="@dimen/_4sdp"
+                                android:background="@color/light_grey" />
+
+                            <TextView
+                                android:id="@+id/arm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/light_grey"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1.2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/light_grey" />
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="RM" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.2dp"
+                                android:layout_marginVertical="@dimen/_4sdp"
+                                android:background="@color/light_grey" />
+
+                            <TextView
+                                android:id="@+id/rm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/light_grey"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1.2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/light_grey" />
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="SRM" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.2dp"
+                                android:layout_marginVertical="@dimen/_4sdp"
+                                android:background="@color/light_grey" />
+
+                            <TextView
+                                android:id="@+id/srm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/light_grey"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1.2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/light_grey" />
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="CRM" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.2dp"
+                                android:layout_marginVertical="@dimen/_4sdp"
+                                android:background="@color/light_grey" />
+
+                            <TextView
+                                android:id="@+id/crm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/light_grey"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_height="1.2dp"
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@color/light_grey"/>
                 </androidx.appcompat.widget.LinearLayoutCompat>
             </HorizontalScrollView>
 

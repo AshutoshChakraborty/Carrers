@@ -61,6 +61,8 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint1Response;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint2Response;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint3Response;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint4Response;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint5Response;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_detailis_promotion_detail.PromotionDetailsResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_bank_detail.BankDetailResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_field_work.FieldWorkResponse;
@@ -134,6 +136,8 @@ public class IntegratedServicesViewModel extends ViewModel {
     private MutableLiveData<List<VoucherPrint1Response>> voucherPrint1ResponseLiveData;
     private MutableLiveData<List<VoucherPrint2Response>> voucherPrint2ResponseLiveData;
     private MutableLiveData<List<VoucherPrint3Response>> voucherPrint3ResponseLiveData;
+    private MutableLiveData<List<VoucherPrint4Response>> voucherPrint4ResponseLiveData;
+    private MutableLiveData<List<VoucherPrint5Response>> voucherPrint5ResponseLiveData;
 
     private MutableLiveData<List<BranchwiseJoiningResponse>> mBranchWiseJoiningResponseLiveData;
     private MutableLiveData<List<AgentDetail>> mAgentDetailisResponseLiveData;
@@ -600,6 +604,21 @@ public class IntegratedServicesViewModel extends ViewModel {
             voucherPrint3ResponseLiveData = new MutableLiveData<>();
         }
         return voucherPrint3ResponseLiveData;
+    }
+    public MutableLiveData<List<VoucherPrint4Response>> getVoucherPrint4ResponseLiveData() {
+
+        if (voucherPrint4ResponseLiveData == null) {
+            voucherPrint4ResponseLiveData = new MutableLiveData<>();
+        }
+        return voucherPrint4ResponseLiveData;
+    }
+
+    public MutableLiveData<List<VoucherPrint5Response>> getVoucherPrint5ResponseLiveData() {
+
+        if (voucherPrint5ResponseLiveData == null) {
+            voucherPrint5ResponseLiveData = new MutableLiveData<>();
+        }
+        return voucherPrint5ResponseLiveData;
     }
 
 
@@ -1225,6 +1244,35 @@ public class IntegratedServicesViewModel extends ViewModel {
         });
     }
 
+    public void getVoucherPrint4(String statementId, String agentCode, String lcode) {
+        apiClient.getVoucherPrint4(statementId, agentCode, lcode).enqueue(new Callback<List<VoucherPrint4Response>>() {
+            @Override
+            public void onResponse(Call<List<VoucherPrint4Response>> call, Response<List<VoucherPrint4Response>> response) {
+                voucherPrint4ResponseLiveData.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<VoucherPrint4Response>> call, Throwable t) {
+                apiError.setValue(t.getLocalizedMessage());
+            }
+        });
+    }
+
+    public void getVoucherPrint5(String statementId, String agentCode, String lcode) {
+        apiClient.getVoucherPrint5(statementId, agentCode, lcode).enqueue(new Callback<List<VoucherPrint5Response>>() {
+            @Override
+            public void onResponse(Call<List<VoucherPrint5Response>> call, Response<List<VoucherPrint5Response>> response) {
+                voucherPrint5ResponseLiveData.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<VoucherPrint5Response>> call, Throwable t) {
+                apiError.setValue(t.getLocalizedMessage());
+            }
+        });
+    }
+
+
     /**
      * ******************************************************************************************************************************************
      * ***************************   New code On Mis Report   **********************************************************************************
@@ -1554,4 +1602,6 @@ public class IntegratedServicesViewModel extends ViewModel {
             }
         });
     }
+
+
 }

@@ -26,6 +26,8 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint1Response;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint2Response;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint3Response;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint4Response;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint5Response;
 import com.project.supportClasses.CustomSpinner;
 import com.project.supportClasses.Misc;
 import com.project.supportClasses.MyColorDialog;
@@ -49,6 +51,7 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
     private StatementDetailsResponse selectedStatement = null;
     private MaterialCardView cvView;
     private HorizontalScrollView svHorizontal;
+    private HorizontalScrollView svHorizontal1;
     private AppCompatEditText editEnterCode;
     //    voucherPrint1
     private TextView tvStatementForTheMonth, tvBranch, tvCode, tvGrade, tvName, tvPan, tvPanEntryDate, tvTotalCollection,tvTotalCollectionTillDate,tvLifeHelDupAmount,tvChainDetails,tvTotalCollectionTillDate1;
@@ -57,9 +60,10 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
 //    private TextView tvCID, tvBranchCode, tvcdapl, tvdate, tvScheme, tvCollection, tvPercentage, tvComm, tvSpot, tvadjust, tvRtype, tvInvestorJunior;
 
     //    voucherPrint3
-    private TextView tvCID2, tvGross, tvSpot2, tvtdsHeldup, tvTdsDeduct, tvTdsNopan, tvTdsCleaning, tvNegBalance, tvFinalComm;
+    private TextView tvCID2,consolidate, tvGross, tvSpot2, tvtdsHeldup, tvTdsDeduct, tvTdsNopan, tvTdsCleaning, tvNegBalance, tvFinalComm;
 
-    private RecyclerView rvVoucher;
+    private RecyclerView rvVoucher,rvVoucher1;
+    private String currrentDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,6 +106,7 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
         integratedServicesViewModel.getVoucherPrint1ResponseLiveData().observe(this, voucherPrint1Responses -> {
             callSecondApi();
 
+
             if(voucherPrint1Responses.size() > 0) {
                 if (!(voucherPrint1Responses.get(0).getStatus0().equalsIgnoreCase("Success") || voucherPrint1Responses.get(0).getStatus0().equalsIgnoreCase("UnSuccess"))) {
                     ColorDialog colorDialog = MyColorDialog.getInstance(this);
@@ -119,6 +124,9 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
                     svHorizontal.setVisibility(View.GONE);
                     Log.d("Voucher", "UnSuccess");
                 }
+                currrentDate = voucherPrint1Responses.get(0).getCurrrentDate();
+                callFourthApi();
+                callFifthApi();
             }
 
         });
@@ -141,6 +149,66 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
 
         });
 
+        integratedServicesViewModel.getVoucherPrint4ResponseLiveData().observe(this, voucherPrint4Responses -> {
+            pb.setVisibility(View.GONE);
+            Misc.enableScreenTouch(this);
+            if(voucherPrint4Responses.size() > 0) {
+                if (!(voucherPrint4Responses.get(0).getStatus().equalsIgnoreCase("Success") || voucherPrint4Responses.get(0).getStatus().equalsIgnoreCase("UnSuccess"))) {
+                    ColorDialog colorDialog = MyColorDialog.getInstance(this);
+                    colorDialog.setContentText(voucherPrint4Responses.get(0).getStatus());
+                    colorDialog.setCancelable(true);
+                    colorDialog.setAnimationEnable(true);
+                    colorDialog.show();
+                    svHorizontal1.setVisibility(View.GONE);
+                    Log.d("Voucher", "Gone");
+                } else if (voucherPrint4Responses.get(0).getStatus().equalsIgnoreCase("Success")) {
+//                    populateDataInView(voucherPrint4Responses.get(0));
+                    svHorizontal1.setVisibility(View.VISIBLE);
+                    consolidate.setText(currrentDate);
+                    rvVoucher1.setAdapter(new VoucherFourAdapter(this,voucherPrint4Responses));
+                    int count1 = 0;
+                    int count2 = 0;
+                    for (VoucherPrint4Response voucherPrint4Respons : voucherPrint4Responses) {
+                        count1 = count1 + voucherPrint4Respons.getTotalTillDate();
+                        count2 = count2 + voucherPrint4Respons.getLifeHeldupAmt();
+                    }
+                    ((TextView)findViewById(R.id.tvTotalCollection1)).setText(String.valueOf(count1));
+                    ((TextView)findViewById(R.id.tvTotalCollection2)).setText(String.valueOf(count2));
+                    Log.d("Voucher", "Success");
+                } else if (voucherPrint4Responses.get(0).getStatus().equalsIgnoreCase("UnSuccess")) {
+                    svHorizontal1.setVisibility(View.GONE);
+                    Log.d("Voucher", "UnSuccess");
+                }
+            }
+
+        });
+
+        integratedServicesViewModel.getVoucherPrint5ResponseLiveData().observe(this, voucherPrint5Responses -> {
+            pb.setVisibility(View.GONE);
+            Misc.enableScreenTouch(this);
+            if(voucherPrint5Responses.size() > 0) {
+                if (!(voucherPrint5Responses.get(0).getStatus().equalsIgnoreCase("Success") || voucherPrint5Responses.get(0).getStatus().equalsIgnoreCase("UnSuccess"))) {
+                    ColorDialog colorDialog = MyColorDialog.getInstance(this);
+                    colorDialog.setContentText(voucherPrint5Responses.get(0).getStatus());
+                    colorDialog.setCancelable(true);
+                    colorDialog.setAnimationEnable(true);
+                    colorDialog.show();
+//                    svHorizontal.setVisibility(View.GONE);
+                    Log.d("Voucher", "Gone");
+                } else if (voucherPrint5Responses.get(0).getStatus().equalsIgnoreCase("Success")) {
+//                    populateDataInView(voucherPrint5Responses.get(0));
+                    setData(voucherPrint5Responses.get(0));
+//                    svHorizontal.setVisibility(View.VISIBLE);
+                    Log.d("Voucher", "Success");
+                } else if (voucherPrint5Responses.get(0).getStatus().equalsIgnoreCase("UnSuccess")) {
+//                    svHorizontal.setVisibility(View.GONE);
+                    Log.d("Voucher", "UnSuccess");
+                }
+            }
+
+        });
+
+
 
 
         integratedServicesViewModel.getApiError().observe(this, s -> {
@@ -154,6 +222,45 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
             colorDialog.setAnimationEnable(true);
             colorDialog.show();
         });
+    }
+
+    private void setData(VoucherPrint5Response response) {
+        ((TextView)findViewById(R.id.sur)).setText(response.getSur().toString());
+        ((TextView)findViewById(R.id.tma1)).setText(response.getTmaI().toString());
+        ((TextView)findViewById(R.id.tma2)).setText(response.getTmaIi().toString());
+        ((TextView)findViewById(R.id.jma)).setText(response.getJma().toString());
+        ((TextView)findViewById(R.id.dma)).setText(response.getDma().toString());
+        ((TextView)findViewById(R.id.ma)).setText(response.getMa().toString());
+        ((TextView)findViewById(R.id.sma)).setText(response.getSma().toString());
+        ((TextView)findViewById(R.id.amo)).setText(response.getAmo().toString());
+        ((TextView)findViewById(R.id.mo)).setText(response.getMo().toString());
+        ((TextView)findViewById(R.id.smo)).setText(response.getSmo().toString());
+        ((TextView)findViewById(R.id.pmo)).setText(response.getPmo().toString());
+        ((TextView)findViewById(R.id.jrm)).setText(response.getJrm().toString());
+        ((TextView)findViewById(R.id.arm)).setText(response.getArm().toString());
+        ((TextView)findViewById(R.id.rm)).setText(response.getRm().toString());
+        ((TextView)findViewById(R.id.srm)).setText(response.getSrm().toString());
+        ((TextView)findViewById(R.id.crm)).setText(response.getCrm().toString());
+    }
+
+
+    private void callFourthApi() {
+        // TODO: 10/21/2021
+        String agentCodeValue =editEnterCode.getText().toString();
+        String agentCode = "0";
+        if (!agentCodeValue.equalsIgnoreCase("")) {
+            agentCode = agentCodeValue;
+        }
+        integratedServicesViewModel.getVoucherPrint4(selectedStatement.getID().toString(),agentCode,SharedPref.getInstance(this).getData(SharedPref.AGENT_ID));
+    }
+    private void callFifthApi() {
+        // TODO: 10/21/2021
+        String agentCodeValue =editEnterCode.getText().toString();
+        String agentCode = "0";
+        if (!agentCodeValue.equalsIgnoreCase("")) {
+            agentCode = agentCodeValue;
+        }
+        integratedServicesViewModel.getVoucherPrint5(selectedStatement.getID().toString(),agentCode,SharedPref.getInstance(this).getData(SharedPref.AGENT_ID));
     }
 
     private void populateDataInView(VoucherPrint3Response voucherPrint3Response) {
@@ -301,8 +408,12 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
         tvPhaseId = findViewById(R.id.tvPhaseId);
         cvView = findViewById(R.id.cvView);
         svHorizontal = findViewById(R.id.svHorizontal);
+        svHorizontal1 = findViewById(R.id.svHorizontal1);
         rvVoucher = findViewById(R.id.rvVoucher);
+        rvVoucher1 = findViewById(R.id.rvVoucher1);
+        consolidate = findViewById(R.id.consolidate);
         rvVoucher.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false));
+        rvVoucher1.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false));
         //    voucherPrint1
         tvStatementForTheMonth = findViewById(R.id.tvStatementForTheMonth);
         tvBranch = findViewById(R.id.tvBranch);

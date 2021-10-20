@@ -49,6 +49,8 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint1Response;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint2Response;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint3Response;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint4Response;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.VoucherPrint5Response;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_detailis_promotion_detail.PromotionDetailsResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_bank_detail.BankDetailResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.agent_details_field_work.FieldWorkResponse;
@@ -291,6 +293,13 @@ public interface RetrofitApis {
     @POST("Voucher/VoucherPrint3")
     Call<List<VoucherPrint3Response>> getVoucherPrint3(@Query("StementID2") String StementID, @Query("AgentCode2") String AgentCode,@Query("LCode2") String lcode);
 
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    @POST("Voucher/VoucherPrint4")
+    Call<List<VoucherPrint4Response>> getVoucherPrint4(@Query("StementID3") String StementID, @Query("AgentCode3") String AgentCode, @Query("LCode3") String lcode);
+
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    @POST("Voucher/VoucherPrint5")
+    Call<List<VoucherPrint5Response>> getVoucherPrint5(@Query("StementID4") String StementID, @Query("AgentCode4") String AgentCode, @Query("LCode4") String lcode);
 
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @GET("MIS/MISBranchWiseJoining")

@@ -25,6 +25,8 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.AlertMessageResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.AllBranchDetailsResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.ApplicationNoWisePremiumAmount;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.ApplicationNumberWisePaymentNewBusinessItem;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.ApplicationNumberWisePaymentNewPayment;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.ApplicationNumberWisePaymentResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.ApplyLeaveResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.AssignCustomerResponsePojo;
@@ -153,7 +155,8 @@ public class IntegratedServicesViewModel extends ViewModel {
     private MutableLiveData<List<VoucherDetail>> voucherDetailsLiveData;
     private MutableLiveData<List<PaymentDetail>> paymentDetailsLiveData;
     private MutableLiveData<List<AgentCommissionDetailsResponse>> mAgentCommisionDetailsLiveData;
-    private MutableLiveData<List<ApplicationNumberWisePaymentResponse>> mApplicationWisePaymentLiveData;
+    private MutableLiveData<List<ApplicationNumberWisePaymentNewBusinessItem>> mApplicationWisePaymentLiveData;
+    private MutableLiveData<List<ApplicationNumberWisePaymentNewPayment>> mApplicationWisePayment1newLiveData;
     private MutableLiveData<List<AgentCommisionTotal>> mAgentCommisionTotalLiveData;
     private MutableLiveData<List<ApplicationNoWisePremiumAmount>> mApplicationWisePremiumAmountLiveData;
 
@@ -646,12 +649,20 @@ public class IntegratedServicesViewModel extends ViewModel {
         return mAgentCommisionDetailsLiveData;
     }
 
-    public MutableLiveData<List<ApplicationNumberWisePaymentResponse>> getApplicationNoWisePaymentLiveData() {
+    public MutableLiveData<List<ApplicationNumberWisePaymentNewBusinessItem>> getApplicationNoWisePaymentLiveData() {
 
         if (mApplicationWisePaymentLiveData == null) {
             mApplicationWisePaymentLiveData = new MutableLiveData<>();
         }
         return mApplicationWisePaymentLiveData;
+    }
+
+    public MutableLiveData<List<ApplicationNumberWisePaymentNewPayment>> getApplicationNoWisePaymentNewLiveData() {
+
+        if (mApplicationWisePayment1newLiveData == null) {
+            mApplicationWisePayment1newLiveData = new MutableLiveData<>();
+        }
+        return mApplicationWisePayment1newLiveData;
     }
 
 
@@ -1344,15 +1355,29 @@ public class IntegratedServicesViewModel extends ViewModel {
         });
     }
 
-    public void getApplicationNoWisePayment(String ApplicationNo) {
-        apiClient.getApplicationNoWisePayment(ApplicationNo).enqueue(new Callback<List<ApplicationNumberWisePaymentResponse>>() {
+    public void getApplicationNoWisePayment(String ApplicationNo , String LoginCode) {
+        apiClient.getApplicationNoWisePayment(ApplicationNo , LoginCode).enqueue(new Callback<List<ApplicationNumberWisePaymentNewBusinessItem>>() {
             @Override
-            public void onResponse(Call<List<ApplicationNumberWisePaymentResponse>> call, Response<List<ApplicationNumberWisePaymentResponse>> response) {
+            public void onResponse(Call<List<ApplicationNumberWisePaymentNewBusinessItem>> call, Response<List<ApplicationNumberWisePaymentNewBusinessItem>> response) {
                 mApplicationWisePaymentLiveData.setValue(response.body());
             }
 
             @Override
-            public void onFailure(Call<List<ApplicationNumberWisePaymentResponse>> call, Throwable t) {
+            public void onFailure(Call<List<ApplicationNumberWisePaymentNewBusinessItem>> call, Throwable t) {
+                apiError.setValue(t.getLocalizedMessage());
+            }
+        });
+    }
+
+    public void getApplicationNoWisePaymentNew(String ApplicationNo , String LoginCode) {
+        apiClient.getApplicationNoWisePaymentNEW(ApplicationNo , LoginCode).enqueue(new Callback<List<ApplicationNumberWisePaymentNewPayment>>() {
+            @Override
+            public void onResponse(Call<List<ApplicationNumberWisePaymentNewPayment>> call, Response<List<ApplicationNumberWisePaymentNewPayment>> response) {
+                mApplicationWisePayment1newLiveData.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<ApplicationNumberWisePaymentNewPayment>> call, Throwable t) {
                 apiError.setValue(t.getLocalizedMessage());
             }
         });

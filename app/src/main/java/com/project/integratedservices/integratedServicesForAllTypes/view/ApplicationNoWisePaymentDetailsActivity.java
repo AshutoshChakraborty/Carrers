@@ -1,5 +1,7 @@
 package com.project.integratedservices.integratedServicesForAllTypes.view;
 
+import static com.project.supportClasses.SharedPref.AGENT_ID;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -18,6 +20,7 @@ import com.project.integratedservices.R;
 import com.project.integratedservices.integratedServicesForAllTypes.viewModel.IntegratedServicesViewModel;
 import com.project.supportClasses.Misc;
 import com.project.supportClasses.MyColorDialog;
+import com.project.supportClasses.SharedPref;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -27,14 +30,18 @@ import cn.refactor.lib.colordialog.ColorDialog;
 public class ApplicationNoWisePaymentDetailsActivity extends AppCompatActivity {
     private ImageView ivBack;
     private IntegratedServicesViewModel integratedServicesViewModel;
-    private RecyclerView rvCollectionReport;
+    private RecyclerView rvCollectionReport , rvPaymentCollectionReport;
     private EditText agentcodeValue;
     private MaterialCardView cvSubmit;
     private Date start;
     private Calendar calendar;
     private ProgressBar pb;
     private ApplicationNumberWisePaymentAdapter adapter;
+    private ApplicationNumberWisePaymentAdapter adapterNew;
     private TextView totalFrmamt, totalFrmcomm;
+    String agentId = SharedPref.getInstance(this).getData(AGENT_ID);
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,9 +56,37 @@ public class ApplicationNoWisePaymentDetailsActivity extends AppCompatActivity {
             pb.setVisibility(View.GONE);
             Misc.enableScreenTouch(this);
 
-            if (misCollectionRegisterResponses.size() > 0) {
+            if (misCollectionRegisterResponses.size() > 0 && misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("Success")) {
                 adapter = new ApplicationNumberWisePaymentAdapter(this, misCollectionRegisterResponses);
                 rvCollectionReport.setAdapter(adapter);
+                rvCollectionReport.setVisibility(View.VISIBLE);
+            } else if (!(misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("Success") || misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess"))) {
+                ColorDialog colorDialog = MyColorDialog.getInstance(this);
+                colorDialog.setContentText(misCollectionRegisterResponses.get(0).getStatus());
+                colorDialog.setCancelable(true);
+                colorDialog.setAnimationEnable(true);
+                colorDialog.show();
+
+                rvCollectionReport.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        integratedServicesViewModel.getApplicationNoWisePaymentNewLiveData().observe(this, misCollectionRegisterNewResponses -> {
+            pb.setVisibility(View.GONE);
+            Misc.enableScreenTouch(this);
+
+            if (misCollectionRegisterNewResponses.size() > 0 && misCollectionRegisterNewResponses.get(0).getStatus().equalsIgnoreCase("Success")) {
+//                adapterNew = new ApplicationNumberWisePaymentNewAdapter(this, misCollectionRegisterNewResponses);
+                rvPaymentCollectionReport.setAdapter(adapterNew);
+                rvPaymentCollectionReport.setVisibility(View.VISIBLE);
+            } else if (!(misCollectionRegisterNewResponses.get(0).getStatus().equalsIgnoreCase("Success") || misCollectionRegisterNewResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess"))) {
+                ColorDialog colorDialog = MyColorDialog.getInstance(this);
+                colorDialog.setContentText(misCollectionRegisterNewResponses.get(0).getStatus());
+                colorDialog.setCancelable(true);
+                colorDialog.setAnimationEnable(true);
+                colorDialog.show();
+
+                rvPaymentCollectionReport.setVisibility(View.INVISIBLE);
             }
         });
         integratedServicesViewModel.getApplicationWisePremiumAmountLiveData().observe(this, misCollectionRegisterResponses -> {
@@ -78,7 +113,8 @@ public class ApplicationNoWisePaymentDetailsActivity extends AppCompatActivity {
                     Misc.disableScreenTouch(this);
                     pb.setVisibility(View.VISIBLE);
 
-                    integratedServicesViewModel.getApplicationNoWisePayment(agentcodeValue.getText().toString());
+                    integratedServicesViewModel.getApplicationNoWisePayment(agentcodeValue.getText().toString(),agentId);
+                    integratedServicesViewModel.getApplicationNoWisePaymentNew(agentcodeValue.getText().toString(),agentId);
                     integratedServicesViewModel.getApplicationNoWisePremiumAmount(agentcodeValue.getText().toString());
                 } else {
                     ColorDialog colorDialog = MyColorDialog.getInstance(this);
@@ -113,6 +149,7 @@ public class ApplicationNoWisePaymentDetailsActivity extends AppCompatActivity {
         integratedServicesViewModel = ViewModelProviders.of(this).get(IntegratedServicesViewModel.class);
         ivBack = findViewById(R.id.ivBack);
         rvCollectionReport = findViewById(R.id.rvCollectionReport);
+        rvPaymentCollectionReport = findViewById(R.id.rvPaymentReport);
         agentcodeValue = findViewById(R.id.agentcodeValue);
         cvSubmit = findViewById(R.id.cvSubmit);
         totalFrmamt = findViewById(R.id.totalFrmamt);
@@ -120,5 +157,6 @@ public class ApplicationNoWisePaymentDetailsActivity extends AppCompatActivity {
         pb = findViewById(R.id.pb);
 
         rvCollectionReport.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        rvPaymentCollectionReport.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
     }
 }

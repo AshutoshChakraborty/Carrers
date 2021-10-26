@@ -501,7 +501,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="center"
-                        android:text="APPLICATION NO WISE PAYMENT"
+                        android:text="APPLICATION NO WISE SEARCH"
                         android:textColor="#141173"
                         android:textSize="@dimen/_8ssp"
                         app:textAllCaps="true" />

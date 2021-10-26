@@ -14,6 +14,8 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.AlertMessageResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.AllBranchDetailsResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.ApplicationNoWisePremiumAmount;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.ApplicationNumberWisePaymentNewBusinessItem;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.ApplicationNumberWisePaymentNewPayment;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.ApplicationNumberWisePaymentResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.ApplyLeaveResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.AssignCustomerResponsePojo;
@@ -315,7 +317,12 @@ public interface RetrofitApis {
 
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @GET("MIS/MISApplicationNoWisePaymentDetails")
-    Call<List<ApplicationNumberWisePaymentResponse>> getApplicationNoWisePayment(@Query("ApplicationNo") String ApplicationNo);
+    Call<List<ApplicationNumberWisePaymentNewBusinessItem>> getApplicationNoWisePayment(@Query("ApplicationNo") String ApplicationNo , @Query("AGLoginCode") String la_co);
+
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    @GET("MIS/MISApplicationNoWisePaymentDetails")
+    Call<List<ApplicationNumberWisePaymentNewPayment>> getApplicationNoWisePaymentNEW(@Query("ApplNo") String ApplicationNo , @Query("LoginCode") String la_co);
+
 
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @GET("MIS/MISAgentCommissionTotal")

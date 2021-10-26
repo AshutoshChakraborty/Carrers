@@ -1,5 +1,6 @@
 package com.project.integratedservices.integratedServicesForAllTypes.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,16 +13,17 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.integratedservices.R;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.ApplicationNumberWisePaymentNewBusinessItem;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.ApplicationNumberWisePaymentResponse;
 
 import java.util.List;
 
 public class ApplicationNumberWisePaymentAdapter extends RecyclerView.Adapter<ApplicationNumberWisePaymentAdapter.MyViewHolder>{
     private Context context;
-    private List<ApplicationNumberWisePaymentResponse> misCollectionRegisterResponsesList;
+    private List<ApplicationNumberWisePaymentNewBusinessItem> misCollectionRegisterResponsesList;
     private int lastPosition = -1;
 
-    public ApplicationNumberWisePaymentAdapter(Context context, List<ApplicationNumberWisePaymentResponse> misCollectionRegisterResponsesList) {
+    public ApplicationNumberWisePaymentAdapter(Context context, List<ApplicationNumberWisePaymentNewBusinessItem> misCollectionRegisterResponsesList) {
         this.context = context;
         this.misCollectionRegisterResponsesList = misCollectionRegisterResponsesList;
     }
@@ -40,7 +42,7 @@ public class ApplicationNumberWisePaymentAdapter extends RecyclerView.Adapter<Ap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         Animation animation = AnimationUtils.loadAnimation(context,
                 (position > lastPosition) ? R.anim.up_from_bottom
@@ -48,16 +50,16 @@ public class ApplicationNumberWisePaymentAdapter extends RecyclerView.Adapter<Ap
         holder.itemView.startAnimation(animation);
         lastPosition = position;
 
-        holder.tvBranchName.setText(misCollectionRegisterResponsesList.get(position).getAgentcode());
-        holder.tvCompanyName.setText(misCollectionRegisterResponsesList.get(position).getVoucherno());
+        holder.tvBranchName.setText(misCollectionRegisterResponsesList.get(position).getRefNo());
+//        holder.tvCompanyName.setText(misCollectionRegisterResponsesList.get(position).getVoucherno());
         holder.tvDate.setText(misCollectionRegisterResponsesList.get(position).getDate());
-        holder.tvAgentCode.setText(misCollectionRegisterResponsesList.get(position).getApplication_no());
-        holder.tvApplnNo.setText(misCollectionRegisterResponsesList.get(position).getBranchName());
-        holder.tvProposerName.setText(misCollectionRegisterResponsesList.get(position).getFrmamt());
-        holder.tvPlanName.setText(misCollectionRegisterResponsesList.get(position).getFrmcomm());
-        holder.tvBusinessType.setText(misCollectionRegisterResponsesList.get(position).getInvestor());
-        holder.tvPremiumFrequency.setText(misCollectionRegisterResponsesList.get(position).getPremiumAmt());
-        holder.tv_premium_amt.setText(misCollectionRegisterResponsesList.get(position).getPremiumAmt());
+//        holder.tvAgentCode.setText(misCollectionRegisterResponsesList.get(position).getApplication_no());
+//        holder.tvApplnNo.setText(misCollectionRegisterResponsesList.get(position).getFRMREG());
+        holder.tvProposerName.setText(misCollectionRegisterResponsesList.get(position).getPremium_Amt());
+        holder.tvPlanName.setText(misCollectionRegisterResponsesList.get(position).getPlan_Name());
+        holder.tvBusinessType.setText(misCollectionRegisterResponsesList.get(position).getBusiness_Type());
+        holder.tvPremiumFrequency.setText(misCollectionRegisterResponsesList.get(position).getPremium_Frequency());
+        holder.tv_premium_amt.setText(misCollectionRegisterResponsesList.get(position).getProposer_Name());
 
 
     }

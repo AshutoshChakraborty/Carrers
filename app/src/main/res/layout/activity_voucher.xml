@@ -162,6 +162,7 @@
                 android:fontFamily="@font/roboto_medium"
                 android:hint="Ref No"
                 android:inputType="number"
+                android:maxLength="7"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

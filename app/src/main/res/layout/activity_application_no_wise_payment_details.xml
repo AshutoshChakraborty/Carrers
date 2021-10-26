@@ -27,10 +27,11 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center_vertical"
-            android:text="Application No Wise Payment Details"
+            android:text="Application No Wise Search Details"
             android:textAllCaps="true"
+            android:singleLine="true"
             android:textColor="@color/white"
-            android:textSize="@dimen/_14ssp" />
+            android:textSize="@dimen/_11ssp" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -115,7 +116,7 @@
             android:fontFamily="@font/roboto_regular"
             android:hint="Application No"
             android:imeOptions="actionNext"
-            android:maxLength="100"
+            android:maxLength="30"
             android:textSize="@dimen/_12ssp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -148,6 +149,20 @@
     </com.google.android.material.card.MaterialCardView>
 
 
+    <TextView
+        android:id="@+id/tv_business_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Business Details"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:fontFamily="@font/roboto_bold"
+        app:layout_constraintTop_toBottomOf="@+id/cvSubmit"
+        app:layout_constraintStart_toStartOf="@+id/cvSubmit"
+        android:layout_marginTop="@dimen/_10sdp"
+        />
+
+
     <HorizontalScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -155,7 +170,7 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cvSubmit">
+        app:layout_constraintTop_toBottomOf="@+id/tv_business_details">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -595,10 +610,35 @@
                 android:layout_height="match_parent"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:paddingVertical="@dimen/_8sdp"
-                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                app:layout_constraintBottom_toTopOf="@+id/tv_payment_details"
                 app:layout_constraintEnd_toStartOf="@+id/guideline11"
                 app:layout_constraintStart_toStartOf="@+id/guideline10"
                 app:layout_constraintTop_toBottomOf="@+id/cvSubmit" />
+
+            <TextView
+                android:id="@+id/tv_payment_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Payment Details"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_bold"
+                app:layout_constraintTop_toBottomOf="@+id/rvCollectionReport"
+                app:layout_constraintStart_toStartOf="@+id/guideline10"
+                android:layout_marginTop="@dimen/_10sdp"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPaymentReport"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_8sdp"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                app:layout_constraintEnd_toStartOf="@+id/guideline11"
+                app:layout_constraintStart_toStartOf="@+id/guideline10"
+                app:layout_constraintTop_toBottomOf="@+id/tv_payment_details" />
+
         </LinearLayout>
     </HorizontalScrollView>
 

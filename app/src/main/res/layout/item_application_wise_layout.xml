@@ -279,7 +279,7 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 android:paddingVertical="@dimen/_8sdp"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <!-- <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
@@ -310,17 +310,10 @@
                 android:layout_height="wrap_content"
                 android:paddingVertical="@dimen/_8sdp"
                 android:gravity="center"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:layout_gravity="center"
                 android:orientation="vertical">
 
-                <!--<androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="PREMIUM AMT"
-                    android:layout_marginBottom="@dimen/_8sdp"
-                    android:textColor="@android:color/black"
-                    android:fontFamily="@font/roboto_bold"/>-->
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_premium_amt"
@@ -331,6 +324,63 @@
                     android:fontFamily="@font/roboto_medium"/>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/grey"/>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/_8sdp"
+                android:gravity="center"
+                android:visibility="visible"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_premium_amt1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="NEW DELHI"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/roboto_medium"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/grey"/>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/_8sdp"
+                android:gravity="center"
+                android:visibility="visible"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_premium_amt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="NEW DELHI"
+                    android:textColor="@android:color/darker_gray"
+                    android:fontFamily="@font/roboto_medium"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
 
         </androidx.appcompat.widget.LinearLayoutCompat>
     </com.google.android.material.card.MaterialCardView>

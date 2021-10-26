@@ -8,34 +8,71 @@ import java.io.Serializable;
 public class MISCollectionRegisterResponse implements Serializable
 {
 
-    @SerializedName("AgentCode")
+    @SerializedName("RANK")
     @Expose
-    private Integer agentCode;
-
-    @SerializedName("AgentName")
+    private String rank;
+    @SerializedName("GRADE")
+    @Expose
+    private String grade;
+    @SerializedName("Ref_No")
+    @Expose
+    private String refNo;
+    @SerializedName("Name")
     @Expose
     private String name;
-
-    @SerializedName("TotalCollection")
+    @SerializedName("Branch")
     @Expose
-    private String totalCollection;
-
-    @SerializedName("Total_Joining")
+    private String branch;
+    @SerializedName("DOJ")
     @Expose
-    private String totalJoining;
-
+    private String doj;
+    @SerializedName("Introducer")
+    @Expose
+    private String introducer;
+    @SerializedName("Premium_Frequency")
+    @Expose
+    private String premiumFrequency;
+    @SerializedName("Premium_Amount")
+    @Expose
+    private String premiumAmount;
+    @SerializedName("Fresh_Weighted")
+    @Expose
+    private String freshWeighted;
+    @SerializedName("Renewal_Weighted")
+    @Expose
+    private String renewalWeighted;
+    @SerializedName("Team_Collection_Fresh")
+    @Expose
+    private String teamCollectionFresh;
+    @SerializedName("Team_Collection_Renewal")
+    @Expose
+    private String teamCollectionRenewal;
     @SerializedName("Status")
     @Expose
     private String status;
 
-    private final static long serialVersionUID = -5128830576690959174L;
-
-    public Integer getAgentCode() {
-        return agentCode;
+    public String getRank() {
+        return rank;
     }
 
-    public void setAgentCode(Integer agentCode) {
-        this.agentCode = agentCode;
+    public void setRank(String rank) {
+        this.rank = rank;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
+    public String getRefNo() {
+        return refNo;
+    }
+
+    public void setRefNo(String refNo) {
+        this.refNo = refNo;
     }
 
     public String getName() {
@@ -46,20 +83,76 @@ public class MISCollectionRegisterResponse implements Serializable
         this.name = name;
     }
 
-    public String getTotalCollection() {
-        return totalCollection;
+    public String getBranch() {
+        return branch;
     }
 
-    public void setTotalCollection(String totalCollection) {
-        this.totalCollection = totalCollection;
+    public void setBranch(String branch) {
+        this.branch = branch;
     }
 
-    public String getTotalJoining() {
-        return totalJoining;
+    public String getDoj() {
+        return doj;
     }
 
-    public void setTotalJoining(String totalJoining) {
-        this.totalJoining = totalJoining;
+    public void setDoj(String doj) {
+        this.doj = doj;
+    }
+
+    public String getIntroducer() {
+        return introducer;
+    }
+
+    public void setIntroducer(String introducer) {
+        this.introducer = introducer;
+    }
+
+    public String getPremiumFrequency() {
+        return premiumFrequency;
+    }
+
+    public void setPremiumFrequency(String premiumFrequency) {
+        this.premiumFrequency = premiumFrequency;
+    }
+
+    public String getPremiumAmount() {
+        return premiumAmount;
+    }
+
+    public void setPremiumAmount(String premiumAmount) {
+        this.premiumAmount = premiumAmount;
+    }
+
+    public String getFreshWeighted() {
+        return freshWeighted;
+    }
+
+    public void setFreshWeighted(String freshWeighted) {
+        this.freshWeighted = freshWeighted;
+    }
+
+    public String getRenewalWeighted() {
+        return renewalWeighted;
+    }
+
+    public void setRenewalWeighted(String renewalWeighted) {
+        this.renewalWeighted = renewalWeighted;
+    }
+
+    public String getTeamCollectionFresh() {
+        return teamCollectionFresh;
+    }
+
+    public void setTeamCollectionFresh(String teamCollectionFresh) {
+        this.teamCollectionFresh = teamCollectionFresh;
+    }
+
+    public String getTeamCollectionRenewal() {
+        return teamCollectionRenewal;
+    }
+
+    public void setTeamCollectionRenewal(String teamCollectionRenewal) {
+        this.teamCollectionRenewal = teamCollectionRenewal;
     }
 
     public String getStatus() {

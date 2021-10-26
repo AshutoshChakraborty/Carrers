@@ -71,6 +71,22 @@ public class ApplicationNumberWisePaymentNewBusinessItem {
         return date;
     }
 
+    public String getStatus_() {
+        return Status_;
+    }
+
+    public void setStatus_(String status_) {
+        Status_ = status_;
+    }
+
+    public String getInstallment() {
+        return Installment;
+    }
+
+    public void setInstallment(String installment) {
+        Installment = installment;
+    }
+
     public void setDate(String date) {
         this.date = date;
     }

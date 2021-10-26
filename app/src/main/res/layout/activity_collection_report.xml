@@ -189,59 +189,62 @@
 
             <HorizontalScrollView
                 android:id="@+id/hsv"
-                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20sdp">
+                android:layout_marginTop="@dimen/_20sdp"
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:background="#141173">
+                        android:background="#141173"
+                        android:orientation="horizontal">
 
                         <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:paddingVertical="@dimen/_8sdp"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingVertical="@dimen/_8sdp">
 
                             <androidx.appcompat.widget.AppCompatTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_bold"
                                 android:gravity="center"
-                                android:text="@string/refree_number"
+                                android:text="@string/rank"
                                 android:textAllCaps="true"
-                                android:textColor="@android:color/white"
-                                android:fontFamily="@font/roboto_bold"/>
+                                android:textColor="@android:color/white" />
 
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
                         <View
                             android:layout_width="1dp"
                             android:layout_height="match_parent"
-                            android:background="@color/grey"/>
+                            android:background="@color/grey" />
 
 
                         <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="@dimen/_130sdp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:paddingVertical="@dimen/_8sdp"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingVertical="@dimen/_8sdp">
 
                             <androidx.appcompat.widget.AppCompatTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="NAME"
+                                android:fontFamily="@font/roboto_bold"
                                 android:singleLine="true"
-                                android:textColor="@android:color/white"
-                                android:fontFamily="@font/roboto_bold"/>
+                                android:textAllCaps="true"
+                                android:text="@string/grade"
+                                android:textColor="@android:color/white" />
 
 
                         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -249,147 +252,282 @@
                         <View
                             android:layout_width="1dp"
                             android:layout_height="match_parent"
-                            android:background="@color/grey"/>
-
+                            android:background="@color/grey" />
 
 
                         <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="@dimen/_130sdp"
                             android:layout_height="wrap_content"
-                            android:paddingVertical="@dimen/_8sdp"
                             android:gravity="center"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingVertical="@dimen/_8sdp">
 
                             <androidx.appcompat.widget.AppCompatTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Total Collection"
+                                android:fontFamily="@font/roboto_bold"
+                                android:singleLine="true"
+                                android:text="@string/ref_no"
                                 android:textAllCaps="true"
-                                android:singleLine="true"
-                                android:textColor="@android:color/white"
-                                android:fontFamily="@font/roboto_bold"/>
+                                android:textColor="@android:color/white" />
 
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
                         <View
                             android:layout_width="1dp"
                             android:layout_height="match_parent"
-                            android:background="@color/grey"/>
+                            android:background="@color/grey" />
 
                         <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="wrap_content"
-                            android:paddingVertical="@dimen/_8sdp"
                             android:gravity="center"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingVertical="@dimen/_8sdp">
 
                             <androidx.appcompat.widget.AppCompatTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Total Joining"
+                                android:fontFamily="@font/roboto_bold"
+                                android:singleLine="true"
+                                android:text="@string/name"
                                 android:textAllCaps="true"
-                                android:singleLine="true"
-                                android:textColor="@android:color/white"
-                                android:fontFamily="@font/roboto_bold"/>
+                                android:textColor="@android:color/white" />
 
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
                         <View
                             android:layout_width="1dp"
                             android:layout_height="match_parent"
-                            android:background="@color/grey"/>
+                            android:background="@color/grey" />
 
                         <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="wrap_content"
-                            android:paddingVertical="@dimen/_8sdp"
                             android:gravity="center"
-                            android:visibility="gone"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingVertical="@dimen/_8sdp"
+                            android:visibility="visible">
 
                             <androidx.appcompat.widget.AppCompatTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="BUSINESS TYPE"
+                                android:fontFamily="@font/roboto_bold"
                                 android:singleLine="true"
-                                android:textColor="@android:color/white"
-                                android:fontFamily="@font/roboto_bold"/>
+                                android:text="@string/branch"
+                                android:textAllCaps="true"
+                                android:textColor="@android:color/white" />
 
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
                         <View
                             android:layout_width="1dp"
-                            android:visibility="gone"
                             android:layout_height="match_parent"
-                            android:background="@color/grey"/>
+                            android:background="@color/grey"
+                            android:visibility="gone" />
 
 
                         <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="wrap_content"
-                            android:paddingVertical="@dimen/_8sdp"
                             android:gravity="center"
-                            android:visibility="gone"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingVertical="@dimen/_8sdp"
+                            android:visibility="visible">
 
                             <androidx.appcompat.widget.AppCompatTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="COMPANY NAME"
+                                android:fontFamily="@font/roboto_bold"
                                 android:singleLine="true"
-                                android:textColor="@android:color/white"
-                                android:fontFamily="@font/roboto_bold"/>
+                                android:text="@string/doj"
+                                android:textAllCaps="true"
+                                android:textColor="@android:color/white" />
 
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
                         <View
                             android:layout_width="1dp"
-                            android:visibility="gone"
                             android:layout_height="match_parent"
-                            android:background="@color/grey"/>
+                            android:background="@color/grey"
+                            android:visibility="gone" />
 
 
                         <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:visibility="gone"
+                            android:orientation="vertical"
                             android:paddingVertical="@dimen/_8sdp"
-                            android:orientation="vertical">
+                            android:visibility="visible">
 
                             <androidx.appcompat.widget.AppCompatTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="ACTUAL PREMIUM"
+                                android:fontFamily="@font/roboto_bold"
                                 android:singleLine="true"
-                                android:textColor="@android:color/white"
-                                android:fontFamily="@font/roboto_bold"/>
+                                android:textAllCaps="true"
+                                android:text="@string/introducer_text"
+                                android:textColor="@android:color/white" />
 
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
                         <View
                             android:layout_width="1dp"
-                            android:visibility="gone"
                             android:layout_height="match_parent"
-                            android:background="@color/grey"/>
+                            android:background="@color/grey"
+                            android:visibility="gone" />
 
 
                         <androidx.appcompat.widget.LinearLayoutCompat
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:visibility="gone"
+                            android:orientation="vertical"
                             android:paddingVertical="@dimen/_8sdp"
-                            android:orientation="vertical">
+                            android:visibility="visible">
 
                             <androidx.appcompat.widget.AppCompatTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="PREMIUM AMOUNT"
+                                android:fontFamily="@font/roboto_bold"
                                 android:singleLine="true"
-                                android:textSize="9sp"
+                                android:textAllCaps="true"
+                                android:text="@string/premium_frequency"
                                 android:textColor="@android:color/white"
-                                android:fontFamily="@font/roboto_bold"/>
+                                android:textSize="9sp" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/grey"
+                            android:visibility="gone" />
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingVertical="@dimen/_8sdp"
+                            android:visibility="visible">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_bold"
+                                android:singleLine="true"
+                                android:textAllCaps="true"
+                                android:text="@string/premium_amount"
+                                android:textColor="@android:color/white"
+                                android:textSize="9sp" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/grey"
+                            android:visibility="gone" />
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingVertical="@dimen/_8sdp"
+                            android:visibility="visible">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_bold"
+                                android:singleLine="true"
+                                android:textAllCaps="true"
+                                android:text="@string/fresh_weighted"
+                                android:textColor="@android:color/white"
+                                android:textSize="9sp" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/grey"
+                            android:visibility="gone" />
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingVertical="@dimen/_8sdp"
+                            android:visibility="visible">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_bold"
+                                android:singleLine="true"
+                                android:textAllCaps="true"
+                                android:text="@string/renewal_weighted"
+                                android:textColor="@android:color/white"
+                                android:textSize="9sp" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/grey"
+                            android:visibility="gone" />
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingVertical="@dimen/_8sdp"
+                            android:visibility="visible">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_bold"
+                                android:singleLine="true"
+                                android:textAllCaps="true"
+                                android:text="@string/team_collection_fresh"
+                                android:textColor="@android:color/white"
+                                android:textSize="9sp" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/grey"
+                            android:visibility="gone" />
+
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingVertical="@dimen/_8sdp"
+                            android:visibility="visible">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_bold"
+                                android:singleLine="true"
+                                android:textAllCaps="true"
+                                android:text="@string/team_collection_renewal"
+                                android:textColor="@android:color/white"
+                                android:textSize="9sp" />
 
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -397,7 +535,7 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvCollectionReport"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/guideline11"

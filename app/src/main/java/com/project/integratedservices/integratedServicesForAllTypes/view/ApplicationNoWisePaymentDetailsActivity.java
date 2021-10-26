@@ -37,7 +37,7 @@ public class ApplicationNoWisePaymentDetailsActivity extends AppCompatActivity {
     private Calendar calendar;
     private ProgressBar pb;
     private ApplicationNumberWisePaymentAdapter adapter;
-    private ApplicationNumberWisePaymentAdapter adapterNew;
+    private ApplicationNumberWisePaymentNewAdapter adapterNew;
     private TextView totalFrmamt, totalFrmcomm;
     String agentId = SharedPref.getInstance(this).getData(AGENT_ID);
 
@@ -76,9 +76,10 @@ public class ApplicationNoWisePaymentDetailsActivity extends AppCompatActivity {
             Misc.enableScreenTouch(this);
 
             if (misCollectionRegisterNewResponses.size() > 0 && misCollectionRegisterNewResponses.get(0).getStatus().equalsIgnoreCase("Success")) {
-//                adapterNew = new ApplicationNumberWisePaymentNewAdapter(this, misCollectionRegisterNewResponses);
-                rvPaymentCollectionReport.setAdapter(adapterNew);
                 rvPaymentCollectionReport.setVisibility(View.VISIBLE);
+                rvPaymentCollectionReport.setLayoutManager(new LinearLayoutManager(this));
+                adapterNew = new ApplicationNumberWisePaymentNewAdapter(this, misCollectionRegisterNewResponses);
+                rvPaymentCollectionReport.setAdapter(adapterNew);
             } else if (!(misCollectionRegisterNewResponses.get(0).getStatus().equalsIgnoreCase("Success") || misCollectionRegisterNewResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess"))) {
                 ColorDialog colorDialog = MyColorDialog.getInstance(this);
                 colorDialog.setContentText(misCollectionRegisterNewResponses.get(0).getStatus());

@@ -10,11 +10,15 @@ public class ApplicationNumberWisePaymentNewPayment {
     @Expose
     private String date;
 
+    @SerializedName("Application_No")
+    @Expose
+    private String applicationNumber;
+
     @SerializedName("FRMREG")
     @Expose
     private String FRMREG;
 
-    @SerializedName("Application_No")
+    @SerializedName("RefNo")
     @Expose
     private String RefNo;
 
@@ -34,14 +38,38 @@ public class ApplicationNumberWisePaymentNewPayment {
     @Expose
     private String Status;
 
+    @SerializedName("Description")
+    @Expose
+    private String description;
+
 
     public String getRefNo() {
         return RefNo;
     }
 
+    public String getApplicationNumber() {
+        return applicationNumber;
+    }
+
+
+
+    public void setApplicationNumber(String applicationNumber) {
+        this.applicationNumber = applicationNumber;
+    }
+
     public void setRefNo(String refNo) {
         this.RefNo = RefNo;
     }
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String refNo) {
+        this.description = RefNo;
+    }
+
 
     public String getDate() {
         return date;

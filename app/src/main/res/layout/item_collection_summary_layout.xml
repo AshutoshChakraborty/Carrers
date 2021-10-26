@@ -108,93 +108,216 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="@dimen/_100sdp"
             android:layout_height="wrap_content"
-            android:paddingVertical="@dimen/_8sdp"
             android:gravity="center"
-            android:visibility="gone"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingVertical="@dimen/_8sdp"
+            android:visibility="visible">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_business_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="NEW DELHI"
+                android:fontFamily="@font/roboto_medium"
                 android:textColor="@android:color/darker_gray"
-                android:fontFamily="@font/roboto_medium"/>
+                tools:text="NEW DELHI" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <View
             android:layout_width="1dp"
-            android:visibility="gone"
             android:layout_height="match_parent"
-            android:background="@color/grey"/>
+            android:background="@color/grey"
+            android:visibility="visible" />
 
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="@dimen/_100sdp"
             android:layout_height="wrap_content"
-            android:paddingVertical="@dimen/_8sdp"
             android:gravity="center"
-            android:visibility="gone"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingVertical="@dimen/_8sdp"
+            android:visibility="visible">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_company_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="NEW DELHI"
+                android:fontFamily="@font/roboto_medium"
                 android:textColor="@android:color/darker_gray"
-                android:fontFamily="@font/roboto_medium"/>
+                tools:text="NEW DELHI" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <View
             android:layout_width="1dp"
-            android:visibility="gone"
             android:layout_height="match_parent"
-            android:background="@color/grey"/>
-
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-             android:layout_width="@dimen/_100sdp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:visibility="gone"
-            android:paddingVertical="@dimen/_8sdp"
-            android:orientation="vertical">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_actual_premium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="NEW DELHI"
-                android:textColor="@android:color/darker_gray"
-                android:fontFamily="@font/roboto_medium"/>
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <View
-            android:layout_width="1dp"
-            android:visibility="gone"
-            android:layout_height="match_parent"
-            android:background="@color/grey"/>
+            android:background="@color/grey"
+            android:visibility="visible" />
 
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="@dimen/_100sdp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:visibility="gone"
+            android:orientation="vertical"
             android:paddingVertical="@dimen/_8sdp"
-            android:orientation="vertical">
+            android:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_actual_premium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@android:color/darker_gray"
+                tools:text="NEW DELHI" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/grey"
+            android:visibility="visible" />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="@dimen/_8sdp"
+            android:visibility="visible">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_premium_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="NEW DELHI"
+                android:fontFamily="@font/roboto_medium"
                 android:textColor="@android:color/darker_gray"
-                android:fontFamily="@font/roboto_medium"/>
+                tools:text="NEW DELHI" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/grey"
+            android:visibility="visible" />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="@dimen/_8sdp"
+            android:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_premium_amount2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@android:color/darker_gray"
+                tools:text="NEW DELHI" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/grey"
+            android:visibility="visible" />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="@dimen/_8sdp"
+            android:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_premium_amount3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@android:color/darker_gray"
+                tools:text="NEW DELHI" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/grey"
+            android:visibility="visible" />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="@dimen/_8sdp"
+            android:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_premium_amount4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@android:color/darker_gray"
+                tools:text="NEW DELHI" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/grey"
+            android:visibility="visible" />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="@dimen/_8sdp"
+            android:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_premium_amount5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@android:color/darker_gray"
+                tools:text="NEW DELHI" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/grey"
+            android:visibility="visible" />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="@dimen/_8sdp"
+            android:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_premium_amount6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@android:color/darker_gray"
+                tools:text="NEW DELHI" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -203,7 +326,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1.2dp"
-        android:visibility="gone"
-        android:background="@color/grey"/>
+        android:background="@color/grey"
+        android:visibility="visible" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

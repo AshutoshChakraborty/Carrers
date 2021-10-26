@@ -18,7 +18,7 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 
 import java.util.List;
 
-public class ApplicationNumberWisePaymentAdapter extends RecyclerView.Adapter<ApplicationNumberWisePaymentAdapter.MyViewHolder>{
+public class ApplicationNumberWisePaymentAdapter extends RecyclerView.Adapter<ApplicationNumberWisePaymentAdapter.MyViewHolder> {
     private Context context;
     private List<ApplicationNumberWisePaymentNewBusinessItem> misCollectionRegisterResponsesList;
     private int lastPosition = -1;
@@ -50,16 +50,18 @@ public class ApplicationNumberWisePaymentAdapter extends RecyclerView.Adapter<Ap
         holder.itemView.startAnimation(animation);
         lastPosition = position;
 
-        holder.tvBranchName.setText(misCollectionRegisterResponsesList.get(position).getRefNo());
-//        holder.tvCompanyName.setText(misCollectionRegisterResponsesList.get(position).getVoucherno());
-        holder.tvDate.setText(misCollectionRegisterResponsesList.get(position).getDate());
-//        holder.tvAgentCode.setText(misCollectionRegisterResponsesList.get(position).getApplication_no());
-//        holder.tvApplnNo.setText(misCollectionRegisterResponsesList.get(position).getFRMREG());
-        holder.tvProposerName.setText(misCollectionRegisterResponsesList.get(position).getPremium_Amt());
-        holder.tvPlanName.setText(misCollectionRegisterResponsesList.get(position).getPlan_Name());
-        holder.tvBusinessType.setText(misCollectionRegisterResponsesList.get(position).getBusiness_Type());
-        holder.tvPremiumFrequency.setText(misCollectionRegisterResponsesList.get(position).getPremium_Frequency());
-        holder.tv_premium_amt.setText(misCollectionRegisterResponsesList.get(position).getProposer_Name());
+        holder.tvBranchName.setText(misCollectionRegisterResponsesList.get(position).getDate());
+        holder.tvCompanyName.setText(misCollectionRegisterResponsesList.get(position).getFRMREG());
+        holder.tvDate.setText(misCollectionRegisterResponsesList.get(position).getRefNo());
+        holder.tvAgentCode.setText(misCollectionRegisterResponsesList.get(position).getProposer_Name());
+        holder.tvApplnNo.setText(misCollectionRegisterResponsesList.get(position).getPlan_Name());
+        holder.tvProposerName.setText(misCollectionRegisterResponsesList.get(position).getBusiness_Type());
+        holder.tvPlanName.setText(misCollectionRegisterResponsesList.get(position).getPremiumWithTax());
+        holder.tvBusinessType.setText(misCollectionRegisterResponsesList.get(position).getPremium_Amt());
+        holder.tvPremiumFrequency.setText(misCollectionRegisterResponsesList.get(position).getWeightage());
+        holder.tv_premium_amt.setText(misCollectionRegisterResponsesList.get(position).getStatus_());
+        holder.tv_premium_amt1.setText(misCollectionRegisterResponsesList.get(position).getPremium_Frequency());
+        holder.tv_premium_amt2.setText(misCollectionRegisterResponsesList.get(position).getInstallment());
 
 
     }
@@ -71,7 +73,7 @@ public class ApplicationNumberWisePaymentAdapter extends RecyclerView.Adapter<Ap
 
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        AppCompatTextView tvBranchName, tvCompanyName, tvDate, tvAgentCode, tvApplnNo,tvProposerName,tvPlanName,tvBusinessType,tvPremiumFrequency,tv_premium_amt;
+        AppCompatTextView tvBranchName, tvCompanyName, tvDate, tvAgentCode, tvApplnNo, tvProposerName, tvPlanName, tvBusinessType, tvPremiumFrequency, tv_premium_amt, tv_premium_amt1, tv_premium_amt2;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -86,7 +88,8 @@ public class ApplicationNumberWisePaymentAdapter extends RecyclerView.Adapter<Ap
             tvBusinessType = itemView.findViewById(R.id.tv_business_type);
             tvPremiumFrequency = itemView.findViewById(R.id.tv_premium_frequency);
             tv_premium_amt = itemView.findViewById(R.id.tv_premium_amt);
-
+            tv_premium_amt1 = itemView.findViewById(R.id.tv_premium_amt1);
+            tv_premium_amt2 = itemView.findViewById(R.id.tv_premium_amt2);
 
 
         }

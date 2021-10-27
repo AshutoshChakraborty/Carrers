@@ -330,7 +330,7 @@ public interface RetrofitApis {
 
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @GET("MIS/MISApplicationNoWisePaymentDetails")
-    Call<List<ApplicationNoWisePremiumAmount>> getApplicationNoWisePremiumAmount(@Query("AppNo") String A_Code);
+    Call<List<ApplicationNoWisePremiumAmount>> getApplicationNoWisePremiumAmount(@Query("ANo") String A_Code,@Query("LCode") String L_Code);
 
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @GET("MIS/MISAgentJoiningDetails")

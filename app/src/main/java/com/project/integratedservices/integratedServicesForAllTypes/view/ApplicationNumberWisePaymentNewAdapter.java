@@ -27,7 +27,7 @@ public class ApplicationNumberWisePaymentNewAdapter extends RecyclerView.Adapter
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_application_wise_layout, parent, false));
+        return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_application_wise_layout_new, parent, false));
 
     }
 
@@ -83,8 +83,6 @@ public class ApplicationNumberWisePaymentNewAdapter extends RecyclerView.Adapter
             tvBusinessType = itemView.findViewById(R.id.tv_business_type);
             tvPremiumFrequency = itemView.findViewById(R.id.tv_premium_frequency);
             tv_premium_amt = itemView.findViewById(R.id.tv_premium_amt);
-
-
 
         }
     }

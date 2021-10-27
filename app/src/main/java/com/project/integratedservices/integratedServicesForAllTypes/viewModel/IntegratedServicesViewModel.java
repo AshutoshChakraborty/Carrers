@@ -1397,8 +1397,8 @@ public class IntegratedServicesViewModel extends ViewModel {
         });
     }
 
-    public void getApplicationNoWisePremiumAmount(String ApplicationNo) {
-        apiClient.getApplicationNoWisePremiumAmount(ApplicationNo).enqueue(new Callback<List<ApplicationNoWisePremiumAmount>>() {
+    public void getApplicationNoWisePremiumAmount(String ApplicationNo , String agentId) {
+        apiClient.getApplicationNoWisePremiumAmount(ApplicationNo , agentId).enqueue(new Callback<List<ApplicationNoWisePremiumAmount>>() {
             @Override
             public void onResponse(Call<List<ApplicationNoWisePremiumAmount>> call, Response<List<ApplicationNoWisePremiumAmount>> response) {
                 mApplicationWisePremiumAmountLiveData.setValue(response.body());

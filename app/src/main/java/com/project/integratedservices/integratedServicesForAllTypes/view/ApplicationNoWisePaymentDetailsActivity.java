@@ -3,6 +3,7 @@ package com.project.integratedservices.integratedServicesForAllTypes.view;
 import static com.project.supportClasses.SharedPref.AGENT_ID;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -66,8 +67,10 @@ public class ApplicationNoWisePaymentDetailsActivity extends AppCompatActivity {
                 colorDialog.setCancelable(true);
                 colorDialog.setAnimationEnable(true);
                 colorDialog.show();
+                Log.i("Response: ",misCollectionRegisterResponses.get(0).getStatus());
 
                 rvCollectionReport.setVisibility(View.INVISIBLE);
+                rvPaymentCollectionReport.setVisibility(View.GONE);
             }
         });
 
@@ -80,6 +83,8 @@ public class ApplicationNoWisePaymentDetailsActivity extends AppCompatActivity {
                 rvPaymentCollectionReport.setLayoutManager(new LinearLayoutManager(this));
                 adapterNew = new ApplicationNumberWisePaymentNewAdapter(this, misCollectionRegisterNewResponses);
                 rvPaymentCollectionReport.setAdapter(adapterNew);
+                rvPaymentCollectionReport.setVisibility(View.VISIBLE);
+                Log.i("Response1: ",misCollectionRegisterNewResponses.get(0).getStatus());
             } else if (!(misCollectionRegisterNewResponses.get(0).getStatus().equalsIgnoreCase("Success") || misCollectionRegisterNewResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess"))) {
                 ColorDialog colorDialog = MyColorDialog.getInstance(this);
                 colorDialog.setContentText(misCollectionRegisterNewResponses.get(0).getStatus());
@@ -87,13 +92,14 @@ public class ApplicationNoWisePaymentDetailsActivity extends AppCompatActivity {
                 colorDialog.setAnimationEnable(true);
                 colorDialog.show();
 
-                rvPaymentCollectionReport.setVisibility(View.INVISIBLE);
+                rvPaymentCollectionReport.setVisibility(View.GONE);
             }
         });
         integratedServicesViewModel.getApplicationWisePremiumAmountLiveData().observe(this, misCollectionRegisterResponses -> {
             pb.setVisibility(View.GONE);
             Misc.enableScreenTouch(this);
             totalFrmcomm.setText(misCollectionRegisterResponses.get(0).getPremiumAmt());
+            Log.i("Response2: ",misCollectionRegisterResponses.toString());
 
         });
 
@@ -116,7 +122,7 @@ public class ApplicationNoWisePaymentDetailsActivity extends AppCompatActivity {
 
                     integratedServicesViewModel.getApplicationNoWisePayment(agentcodeValue.getText().toString(),agentId);
                     integratedServicesViewModel.getApplicationNoWisePaymentNew(agentcodeValue.getText().toString(),agentId);
-                    integratedServicesViewModel.getApplicationNoWisePremiumAmount(agentcodeValue.getText().toString());
+                    integratedServicesViewModel.getApplicationNoWisePremiumAmount(agentcodeValue.getText().toString(),agentId);
                 } else {
                     ColorDialog colorDialog = MyColorDialog.getInstance(this);
                     colorDialog.setContentText("Please check your Internet connection and retry");

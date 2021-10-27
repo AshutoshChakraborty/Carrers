@@ -16,12 +16,14 @@ import android.widget.DatePicker;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.card.MaterialCardView;
 import com.project.integratedservices.R;
 import com.project.integratedservices.integratedServicesForAllTypes.viewModel.IntegratedServicesViewModel;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.MISCollectionRegisterResponse;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.MISIndividualBusinessResponse;
 import com.project.supportClasses.Misc;
 import com.project.supportClasses.MyColorDialog;
 import com.project.supportClasses.SharedPref;
@@ -45,6 +47,8 @@ public class CollectionReportActivity extends AppCompatActivity {
     private ProgressBar pb;
     private CollectionReportAdapter adapter;
     private HorizontalScrollView hsv;
+    private AppCompatTextView freshBussinessAmount,renewalBussinessAmount,sumBussinessAmount;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,8 +69,28 @@ public class CollectionReportActivity extends AppCompatActivity {
                 hsv.setVisibility(View.VISIBLE);
                 adapter = new CollectionReportAdapter(this,misCollectionRegisterResponses);
                 rvCollectionReport.setAdapter(adapter);
+
+                Double sumWeightedPremiumFresh = 0.0;
+                Double sumWeightedPremiumRenewal = 0.0;
+
+                for (MISCollectionRegisterResponse misIndividualBusinessRespons : misCollectionRegisterResponses) {
+                    if (misIndividualBusinessRespons.getFreshWeighted() != null) {
+
+                                Double value = Double.parseDouble(misIndividualBusinessRespons.getFreshWeighted());
+                                sumWeightedPremiumFresh = sumWeightedPremiumFresh + value;
+
+                                Double value1 = Double.parseDouble(misIndividualBusinessRespons.getRenewalWeighted());
+                                sumWeightedPremiumRenewal = sumWeightedPremiumRenewal + value1;
+                        }
+                    }
+                renewalBussinessAmount.setText(String.valueOf(sumWeightedPremiumRenewal));
+                freshBussinessAmount.setText(String.valueOf(sumWeightedPremiumFresh));
+                sumBussinessAmount.setText(String.valueOf(sumWeightedPremiumRenewal+sumWeightedPremiumFresh));
+
             } else if(misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess")) {
                 hsv.setVisibility(View.GONE);
+                renewalBussinessAmount.setText("0");
+                freshBussinessAmount.setText("0");
             } else if (!(misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("Success") || misCollectionRegisterResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess"))) {
                 ColorDialog colorDialog = MyColorDialog.getInstance(this);
                 colorDialog.setContentText(misCollectionRegisterResponses.get(0).getStatus());
@@ -75,6 +99,8 @@ public class CollectionReportActivity extends AppCompatActivity {
                 colorDialog.show();
 
                 hsv.setVisibility(View.GONE);
+                renewalBussinessAmount.setText("0");
+                freshBussinessAmount.setText("0");
             }
         });
 
@@ -209,6 +235,9 @@ public class CollectionReportActivity extends AppCompatActivity {
         cvSubmit = findViewById(R.id.cvSubmit);
         pb = findViewById(R.id.pb);
         hsv = findViewById(R.id.hsv);
+        freshBussinessAmount = findViewById(R.id.freshBussinessAmount);
+        renewalBussinessAmount = findViewById(R.id.renewalBussinessAmount);
+        sumBussinessAmount = findViewById(R.id.sumBussinessAmount);
 
         rvCollectionReport.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
     }

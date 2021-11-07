@@ -83,7 +83,6 @@ public class ApplicationNoWisePaymentDetailsActivity extends AppCompatActivity {
                 rvPaymentCollectionReport.setLayoutManager(new LinearLayoutManager(this));
                 adapterNew = new ApplicationNumberWisePaymentNewAdapter(this, misCollectionRegisterNewResponses);
                 rvPaymentCollectionReport.setAdapter(adapterNew);
-                rvPaymentCollectionReport.setVisibility(View.VISIBLE);
                 Log.i("Response1: ",misCollectionRegisterNewResponses.get(0).getStatus());
             } else if (!(misCollectionRegisterNewResponses.get(0).getStatus().equalsIgnoreCase("Success") || misCollectionRegisterNewResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess"))) {
                 ColorDialog colorDialog = MyColorDialog.getInstance(this);

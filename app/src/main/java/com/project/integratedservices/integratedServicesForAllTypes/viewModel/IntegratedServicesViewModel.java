@@ -1609,7 +1609,9 @@ public class IntegratedServicesViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<List<MenueStatusResponse>> call, Throwable t) {
-                apiError.setValue(t.getLocalizedMessage());
+                if(t.getLocalizedMessage() != null) {
+                    apiError.setValue(t.getLocalizedMessage());
+                }
             }
         });
     }

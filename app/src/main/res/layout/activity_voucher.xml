@@ -1471,7 +1471,7 @@
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_12ssp"
                                 android:fontFamily="@font/roboto_bold"
-                                android:text="JMA" />
+                                android:text="JMA I" />
 
                             <View
                                 android:layout_width="match_parent"
@@ -1481,6 +1481,42 @@
 
                             <TextView
                                 android:id="@+id/jma"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/light_grey"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1.2dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/light_grey" />
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="JMA II" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.2dp"
+                                android:layout_marginVertical="@dimen/_4sdp"
+                                android:background="@color/light_grey" />
+
+                            <TextView
+                                android:id="@+id/jma2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/light_grey"

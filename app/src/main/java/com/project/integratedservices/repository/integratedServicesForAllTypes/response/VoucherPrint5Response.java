@@ -15,9 +15,12 @@ public class VoucherPrint5Response {
     @SerializedName("TMA_II")
     @Expose
     private Integer tmaIi;
-    @SerializedName("JMA")
+    @SerializedName("JMA_I")
     @Expose
     private Integer jma;
+    @SerializedName("JMA_II")
+    @Expose
+    private Integer jma2;
     @SerializedName("DMA")
     @Expose
     private Integer dma;
@@ -88,6 +91,14 @@ public class VoucherPrint5Response {
 
     public void setJma(Integer jma) {
         this.jma = jma;
+    }
+
+    public Integer getJma2() {
+        return jma2;
+    }
+
+    public void setJma2(Integer jma2) {
+        this.jma2 = jma2;
     }
 
     public Integer getDma() {

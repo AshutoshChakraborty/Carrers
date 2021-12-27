@@ -229,6 +229,7 @@ public class VoucherActivity extends AppCompatActivity implements SpinnerAdapter
         ((TextView)findViewById(R.id.tma1)).setText(response.getTmaI().toString());
         ((TextView)findViewById(R.id.tma2)).setText(response.getTmaIi().toString());
         ((TextView)findViewById(R.id.jma)).setText(response.getJma().toString());
+        ((TextView)findViewById(R.id.jma2)).setText(response.getJma2().toString());
         ((TextView)findViewById(R.id.dma)).setText(response.getDma().toString());
         ((TextView)findViewById(R.id.ma)).setText(response.getMa().toString());
         ((TextView)findViewById(R.id.sma)).setText(response.getSma().toString());

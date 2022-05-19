@@ -72,8 +72,8 @@ public class IndividualBusinessReportActivity extends AppCompatActivity {
 
             if(misIndividualBusinessResponses.size()>0 && misIndividualBusinessResponses.get(0).getStatus().equalsIgnoreCase("Success"))
             {
-                Integer sumWeightedPremiumFresh = 0;
-                Integer sumWeightedPremiumRenewal = 0;
+                Double sumWeightedPremiumFresh = 0.0;
+                Double sumWeightedPremiumRenewal = 0.0;
                 hsv.setVisibility(View.VISIBLE);
                 Log.d("IndividualBusiness", "size "+misIndividualBusinessResponses.size());
 
@@ -82,19 +82,19 @@ public class IndividualBusinessReportActivity extends AppCompatActivity {
                     if (misIndividualBusinessRespons.getBusinessType() != null) {
                         if (misIndividualBusinessRespons.getBusinessType().equalsIgnoreCase("FRESH")) {
                             if (misIndividualBusinessRespons.getWeightedPremium() != null || !misIndividualBusinessRespons.getWeightedPremium().equalsIgnoreCase("")) {
-                                Integer value = Integer.parseInt(misIndividualBusinessRespons.getWeightedPremium());
+                                Double value = Double.parseDouble(misIndividualBusinessRespons.getWeightedPremium());
                                 sumWeightedPremiumFresh = sumWeightedPremiumFresh + value;
                             }
                         } else {
                             if (misIndividualBusinessRespons.getWeightedPremium() != null || !misIndividualBusinessRespons.getWeightedPremium().equalsIgnoreCase("")) {
-                                Integer value = Integer.parseInt(misIndividualBusinessRespons.getWeightedPremium());
+                                Double value = Double.parseDouble(misIndividualBusinessRespons.getWeightedPremium());
                                 sumWeightedPremiumRenewal = sumWeightedPremiumRenewal + value;
                             }
                         }
                     }
                 }
-                renewalBussinessAmount.setText(String.valueOf(sumWeightedPremiumRenewal));
-                freshBussinessAmount.setText(String.valueOf(sumWeightedPremiumFresh));
+                renewalBussinessAmount.setText(String.valueOf(Math.round(sumWeightedPremiumRenewal)));
+                freshBussinessAmount.setText(String.valueOf(Math.round(sumWeightedPremiumFresh)));
             } else if (misIndividualBusinessResponses.get(0).getStatus().equalsIgnoreCase("UnSuccess")) {
                 hsv.setVisibility(View.GONE);
                 renewalBussinessAmount.setText("0");

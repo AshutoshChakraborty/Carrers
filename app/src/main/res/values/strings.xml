@@ -78,8 +78,8 @@
     <string name="doj">DOJ</string>
     <string name="introducer_text">Introducer</string>
     <string name="premium_amount">Premium Amount</string>
-    <string name="fresh_weighted">Fresh Weighted</string>
-    <string name="renewal_weighted">Renewal Weighted</string>
+    <string name="fresh_weighted">Fresh (Weighted) </string>
+    <string name="renewal_weighted">Renewal (Weighted)</string>
     <string name="team_collection_fresh">Team Collection Fresh</string>
     <string name="team_collection_renewal">Team Collection Renewal</string>
     <string name="date">Date</string>

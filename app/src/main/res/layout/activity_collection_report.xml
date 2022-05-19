@@ -575,7 +575,7 @@
             android:layout_centerVertical="true"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center_vertical"
-            android:text="Fresh Business Amount : "
+            android:text="Fresh (Weighted) : "
             android:textColor="@android:color/black"
             android:textSize="@dimen/_12ssp" />
 
@@ -610,7 +610,7 @@
             android:layout_centerVertical="true"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center_vertical"
-            android:text="Renewal Business Amount : "
+            android:text="Renewal (Weighted) : "
             android:textColor="@android:color/black"
             android:textSize="@dimen/_12ssp" />
 

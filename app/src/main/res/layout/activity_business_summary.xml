@@ -28,10 +28,10 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center_vertical"
-            android:text="Business Summary"
+            android:text="Company Wise Business Summary"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:textSize="@dimen/_14ssp" />
+            android:textSize="@dimen/_13ssp" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -264,6 +264,7 @@
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:visibility="gone"
                             android:orientation="vertical"
                             android:paddingVertical="@dimen/_8sdp">
 
@@ -278,27 +279,7 @@
 
                         <View
                             android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:background="@color/grey" />
-
-
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="@dimen/_100sdp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:orientation="vertical"
-                            android:paddingVertical="@dimen/_8sdp">
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/roboto_bold"
-                                android:text="BUSINESS TYPE"
-                                android:textColor="@android:color/white" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        <View
-                            android:layout_width="1dp"
+                            android:visibility="gone"
                             android:layout_height="match_parent"
                             android:background="@color/grey" />
 
@@ -316,6 +297,26 @@
                                 android:text="COMPANY NAME"
                                 android:textColor="@android:color/white" />
 
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/grey" />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingVertical="@dimen/_8sdp">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_bold"
+                                android:text="BUSINESS TYPE"
+                                android:textColor="@android:color/white" />
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
                         <View
@@ -443,7 +444,7 @@
             android:layout_centerVertical="true"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center_vertical"
-            android:text="Fresh Business Amount : "
+            android:text="Fresh (Weighted) : "
             android:textColor="@android:color/black"
             android:textSize="@dimen/_12ssp" />
 
@@ -481,7 +482,7 @@
             android:layout_centerVertical="true"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center_vertical"
-            android:text="Renewal Business Amount : "
+            android:text="Renewal (Weighted) : "
             android:textColor="@android:color/black"
             android:textSize="@dimen/_12ssp" />
 

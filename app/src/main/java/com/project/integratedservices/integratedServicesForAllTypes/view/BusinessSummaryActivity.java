@@ -92,8 +92,8 @@ public class BusinessSummaryActivity extends AppCompatActivity {
                             }
                         }
                     }
-                    renewalBussinessAmount.setText(String.valueOf(sumWeightedPremiumRenewal));
-                    freshBussinessAmount.setText(String.valueOf(sumWeightedPremiumFresh));
+                    renewalBussinessAmount.setText(String.valueOf(Math.round(sumWeightedPremiumRenewal)));
+                    freshBussinessAmount.setText(String.valueOf(Math.round(sumWeightedPremiumFresh)));
                 }
             }
         });

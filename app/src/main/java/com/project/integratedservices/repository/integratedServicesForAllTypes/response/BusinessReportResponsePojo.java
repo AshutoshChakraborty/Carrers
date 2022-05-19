@@ -24,6 +24,12 @@ public class BusinessReportResponsePojo implements Serializable {
     @SerializedName("Status")
     @Expose
     private String status;
+    @SerializedName("Fresh")
+    @Expose
+    private String fresh;
+    @SerializedName("Renewal")
+    @Expose
+    private String renewal;
     private final static long serialVersionUID = -1165563172303869207L;
 
     public String getAgentCode() {
@@ -72,5 +78,21 @@ public class BusinessReportResponsePojo implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getRenewal() {
+        return renewal;
+    }
+
+    public void setRenewal(String renewal) {
+        this.renewal = renewal;
+    }
+
+    public String getFresh() {
+        return fresh;
+    }
+
+    public void setFresh(String fresh) {
+        this.fresh = fresh;
     }
 }

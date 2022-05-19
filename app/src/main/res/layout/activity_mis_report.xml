@@ -201,7 +201,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="center"
-                        android:text="Business Summary"
+                        android:text="Company Wise Business Summary"
                         android:textColor="#141173"
                         android:textSize="@dimen/_8ssp"
                         app:textAllCaps="true" />

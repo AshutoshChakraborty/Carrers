@@ -52,7 +52,7 @@ public class BusinessReportFragment extends Fragment {
     private MaterialCardView materialCardViewSelf,materialCardViewTeam;
     private Calendar datecalendar;
     private LinearLayout llFrom,llTo;
-    private AppCompatTextView tvFromDate,tvToDate;
+    private AppCompatTextView tvFromDate,tvToDate,tvFresh,tvRenewal;
     private AppCompatImageView ivTickSelfReport,ivTickTeamReport;
     private AppCompatButton btCheck;
     private RadioButton rd_all,rd_agent;
@@ -90,6 +90,9 @@ public class BusinessReportFragment extends Fragment {
                 if(businessReportResponsePojos.get(0).getStatus().equals("Success")) {
                     rvBusinessReport.setVisibility(View.VISIBLE);
                     businessReportAdapter = new BusinessReportAdapter(getActivity(),businessReportResponsePojos);
+
+                    tvRenewal.setText(businessReportResponsePojos.get(0).getRenewal());
+                    tvFresh.setText(businessReportResponsePojos.get(0).getFresh());
                 }
                 else if(businessReportResponsePojos.get(0).getStatus().equals("UnSuccess")) {
                     rvBusinessReport.setVisibility(View.GONE);
@@ -229,6 +232,8 @@ public class BusinessReportFragment extends Fragment {
         llTo = view.findViewById(R.id.llTo);
         tvFromDate = view.findViewById(R.id.tvFromDate);
         tvToDate = view.findViewById(R.id.tvToDate);
+        tvFresh = view.findViewById(R.id.tvFreshValue);
+        tvRenewal = view.findViewById(R.id.tvRenewalValue);
         ivTickSelfReport = view.findViewById(R.id.ivTickSelfReport);
         ivTickTeamReport = view.findViewById(R.id.ivTickTeamReport);
         btCheck = view.findViewById(R.id.btCheck);

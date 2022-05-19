@@ -253,6 +253,64 @@
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
+            <LinearLayout
+                android:id="@+id/llFresh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:paddingVertical="@dimen/_4sdp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tvFresh"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:fontFamily="@font/roboto_black"
+                    android:text="Credited Business (Fresh) : " />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tvFreshValue"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:text="0"
+                    android:fontFamily="@font/roboto_black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llRenewal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:paddingVertical="@dimen/_4sdp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tvRenewal"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:fontFamily="@font/roboto_black"
+                    android:text="Credited Business (Renewal) : " />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tvRenewalValue"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:text="0"
+                    android:fontFamily="@font/roboto_black" />
+
+            </LinearLayout>
+
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCheck"

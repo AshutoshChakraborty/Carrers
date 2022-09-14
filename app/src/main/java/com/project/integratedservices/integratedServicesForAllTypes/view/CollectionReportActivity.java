@@ -48,7 +48,7 @@ public class CollectionReportActivity extends AppCompatActivity {
     private CollectionReportAdapter adapter;
     private HorizontalScrollView hsv;
     private AppCompatTextView freshBussinessAmount,renewalBussinessAmount,sumBussinessAmount;
-
+    private String startDate , endDate = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +56,21 @@ public class CollectionReportActivity extends AppCompatActivity {
 
         init();
         handleClicks();
+        getDate();
         apiResponses();
+    }
+
+    private void getDate() {
+        integratedServicesViewModel.getCollectionDate().observe(this, misCollectionDateResponses -> {
+            if (misCollectionDateResponses.size() > 0 && misCollectionDateResponses.get(0).getStatus().equalsIgnoreCase("Success")) {
+                startDate = misCollectionDateResponses.get(0).getsDate();
+                endDate = misCollectionDateResponses.get(0).geteDate();
+            }
+        });
+    }
+
+    private void getCollectionReport() {
+
     }
 
     private void apiResponses() {
@@ -210,6 +224,8 @@ public class CollectionReportActivity extends AppCompatActivity {
                 .get(java.util.Calendar.YEAR), calendar.get(java.util.Calendar.MONTH),
                 calendar.get(java.util.Calendar.DAY_OF_MONTH));
 
+        datePickerDialog.getDatePicker().setMinDate(Long.getLong(startDate));
+        datePickerDialog.getDatePicker().setMaxDate(Long.getLong(endDate));
 
 //        Date dt = new Date();
 //        Calendar c = Calendar.getInstance();

@@ -38,6 +38,8 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.BranchwiseJoiningResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.BusinessReportResponsePojo;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.ChangePasswordResponseModel;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.CollectionDateItem;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.CollectionReportResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.CompanyNamesResponsePojo;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.EndFollowUpVisitResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.EndInterestedVisitResponse;
@@ -159,6 +161,8 @@ public class IntegratedServicesViewModel extends ViewModel {
     private MutableLiveData<List<ApplicationNumberWisePaymentNewPayment>> mApplicationWisePayment1newLiveData;
     private MutableLiveData<List<AgentCommisionTotal>> mAgentCommisionTotalLiveData;
     private MutableLiveData<List<ApplicationNoWisePremiumAmount>> mApplicationWisePremiumAmountLiveData;
+    private MutableLiveData<List<CollectionDateItem>> mCollectionDateLiveData;
+    private MutableLiveData<List<CollectionReportResponse>> mCollectionReportLiveData;
 
     public MutableLiveData<String> getApiError() {
 
@@ -680,6 +684,22 @@ public class IntegratedServicesViewModel extends ViewModel {
             mApplicationWisePremiumAmountLiveData = new MutableLiveData<>();
         }
         return mApplicationWisePremiumAmountLiveData;
+    }
+
+    public MutableLiveData<List<CollectionDateItem>> getCollectionDate() {
+
+        if (mCollectionDateLiveData == null) {
+            mCollectionDateLiveData = new MutableLiveData<>();
+        }
+        return mCollectionDateLiveData;
+    }
+
+    public MutableLiveData<List<CollectionReportResponse>> getCollectionReport() {
+
+        if (mCollectionReportLiveData == null) {
+            mCollectionReportLiveData = new MutableLiveData<>();
+        }
+        return mCollectionReportLiveData;
     }
 
 

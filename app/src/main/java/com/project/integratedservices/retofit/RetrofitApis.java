@@ -27,6 +27,7 @@ import com.project.integratedservices.repository.integratedServicesForAllTypes.r
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.BranchwiseJoiningResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.BusinessReportResponsePojo;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.ChangePasswordResponseModel;
+import com.project.integratedservices.repository.integratedServicesForAllTypes.response.CollectionDateItem;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.CompanyNamesResponsePojo;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.EndFollowUpVisitResponse;
 import com.project.integratedservices.repository.integratedServicesForAllTypes.response.EndInterestedVisitResponse;
@@ -374,7 +375,17 @@ public interface RetrofitApis {
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @GET("MenuPermission/MenuPermissionDetails")
     Call<List<MenueStatusResponse>> getMenueStatus(@Query("Rollid")String rolId);
+
     @Headers({"Content-Type: application/json", "Accept: application/json"})
     @GET("Circular")
     Call<List<CircularResponse>> getCircularResponse(@Query("SDate")String startDate, @Query("EDate") String endDate);
+
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    @GET("MIS/RegisterDateRange?")
+    Call<List<CollectionDateItem>> getCollectionDate(@Query("AgCode")String agCode);
+
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    @GET("MIS/CollectionFYDetails?")
+    Call<List<CollectionDateItem>> getCollectionDetails(@Query("Code")String code);
+
 }

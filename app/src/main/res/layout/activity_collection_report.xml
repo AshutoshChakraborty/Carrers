@@ -83,12 +83,49 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <RelativeLayout
+                android:id="@+id/relativeLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/_4sdp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline11"
+                app:layout_constraintStart_toStartOf="@+id/guideline10"
+                app:layout_constraintTop_toTopOf="@+id/guideline12">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center_vertical"
+                    android:text="Enter Ref No: "
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_12ssp" />
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_ref_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/box_background"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    android:hint="Ref No."
+                    android:minWidth="@dimen/_120sdp"
+                    android:padding="@dimen/_4sdp"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_12ssp" />
+            </RelativeLayout>
+
 
             <RelativeLayout
                 android:id="@+id/relativeLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_4sdp"
                 app:layout_constraintEnd_toStartOf="@+id/guideline11"
                 app:layout_constraintStart_toStartOf="@+id/guideline10"
                 app:layout_constraintTop_toTopOf="@+id/guideline12">
@@ -124,7 +161,7 @@
                 android:id="@+id/relativeLayout3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_4sdp"
                 android:paddingVertical="@dimen/_4sdp"
                 app:layout_constraintEnd_toStartOf="@+id/guideline11"
                 app:layout_constraintStart_toStartOf="@+id/guideline10"
@@ -185,6 +222,14 @@
                     app:textAllCaps="true" />
 
             </com.google.android.material.card.MaterialCardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_collection_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_voucher_four_layout"
+                />
 
 
             <HorizontalScrollView
@@ -555,7 +600,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1sdp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.87"
+        app:layout_constraintGuide_percent="1"
         />
 
     <RelativeLayout
@@ -563,6 +608,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingVertical="@dimen/_4sdp"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/renewalBussinessLayout"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintStart_toStartOf="@+id/guideline10">
@@ -598,6 +644,7 @@
         android:id="@+id/renewalBussinessLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/sumBussinessLayout"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintStart_toStartOf="@+id/guideline10">
@@ -634,6 +681,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingVertical="@dimen/_4sdp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintStart_toStartOf="@+id/guideline10">
@@ -664,10 +712,5 @@
             android:textColorHint="@android:color/black"
             android:textSize="@dimen/_12ssp" />
     </RelativeLayout>
-
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
